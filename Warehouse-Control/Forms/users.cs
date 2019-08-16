@@ -81,12 +81,10 @@ namespace Warehouse_Control.Forms
 
             }
 
+            //Valida campo de correo electronico
             if (string.IsNullOrEmpty(tbEmail.Text))
             {
-                MessageBox.Show("Campo obligatorio", "Nombre", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tbEmail.Focus();
-                flag = true;
-
+                
             }
 
             if (string.IsNullOrEmpty(tbUsername.Text))
