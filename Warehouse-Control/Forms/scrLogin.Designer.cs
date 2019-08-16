@@ -1,6 +1,6 @@
 ﻿namespace Warehouse_Control
 {
-    partial class Form1
+    partial class scrLogin
     {
         /// <summary>
         /// Variable del diseñador necesaria.
