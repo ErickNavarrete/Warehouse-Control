@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connection\ConnectionDB.cs" />
     <Compile Include="Forms\scrLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,9 +127,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Connection\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="DataBase\dbWarehouse.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
