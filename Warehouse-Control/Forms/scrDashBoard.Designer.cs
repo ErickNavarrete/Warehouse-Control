@@ -89,7 +89,6 @@ namespace Warehouse_Control.Forms
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel2.Controls.Add(this.ucInventoryPanel1);
             this.panel2.Controls.Add(this.btnChangeUser);
             this.panel2.Controls.Add(this.btnReports);
             this.panel2.Controls.Add(this.btnDistrict);
