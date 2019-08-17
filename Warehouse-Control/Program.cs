@@ -17,7 +17,7 @@ namespace Warehouse_Control
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new testControlUser());
+            Application.Run(new scrDashBoard());
         }
     }
 }

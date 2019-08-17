@@ -29,5 +29,67 @@ namespace Warehouse_Control.Forms
                 TextShade.WHITE
             );
         }
+
+        #region FUNCIONES
+
+        private void ButtonsConfig(string kind)
+        {
+            switch (kind)
+            {
+                case "Inventory":
+                    ucInventoryPanel1.Visible = true;
+                    btnDistrict.Location = new Point(5, 314);
+                    btnReports.Location = new Point(5, 343);
+                    break;
+                default:
+                    ucInventoryPanel1.Visible = false;
+                    btnDistrict.Location = new Point(5, 64);
+                    btnReports.Location = new Point(5, 93);
+                    break;
+            }
+        }
+
+        private void UserControlConfig(int id)
+        {
+            users1.Visible = false;
+            ucPrincipal1.Visible = false;
+
+            switch (id)
+            {
+                case 1:
+                    users1.Visible = true;
+                    break;
+                default:
+                    ucPrincipal1.Visible = true;
+                    break;
+            }
+        }
+        #endregion
+
+        #region BUTTONS
+        private void btnInventory_Click(object sender, EventArgs e)
+        {
+            ButtonsConfig("Inventory");
+            UserControlConfig(0);
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            ButtonsConfig("");
+            UserControlConfig(1);
+        }
+
+        private void btnDistrict_Click(object sender, EventArgs e)
+        {
+            ButtonsConfig("");
+            UserControlConfig(0);
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            ButtonsConfig("");
+            UserControlConfig(0);
+        }
+        #endregion
     }
 }

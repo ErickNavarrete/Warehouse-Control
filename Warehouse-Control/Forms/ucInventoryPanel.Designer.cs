@@ -29,41 +29,89 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucInventoryPanel));
-            this.btnItems = new MaterialSkin.Controls.MaterialFlatButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnItems
+            // button1
             // 
-            this.btnItems.AutoSize = true;
-            this.btnItems.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnItems.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnItems.BackgroundImage")));
-            this.btnItems.Depth = 0;
-            this.btnItems.Image = ((System.Drawing.Image)(resources.GetObject("btnItems.Image")));
-            this.btnItems.Location = new System.Drawing.Point(92, 81);
-            this.btnItems.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnItems.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnItems.Name = "btnItems";
-            this.btnItems.Primary = false;
-            this.btnItems.Size = new System.Drawing.Size(85, 36);
-            this.btnItems.TabIndex = 0;
-            this.btnItems.Text = "Artículos";
-            this.btnItems.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnItems.UseVisualStyleBackColor = true;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(7, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(230, 40);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "ARTÍCULOS";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(7, 53);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(230, 40);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "ALMACÉN";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(7, 100);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(230, 40);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "INVENTARIO";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(7, 147);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(230, 40);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "ENTRDAS";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(7, 194);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(230, 40);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "SALIDAS";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // ucInventoryPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnItems);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Name = "ucInventoryPanel";
-            this.Size = new System.Drawing.Size(277, 150);
+            this.Size = new System.Drawing.Size(250, 244);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialFlatButton btnItems;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

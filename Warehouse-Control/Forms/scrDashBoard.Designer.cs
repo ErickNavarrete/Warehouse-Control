@@ -29,21 +29,24 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.users1 = new Warehouse_Control.Forms.users();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.lblNUsuario = new MaterialSkin.Controls.MaterialLabel();
             this.MaterialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.btnUser = new System.Windows.Forms.Button();
-            this.btnInventory = new System.Windows.Forms.Button();
-            this.btnDistrict = new System.Windows.Forms.Button();
-            this.btnReports = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnChangeUser = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
+            this.btnDistrict = new System.Windows.Forms.Button();
+            this.btnInventory = new System.Windows.Forms.Button();
+            this.btnUser = new System.Windows.Forms.Button();
+            this.ucPrincipal1 = new Warehouse_Control.Forms.ucPrincipal();
+            this.users1 = new Warehouse_Control.Forms.users();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.IndianRed;
             this.panel1.Controls.Add(this.lblNUsuario);
             this.panel1.Controls.Add(this.MaterialLabel1);
@@ -51,26 +54,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1070, 38);
             this.panel1.TabIndex = 0;
-            // 
-            // users1
-            // 
-            this.users1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.users1.Location = new System.Drawing.Point(283, 104);
-            this.users1.Name = "users1";
-            this.users1.Size = new System.Drawing.Size(780, 524);
-            this.users1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnChangeUser);
-            this.panel2.Controls.Add(this.btnReports);
-            this.panel2.Controls.Add(this.btnDistrict);
-            this.panel2.Controls.Add(this.btnInventory);
-            this.panel2.Controls.Add(this.btnUser);
-            this.panel2.Location = new System.Drawing.Point(0, 102);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(277, 526);
-            this.panel2.TabIndex = 2;
             // 
             // lblNUsuario
             // 
@@ -98,45 +81,19 @@
             this.MaterialLabel1.TabIndex = 3;
             this.MaterialLabel1.Text = "BIENVENIDO: ";
             // 
-            // btnUser
+            // panel2
             // 
-            this.btnUser.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUser.Location = new System.Drawing.Point(5, 6);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(264, 23);
-            this.btnUser.TabIndex = 1;
-            this.btnUser.Text = "USUARIOS";
-            this.btnUser.UseVisualStyleBackColor = true;
-            // 
-            // btnInventory
-            // 
-            this.btnInventory.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInventory.Location = new System.Drawing.Point(5, 35);
-            this.btnInventory.Name = "btnInventory";
-            this.btnInventory.Size = new System.Drawing.Size(264, 23);
-            this.btnInventory.TabIndex = 2;
-            this.btnInventory.Text = "INVENTARIO";
-            this.btnInventory.UseVisualStyleBackColor = true;
-            // 
-            // btnDistrict
-            // 
-            this.btnDistrict.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDistrict.Location = new System.Drawing.Point(5, 64);
-            this.btnDistrict.Name = "btnDistrict";
-            this.btnDistrict.Size = new System.Drawing.Size(264, 23);
-            this.btnDistrict.TabIndex = 3;
-            this.btnDistrict.Text = "DISTRITOS";
-            this.btnDistrict.UseVisualStyleBackColor = true;
-            // 
-            // btnReports
-            // 
-            this.btnReports.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReports.Location = new System.Drawing.Point(5, 93);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(264, 23);
-            this.btnReports.TabIndex = 4;
-            this.btnReports.Text = "REPORTES";
-            this.btnReports.UseVisualStyleBackColor = true;
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel2.Controls.Add(this.btnChangeUser);
+            this.panel2.Controls.Add(this.btnReports);
+            this.panel2.Controls.Add(this.btnDistrict);
+            this.panel2.Controls.Add(this.btnInventory);
+            this.panel2.Controls.Add(this.btnUser);
+            this.panel2.Location = new System.Drawing.Point(0, 102);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(277, 526);
+            this.panel2.TabIndex = 2;
             // 
             // btnChangeUser
             // 
@@ -148,13 +105,81 @@
             this.btnChangeUser.Text = "CAMBIAR USUARIO";
             this.btnChangeUser.UseVisualStyleBackColor = true;
             // 
+            // btnReports
+            // 
+            this.btnReports.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReports.Location = new System.Drawing.Point(5, 93);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(264, 23);
+            this.btnReports.TabIndex = 4;
+            this.btnReports.Text = "REPORTES";
+            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
+            // 
+            // btnDistrict
+            // 
+            this.btnDistrict.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDistrict.Location = new System.Drawing.Point(5, 64);
+            this.btnDistrict.Name = "btnDistrict";
+            this.btnDistrict.Size = new System.Drawing.Size(264, 23);
+            this.btnDistrict.TabIndex = 3;
+            this.btnDistrict.Text = "DISTRITOS";
+            this.btnDistrict.UseVisualStyleBackColor = true;
+            this.btnDistrict.Click += new System.EventHandler(this.btnDistrict_Click);
+            // 
+            // btnInventory
+            // 
+            this.btnInventory.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventory.Location = new System.Drawing.Point(5, 35);
+            this.btnInventory.Name = "btnInventory";
+            this.btnInventory.Size = new System.Drawing.Size(264, 23);
+            this.btnInventory.TabIndex = 2;
+            this.btnInventory.Text = "INVENTARIO";
+            this.btnInventory.UseVisualStyleBackColor = true;
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
+            // 
+            // btnUser
+            // 
+            this.btnUser.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUser.Location = new System.Drawing.Point(5, 6);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(264, 23);
+            this.btnUser.TabIndex = 1;
+            this.btnUser.Text = "USUARIOS";
+            this.btnUser.UseVisualStyleBackColor = true;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            // 
+            // ucPrincipal1
+            // 
+            this.ucPrincipal1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucPrincipal1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ucPrincipal1.Location = new System.Drawing.Point(283, 102);
+            this.ucPrincipal1.Name = "ucPrincipal1";
+            this.ucPrincipal1.Size = new System.Drawing.Size(780, 524);
+            this.ucPrincipal1.TabIndex = 0;
+            // 
+            // users1
+            // 
+            this.users1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.users1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.users1.Location = new System.Drawing.Point(283, 102);
+            this.users1.Name = "users1";
+            this.users1.Size = new System.Drawing.Size(780, 524);
+            this.users1.TabIndex = 3;
+            this.users1.Visible = false;
+            // 
             // scrDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 631);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.users1);
+            this.Controls.Add(this.ucPrincipal1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "scrDashBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -169,7 +194,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private users users1;
         private System.Windows.Forms.Panel panel2;
         internal MaterialSkin.Controls.MaterialLabel lblNUsuario;
         internal MaterialSkin.Controls.MaterialLabel MaterialLabel1;
@@ -178,5 +202,7 @@
         internal System.Windows.Forms.Button btnReports;
         internal System.Windows.Forms.Button btnDistrict;
         internal System.Windows.Forms.Button btnInventory;
+        private ucPrincipal ucPrincipal1;
+        private users users1;
     }
 }

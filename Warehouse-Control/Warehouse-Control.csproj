@@ -99,6 +99,12 @@
     <Compile Include="Forms\ucInventoryPanel.Designer.cs">
       <DependentUpon>ucInventoryPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ucPrincipal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucPrincipal.Designer.cs">
+      <DependentUpon>ucPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\users.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ucInventoryPanel.resx">
       <DependentUpon>ucInventoryPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucPrincipal.resx">
+      <DependentUpon>ucPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\users.resx">
       <DependentUpon>users.cs</DependentUpon>

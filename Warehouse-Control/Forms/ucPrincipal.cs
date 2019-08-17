@@ -7,18 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MaterialSkin.Controls;
 
 namespace Warehouse_Control.Forms
 {
-    public partial class ucInventoryPanel : UserControl
+    public partial class ucPrincipal : UserControl
     {
-        private MaterialForm principal;
-
-        public ucInventoryPanel(MaterialForm principal)
+        public ucPrincipal()
         {
             InitializeComponent();
-            this.principal = principal;
         }
     }
 }
