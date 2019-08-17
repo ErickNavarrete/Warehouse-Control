@@ -15,10 +15,9 @@ namespace Warehouse_Control.Forms
     {
         private MaterialForm principal;
 
-        public ucInventoryPanel(MaterialForm principal)
+        public ucInventoryPanel()
         {
             InitializeComponent();
-            this.principal = principal;
         }
     }
 }

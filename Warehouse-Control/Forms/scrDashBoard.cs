@@ -37,12 +37,10 @@ namespace Warehouse_Control.Forms
             switch (kind)
             {
                 case "Inventory":
-                    ucInventoryPanel1.Visible = true;
                     btnDistrict.Location = new Point(5, 314);
                     btnReports.Location = new Point(5, 343);
                     break;
                 default:
-                    ucInventoryPanel1.Visible = false;
                     btnDistrict.Location = new Point(5, 64);
                     btnReports.Location = new Point(5, 93);
                     break;
