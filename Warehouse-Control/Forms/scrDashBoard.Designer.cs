@@ -1,4 +1,4 @@
-﻿namespace Warehouse_Control.Forms
+﻿ namespace Warehouse_Control.Forms
 {
     partial class scrDashBoard
     {
@@ -39,7 +39,6 @@
             this.btnUser = new System.Windows.Forms.Button();
             this.ucPrincipal1 = new Warehouse_Control.Forms.ucPrincipal();
             this.users1 = new Warehouse_Control.Forms.users();
-            this.ucInventoryPanel1 = new Warehouse_Control.Forms.ucInventoryPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -86,7 +85,6 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel2.Controls.Add(this.ucInventoryPanel1);
             this.panel2.Controls.Add(this.btnChangeUser);
             this.panel2.Controls.Add(this.btnReports);
             this.panel2.Controls.Add(this.btnDistrict);
@@ -174,13 +172,6 @@
             this.users1.TabIndex = 3;
             this.users1.Visible = false;
             // 
-            // ucInventoryPanel1
-            // 
-            this.ucInventoryPanel1.Location = new System.Drawing.Point(12, 64);
-            this.ucInventoryPanel1.Name = "ucInventoryPanel1";
-            this.ucInventoryPanel1.Size = new System.Drawing.Size(250, 244);
-            this.ucInventoryPanel1.TabIndex = 4;
-            // 
             // scrDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,6 +204,5 @@
         internal System.Windows.Forms.Button btnInventory;
         private ucPrincipal ucPrincipal1;
         private users users1;
-        private ucInventoryPanel ucInventoryPanel1;
     }
 }
