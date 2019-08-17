@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>warehouse2.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -93,6 +96,12 @@
     <Compile Include="Forms\testControlUser.Designer.cs">
       <DependentUpon>testControlUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ucInventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucInventory.Designer.cs">
+      <DependentUpon>ucInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ucInventoryPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\testControlUser.resx">
       <DependentUpon>testControlUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucInventory.resx">
+      <DependentUpon>ucInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ucInventoryPanel.resx">
       <DependentUpon>ucInventoryPanel.cs</DependentUpon>
@@ -169,6 +181,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>dbWarehouse.mdf</DependentUpon>
     </Content>
+    <Content Include="warehouse2.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

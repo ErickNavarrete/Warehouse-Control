@@ -28,6 +28,8 @@ namespace Warehouse_Control.Forms
                 Accent.LightBlue200,
                 TextShade.WHITE
             );
+
+            ucInventoryPanel1.principal = this;
         }
 
         #region FUNCIONES
@@ -37,25 +39,31 @@ namespace Warehouse_Control.Forms
             switch (kind)
             {
                 case "Inventory":
+                    this.ucInventoryPanel1.Visible = true;
                     btnDistrict.Location = new Point(5, 314);
                     btnReports.Location = new Point(5, 343);
                     break;
                 default:
+                    this.ucInventoryPanel1.Visible = false;
                     btnDistrict.Location = new Point(5, 64);
                     btnReports.Location = new Point(5, 93);
                     break;
             }
         }
 
-        private void UserControlConfig(int id)
+        public void UserControlConfig(double id)
         {
             users1.Visible = false;
             ucPrincipal1.Visible = false;
+            ucInventory1.Visible = false;
 
             switch (id)
             {
                 case 1:
                     users1.Visible = true;
+                    break;
+                case 2.3:
+                    ucInventory1.Visible = true;
                     break;
                 default:
                     ucPrincipal1.Visible = true;
