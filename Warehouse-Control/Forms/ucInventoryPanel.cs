@@ -25,5 +25,10 @@ namespace Warehouse_Control.Forms
         {
             principal.UserControlConfig(2.3);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            principal.UserControlConfig(2.1);
+        }
     }
 }
