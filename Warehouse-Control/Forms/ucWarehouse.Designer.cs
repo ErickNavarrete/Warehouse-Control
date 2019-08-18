@@ -37,12 +37,15 @@
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbDistrict = new System.Windows.Forms.ComboBox();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lbIdDistrict = new MaterialSkin.Controls.MaterialLabel();
             this.lbAddress = new MaterialSkin.Controls.MaterialLabel();
             this.lbName = new MaterialSkin.Controls.MaterialLabel();
-            this.cbDistrict = new System.Windows.Forms.ComboBox();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_district = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -107,6 +110,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name,
+            this.address,
+            this.id_district});
             this.dataGridView1.Location = new System.Drawing.Point(3, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(383, 461);
@@ -127,6 +134,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de almacen";
             // 
+            // cbDistrict
+            // 
+            this.cbDistrict.FormattingEnabled = true;
+            this.cbDistrict.Location = new System.Drawing.Point(24, 204);
+            this.cbDistrict.Name = "cbDistrict";
+            this.cbDistrict.Size = new System.Drawing.Size(293, 21);
+            this.cbDistrict.TabIndex = 5;
+            // 
             // tbAddress
             // 
             this.tbAddress.Location = new System.Drawing.Point(24, 126);
@@ -145,12 +160,12 @@
             // 
             this.lbIdDistrict.AutoSize = true;
             this.lbIdDistrict.Depth = 0;
-            this.lbIdDistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbIdDistrict.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbIdDistrict.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbIdDistrict.Location = new System.Drawing.Point(20, 176);
             this.lbIdDistrict.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbIdDistrict.Name = "lbIdDistrict";
-            this.lbIdDistrict.Size = new System.Drawing.Size(45, 15);
+            this.lbIdDistrict.Size = new System.Drawing.Size(59, 19);
             this.lbIdDistrict.TabIndex = 2;
             this.lbIdDistrict.Text = "Distrito";
             // 
@@ -158,12 +173,12 @@
             // 
             this.lbAddress.AutoSize = true;
             this.lbAddress.Depth = 0;
-            this.lbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbAddress.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbAddress.Location = new System.Drawing.Point(20, 104);
             this.lbAddress.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbAddress.Name = "lbAddress";
-            this.lbAddress.Size = new System.Drawing.Size(59, 15);
+            this.lbAddress.Size = new System.Drawing.Size(73, 19);
             this.lbAddress.TabIndex = 1;
             this.lbAddress.Text = "Dirección";
             // 
@@ -171,28 +186,35 @@
             // 
             this.lbName.AutoSize = true;
             this.lbName.Depth = 0;
-            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lbName.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbName.Location = new System.Drawing.Point(20, 31);
             this.lbName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(52, 15);
+            this.lbName.Size = new System.Drawing.Size(63, 19);
             this.lbName.TabIndex = 0;
             this.lbName.Text = "Nombre";
             // 
-            // cbDistrict
+            // name
             // 
-            this.cbDistrict.FormattingEnabled = true;
-            this.cbDistrict.Location = new System.Drawing.Point(24, 204);
-            this.cbDistrict.Name = "cbDistrict";
-            this.cbDistrict.Size = new System.Drawing.Size(293, 21);
-            this.cbDistrict.TabIndex = 5;
-            this.cbDistrict.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            this.name.HeaderText = "Nombre";
+            this.name.Name = "name";
+            // 
+            // address
+            // 
+            this.address.HeaderText = "Dirección";
+            this.address.Name = "address";
+            // 
+            // id_district
+            // 
+            this.id_district.HeaderText = "Distrito";
+            this.id_district.Name = "id_district";
             // 
             // ucWarehouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
@@ -224,5 +246,8 @@
         private MaterialSkin.Controls.MaterialLabel lbAddress;
         private MaterialSkin.Controls.MaterialLabel lbName;
         private System.Windows.Forms.ComboBox cbDistrict;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_district;
     }
 }

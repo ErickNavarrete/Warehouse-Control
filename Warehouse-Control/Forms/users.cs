@@ -106,5 +106,6 @@ namespace Warehouse_Control.Forms
             return flag;
 
         }
+
     }
 }

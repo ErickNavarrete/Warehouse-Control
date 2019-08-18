@@ -10,12 +10,17 @@ using System.Windows.Forms;
 
 namespace Warehouse_Control.Forms
 {
-    public partial class ucWarehouse : UserControl
+    public partial class ucInputs : UserControl
     {
-        public ucWarehouse()
+        public ucInputs()
         {
             InitializeComponent();
+            btnCancel.Visible = false;
+            btnSave.Visible = false;
+            btnNew.Visible = true;
+            btnSearch.Visible = true;
         }
+
 
     }
 }
