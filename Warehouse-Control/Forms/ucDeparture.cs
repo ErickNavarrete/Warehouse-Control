@@ -16,5 +16,6 @@ namespace Warehouse_Control.Forms
         {
             InitializeComponent();
         }
+
     }
 }
