@@ -46,7 +46,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvDepartureDetail1 = new System.Windows.Forms.DataGridView();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDepartures = new System.Windows.Forms.DataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tbSearch = new System.Windows.Forms.ToolStripTextBox();
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
@@ -54,6 +65,9 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.dgvDepartureDetail2 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -68,24 +82,21 @@
             this.cbCellar = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cbDistrict = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cbWarehouse = new System.Windows.Forms.ComboBox();
             this.tbObservations = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbFolio2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbSerie2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.cbWarehouse = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -100,6 +111,7 @@
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -275,16 +287,95 @@
             this.dgvDepartureDetail1.Size = new System.Drawing.Size(292, 201);
             this.dgvDepartureDetail1.TabIndex = 0;
             // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "ID";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.HeaderText = "Articulo";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Cantidad";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
             // dgvDepartures
             // 
             this.dgvDepartures.AllowUserToAddRows = false;
             this.dgvDepartures.AllowUserToDeleteRows = false;
             this.dgvDepartures.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDepartures.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14});
             this.dgvDepartures.Location = new System.Drawing.Point(3, 46);
             this.dgvDepartures.Name = "dgvDepartures";
             this.dgvDepartures.ReadOnly = true;
             this.dgvDepartures.Size = new System.Drawing.Size(468, 446);
             this.dgvDepartures.TabIndex = 4;
+            this.dgvDepartures.DoubleClick += new System.EventHandler(this.DgvDepartures_DoubleClick);
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "ID";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Serie";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Folio";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Fecha";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Usuario";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Almacen";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "Bodega";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Observaciones";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
             // 
             // toolStrip1
             // 
@@ -311,6 +402,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(62, 37);
             this.btnSearch.Text = "Buscar";
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // tabPage2
             // 
@@ -330,9 +422,9 @@
             this.groupBox4.Controls.Add(this.groupBox7);
             this.groupBox4.Controls.Add(this.groupBox6);
             this.groupBox4.Controls.Add(this.groupBox5);
-            this.groupBox4.Location = new System.Drawing.Point(4, 177);
+            this.groupBox4.Location = new System.Drawing.Point(4, 197);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(765, 318);
+            this.groupBox4.Size = new System.Drawing.Size(765, 298);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Detalle de la Salida";
@@ -359,8 +451,29 @@
             this.dgvDepartureDetail2.Location = new System.Drawing.Point(0, 20);
             this.dgvDepartureDetail2.Name = "dgvDepartureDetail2";
             this.dgvDepartureDetail2.ReadOnly = true;
-            this.dgvDepartureDetail2.Size = new System.Drawing.Size(277, 272);
+            this.dgvDepartureDetail2.Size = new System.Drawing.Size(277, 253);
             this.dgvDepartureDetail2.TabIndex = 0;
+            this.dgvDepartureDetail2.DoubleClick += new System.EventHandler(this.DgvDepartureDetail2_DoubleClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "Articulo";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Cantidad";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // groupBox6
             // 
@@ -369,7 +482,7 @@
             this.groupBox6.Controls.Add(this.btnAdd);
             this.groupBox6.Location = new System.Drawing.Point(301, 19);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(178, 292);
+            this.groupBox6.Size = new System.Drawing.Size(178, 273);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Acciones";
@@ -418,7 +531,7 @@
             this.groupBox5.Controls.Add(this.label13);
             this.groupBox5.Location = new System.Drawing.Point(8, 20);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(287, 292);
+            this.groupBox5.Size = new System.Drawing.Size(287, 272);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Datos de detalle de Salida";
@@ -447,6 +560,7 @@
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.Size = new System.Drawing.Size(275, 20);
             this.tbQuantity.TabIndex = 3;
+            this.tbQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbQuantity_KeyPress);
             // 
             // label13
             // 
@@ -463,17 +577,18 @@
             this.groupBox3.Controls.Add(this.cbCellar);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.cbDistrict);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.cbWarehouse);
             this.groupBox3.Controls.Add(this.tbObservations);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.tbFolio2);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.tbSerie2);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(3, 47);
+            this.groupBox3.Controls.Add(this.groupBox8);
+            this.groupBox3.Controls.Add(this.groupBox9);
+            this.groupBox3.Controls.Add(this.groupBox10);
+            this.groupBox3.Location = new System.Drawing.Point(3, 37);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(770, 129);
+            this.groupBox3.Size = new System.Drawing.Size(770, 154);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de la Salida";
@@ -481,7 +596,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(633, 20);
+            this.label12.Location = new System.Drawing.Point(633, 28);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(44, 13);
             this.label12.TabIndex = 11;
@@ -490,15 +605,16 @@
             // cbCellar
             // 
             this.cbCellar.FormattingEnabled = true;
-            this.cbCellar.Location = new System.Drawing.Point(626, 36);
+            this.cbCellar.Location = new System.Drawing.Point(626, 44);
             this.cbCellar.Name = "cbCellar";
             this.cbCellar.Size = new System.Drawing.Size(121, 21);
             this.cbCellar.TabIndex = 10;
+            this.cbCellar.SelectedIndexChanged += new System.EventHandler(this.CbCellar_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(482, 20);
+            this.label11.Location = new System.Drawing.Point(493, 28);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(39, 13);
             this.label11.TabIndex = 9;
@@ -507,31 +623,15 @@
             // cbDistrict
             // 
             this.cbDistrict.FormattingEnabled = true;
-            this.cbDistrict.Location = new System.Drawing.Point(475, 36);
+            this.cbDistrict.Location = new System.Drawing.Point(486, 44);
             this.cbDistrict.Name = "cbDistrict";
             this.cbDistrict.Size = new System.Drawing.Size(121, 21);
             this.cbDistrict.TabIndex = 8;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(322, 20);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Almacen";
-            // 
-            // cbWarehouse
-            // 
-            this.cbWarehouse.FormattingEnabled = true;
-            this.cbWarehouse.Location = new System.Drawing.Point(315, 36);
-            this.cbWarehouse.Name = "cbWarehouse";
-            this.cbWarehouse.Size = new System.Drawing.Size(121, 21);
-            this.cbWarehouse.TabIndex = 6;
+            this.cbDistrict.SelectedIndexChanged += new System.EventHandler(this.CbDistrict_SelectedIndexChanged);
             // 
             // tbObservations
             // 
-            this.tbObservations.Location = new System.Drawing.Point(6, 76);
+            this.tbObservations.Location = new System.Drawing.Point(6, 93);
             this.tbObservations.Name = "tbObservations";
             this.tbObservations.Size = new System.Drawing.Size(757, 47);
             this.tbObservations.TabIndex = 5;
@@ -540,7 +640,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 59);
+            this.label9.Location = new System.Drawing.Point(6, 77);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(78, 13);
             this.label9.TabIndex = 4;
@@ -548,7 +648,7 @@
             // 
             // tbFolio2
             // 
-            this.tbFolio2.Location = new System.Drawing.Point(166, 36);
+            this.tbFolio2.Location = new System.Drawing.Point(158, 44);
             this.tbFolio2.Name = "tbFolio2";
             this.tbFolio2.Size = new System.Drawing.Size(100, 20);
             this.tbFolio2.TabIndex = 3;
@@ -556,7 +656,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(166, 20);
+            this.label8.Location = new System.Drawing.Point(158, 28);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 13);
             this.label8.TabIndex = 2;
@@ -564,7 +664,7 @@
             // 
             // tbSerie2
             // 
-            this.tbSerie2.Location = new System.Drawing.Point(34, 36);
+            this.tbSerie2.Location = new System.Drawing.Point(33, 44);
             this.tbSerie2.Name = "tbSerie2";
             this.tbSerie2.Size = new System.Drawing.Size(100, 20);
             this.tbSerie2.TabIndex = 1;
@@ -572,11 +672,57 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(34, 20);
+            this.label7.Location = new System.Drawing.Point(33, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 13);
             this.label7.TabIndex = 0;
             this.label7.Text = "Serie";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.cbWarehouse);
+            this.groupBox8.Controls.Add(this.label10);
+            this.groupBox8.Location = new System.Drawing.Point(280, 12);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(189, 75);
+            this.groupBox8.TabIndex = 12;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Lugar de Procedencia";
+            // 
+            // cbWarehouse
+            // 
+            this.cbWarehouse.FormattingEnabled = true;
+            this.cbWarehouse.Location = new System.Drawing.Point(32, 31);
+            this.cbWarehouse.Name = "cbWarehouse";
+            this.cbWarehouse.Size = new System.Drawing.Size(121, 21);
+            this.cbWarehouse.TabIndex = 6;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(39, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 13);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "Almacen";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Location = new System.Drawing.Point(475, 12);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(288, 75);
+            this.groupBox9.TabIndex = 13;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Lugar de Entrega";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Location = new System.Drawing.Point(9, 12);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(265, 75);
+            this.groupBox10.TabIndex = 13;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Datos Generales";
             // 
             // toolStrip2
             // 
@@ -620,46 +766,6 @@
             this.btnSave.Size = new System.Drawing.Size(69, 37);
             this.btnSave.Text = "Guardar";
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "Articulo";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Cantidad";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "ID";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Visible = false;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.HeaderText = "Articulo";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Cantidad";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
             // ucDeparture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -685,6 +791,8 @@
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
@@ -750,5 +858,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
     }
 }
