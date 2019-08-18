@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Warehouse_Control.Util
 {
-    class tbValidators
+    public class tbValidators
     {
 
         public Boolean emailValidator(TextBox text)
@@ -43,7 +43,7 @@ namespace Warehouse_Control.Util
                 flag = false;
             }
 
-            return false;
+            return flag;
         }
 
         public Boolean usernameValidator(TextBox text)

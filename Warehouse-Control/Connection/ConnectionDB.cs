@@ -24,5 +24,7 @@ namespace Warehouse_Control.Connection
         public virtual DbSet<Items> Items { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Warehouse> Warehouse { get; set; }
+        public virtual DbSet<District> District { get; set; }
+
     }
 }

@@ -96,6 +96,12 @@
     <Compile Include="Forms\testControlUser.Designer.cs">
       <DependentUpon>testControlUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ucDistrict.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucDistrict.Designer.cs">
+      <DependentUpon>ucDistrict.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ucInventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +134,7 @@
     </Compile>
     <Compile Include="Models\Departure.cs" />
     <Compile Include="Models\DepartureDet.cs" />
+    <Compile Include="Models\District.cs" />
     <Compile Include="Models\Entry.cs" />
     <Compile Include="Models\EntryDet.cs" />
     <Compile Include="Models\Inventory.cs" />
@@ -142,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\testControlUser.resx">
       <DependentUpon>testControlUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucDistrict.resx">
+      <DependentUpon>ucDistrict.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ucInventory.resx">
       <DependentUpon>ucInventory.cs</DependentUpon>

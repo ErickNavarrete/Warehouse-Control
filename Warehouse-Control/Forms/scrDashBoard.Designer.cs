@@ -37,6 +37,7 @@
             this.btnDistrict = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
+            this.ucDistrict1 = new Warehouse_Control.Forms.ucDistrict();
             this.ucItems1 = new Warehouse_Control.Forms.ucItems();
             this.ucInventory1 = new Warehouse_Control.Forms.ucInventory();
             this.users1 = new Warehouse_Control.Forms.users();
@@ -153,6 +154,18 @@
             this.btnUser.UseVisualStyleBackColor = true;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
+            // ucDistrict1
+            // 
+            this.ucDistrict1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucDistrict1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ucDistrict1.Location = new System.Drawing.Point(283, 102);
+            this.ucDistrict1.Name = "ucDistrict1";
+            this.ucDistrict1.Size = new System.Drawing.Size(780, 524);
+            this.ucDistrict1.TabIndex = 6;
+            this.ucDistrict1.Visible = false;
+            // 
             // ucItems1
             // 
             this.ucItems1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -212,6 +225,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 631);
+            this.Controls.Add(this.ucDistrict1);
             this.Controls.Add(this.ucItems1);
             this.Controls.Add(this.ucInventory1);
             this.Controls.Add(this.users1);
@@ -244,5 +258,6 @@
         private ucInventory ucInventory1;
         private ucInventoryPanel ucInventoryPanel1;
         private ucItems ucItems1;
+        private ucDistrict ucDistrict1;
     }
 }
