@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Warehouse_Control.Models;
 using Warehouse_Control.Connection;
+using Warehouse_Control.Util;
 
 namespace Warehouse_Control.Forms
 {
@@ -22,6 +23,7 @@ namespace Warehouse_Control.Forms
         private int idItem;
         private int idCellar;
         private int idWarehouse;
+        public int idUser;
         private List<DepartureDet> departureList = new List<DepartureDet>();
 
         public ucDeparture()
@@ -49,8 +51,8 @@ namespace Warehouse_Control.Forms
             cbWarehouse.Enabled = flag;
             tbObservations.Enabled = flag;
             btnAdd.Enabled = flag;
-            btnDelete.Enabled = flag;
-            btnEdit.Enabled = flag;
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
         }
 
         private void clearFieldsTab2()
@@ -89,6 +91,17 @@ namespace Warehouse_Control.Forms
             }
         }
 
+        private bool checkFieldsDEpartureDetail() {
+            var validator = new tbValidators();
+            return validator.requieredTextValidator(tbQuantity) && validator.cbRequiredValidator(cbItem);
+        }
+
+        private void fill_dgvDepartureDetails2() {
+            dgvDepartureDetail2.Rows.Clear();
+            foreach (var departure in departureList) {
+                dgvDepartureDetail2.Rows.Add(departure.id,departure.id_item,departure.quantity);
+            }
+        }
 
 
         #endregion
@@ -117,6 +130,29 @@ namespace Warehouse_Control.Forms
             var db = new ConnectionDB();
             var item = db.Items.Where(x => x.key == selected).FirstOrDefault();
             idItem = item.id;
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            if (!checkFieldsDEpartureDetail()) {
+                return;
+            }
+
+            var departureDetail = new DepartureDet {
+                id_item = idItem,
+                quantity = Convert.ToInt16( tbQuantity.Text)
+            };
+            departureList.Add(departureDetail);
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
