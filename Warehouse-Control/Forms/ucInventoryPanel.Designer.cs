@@ -33,7 +33,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnDepartures = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -82,22 +82,23 @@
             this.button4.Text = "ENTRDAS";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnDepartures
             // 
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(7, 194);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(230, 40);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "SALIDAS";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnDepartures.Image = ((System.Drawing.Image)(resources.GetObject("btnDepartures.Image")));
+            this.btnDepartures.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDepartures.Location = new System.Drawing.Point(7, 194);
+            this.btnDepartures.Name = "btnDepartures";
+            this.btnDepartures.Size = new System.Drawing.Size(230, 40);
+            this.btnDepartures.TabIndex = 5;
+            this.btnDepartures.Text = "SALIDAS";
+            this.btnDepartures.UseVisualStyleBackColor = true;
+            this.btnDepartures.Click += new System.EventHandler(this.btnDepartures_Click);
             // 
             // ucInventoryPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnDepartures);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnInventory);
             this.Controls.Add(this.button2);
@@ -114,6 +115,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnInventory;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnDepartures;
     }
 }

@@ -30,5 +30,10 @@ namespace Warehouse_Control.Forms
         {
             principal.UserControlConfig(2.1);
         }
+
+        private void btnDepartures_Click(object sender, EventArgs e)
+        {
+            principal.UserControlConfig(2.5);
+        }
     }
 }

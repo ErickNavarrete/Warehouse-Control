@@ -32,6 +32,7 @@
             this.lblNUsuario = new MaterialSkin.Controls.MaterialLabel();
             this.MaterialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ucInventoryPanel1 = new Warehouse_Control.Forms.ucInventoryPanel();
             this.btnChangeUser = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnDistrict = new System.Windows.Forms.Button();
@@ -42,7 +43,7 @@
             this.ucInventory1 = new Warehouse_Control.Forms.ucInventory();
             this.users1 = new Warehouse_Control.Forms.users();
             this.ucPrincipal1 = new Warehouse_Control.Forms.ucPrincipal();
-            this.ucInventoryPanel1 = new Warehouse_Control.Forms.ucInventoryPanel();
+            this.ucDeparture1 = new Warehouse_Control.Forms.ucDeparture();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -63,12 +64,12 @@
             // 
             this.lblNUsuario.AutoSize = true;
             this.lblNUsuario.Depth = 0;
-            this.lblNUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblNUsuario.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblNUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblNUsuario.Location = new System.Drawing.Point(108, 9);
             this.lblNUsuario.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblNUsuario.Name = "lblNUsuario";
-            this.lblNUsuario.Size = new System.Drawing.Size(24, 18);
+            this.lblNUsuario.Size = new System.Drawing.Size(23, 19);
             this.lblNUsuario.TabIndex = 4;
             this.lblNUsuario.Text = "¿?";
             // 
@@ -76,12 +77,12 @@
             // 
             this.MaterialLabel1.AutoSize = true;
             this.MaterialLabel1.Depth = 0;
-            this.MaterialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.MaterialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.MaterialLabel1.Location = new System.Drawing.Point(8, 9);
             this.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.MaterialLabel1.Name = "MaterialLabel1";
-            this.MaterialLabel1.Size = new System.Drawing.Size(106, 18);
+            this.MaterialLabel1.Size = new System.Drawing.Size(104, 19);
             this.MaterialLabel1.TabIndex = 3;
             this.MaterialLabel1.Text = "BIENVENIDO: ";
             // 
@@ -99,6 +100,14 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(277, 526);
             this.panel2.TabIndex = 2;
+            // 
+            // ucInventoryPanel1
+            // 
+            this.ucInventoryPanel1.Location = new System.Drawing.Point(12, 64);
+            this.ucInventoryPanel1.Name = "ucInventoryPanel1";
+            this.ucInventoryPanel1.Size = new System.Drawing.Size(250, 244);
+            this.ucInventoryPanel1.TabIndex = 5;
+            this.ucInventoryPanel1.Visible = false;
             // 
             // btnChangeUser
             // 
@@ -212,19 +221,23 @@
             this.ucPrincipal1.Size = new System.Drawing.Size(780, 524);
             this.ucPrincipal1.TabIndex = 0;
             // 
-            // ucInventoryPanel1
+            // ucDeparture1
             // 
-            this.ucInventoryPanel1.Location = new System.Drawing.Point(12, 64);
-            this.ucInventoryPanel1.Name = "ucInventoryPanel1";
-            this.ucInventoryPanel1.Size = new System.Drawing.Size(250, 244);
-            this.ucInventoryPanel1.TabIndex = 5;
-            this.ucInventoryPanel1.Visible = false;
+            this.ucDeparture1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucDeparture1.Location = new System.Drawing.Point(283, 102);
+            this.ucDeparture1.Name = "ucDeparture1";
+            this.ucDeparture1.Size = new System.Drawing.Size(780, 524);
+            this.ucDeparture1.TabIndex = 7;
+            this.ucDeparture1.Visible = false;
             // 
             // scrDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 631);
+            this.Controls.Add(this.ucDeparture1);
             this.Controls.Add(this.ucDistrict1);
             this.Controls.Add(this.ucItems1);
             this.Controls.Add(this.ucInventory1);
@@ -259,5 +272,6 @@
         private ucInventoryPanel ucInventoryPanel1;
         private ucItems ucItems1;
         private ucDistrict ucDistrict1;
+        private ucDeparture ucDeparture1;
     }
 }
