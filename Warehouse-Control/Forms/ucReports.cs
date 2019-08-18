@@ -53,7 +53,7 @@ namespace Warehouse_Control.Forms
             {
                 case 1:
                     #region ENTRADAS
-                    var EntryHeader = db.Entry.Join(db.Users, x=> x.id_user,y=> y.Id,(x,y) => new
+                    var EntryHeader = db.Entries.Join(db.Users, x=> x.id_user,y=> y.Id,(x,y) => new
                     {
                         x.serie,
                         x.folio,
@@ -108,7 +108,7 @@ namespace Warehouse_Control.Forms
                     #endregion
                     break;
                 case 2:
-                    var DepartureHeader = db.Departure.Join(db.Users, x => x.id_user, y => y.Id, (x, y) => new
+                    var DepartureHeader = db.Departures.Join(db.Users, x => x.id_user, y => y.Id, (x, y) => new
                     {
                         x.id,
                         x.id_user,
