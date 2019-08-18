@@ -35,6 +35,9 @@
             this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
+            this.btnEdit = new System.Windows.Forms.ToolStripButton();
+            this.btnSaveEdit = new System.Windows.Forms.ToolStripButton();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,7 +60,10 @@
             this.btnSearch,
             this.btnNew,
             this.btnCancel,
-            this.btnSave});
+            this.btnSave,
+            this.btnEdit,
+            this.btnSaveEdit,
+            this.btnDelete});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(780, 40);
@@ -108,6 +114,33 @@
             this.btnSave.Size = new System.Drawing.Size(69, 20);
             this.btnSave.Text = "Guardar";
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
+            this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(57, 20);
+            this.btnEdit.Text = "Editar";
+            this.btnEdit.Click += new System.EventHandler(this.BtnEditar_Click);
+            // 
+            // btnSaveEdit
+            // 
+            this.btnSaveEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveEdit.Image")));
+            this.btnSaveEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSaveEdit.Name = "btnSaveEdit";
+            this.btnSaveEdit.Size = new System.Drawing.Size(111, 20);
+            this.btnSaveEdit.Text = "Guardar Edición";
+            this.btnSaveEdit.Click += new System.EventHandler(this.BtnSaveEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(63, 20);
+            this.btnDelete.Text = "Borrrar";
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // groupBox1
             // 
@@ -169,6 +202,7 @@
             this.dgvItems.ReadOnly = true;
             this.dgvItems.Size = new System.Drawing.Size(456, 466);
             this.dgvItems.TabIndex = 4;
+            this.dgvItems.DoubleClick += new System.EventHandler(this.DgvItems_DoubleClick);
             // 
             // Column1
             // 
@@ -226,5 +260,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.ToolStripButton btnEdit;
+        private System.Windows.Forms.ToolStripButton btnSaveEdit;
+        private System.Windows.Forms.ToolStripButton btnDelete;
     }
 }
