@@ -96,6 +96,12 @@
     <Compile Include="Forms\testControlUser.Designer.cs">
       <DependentUpon>testControlUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ucDeparture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucDeparture.Designer.cs">
+      <DependentUpon>ucDeparture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ucInventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\testControlUser.resx">
       <DependentUpon>testControlUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucDeparture.resx">
+      <DependentUpon>ucDeparture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ucInventory.resx">
       <DependentUpon>ucInventory.cs</DependentUpon>
