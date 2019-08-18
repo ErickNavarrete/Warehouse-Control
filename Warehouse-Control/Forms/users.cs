@@ -106,5 +106,10 @@ namespace Warehouse_Control.Forms
             return flag;
 
         }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

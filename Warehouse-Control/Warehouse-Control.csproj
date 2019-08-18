@@ -115,6 +115,12 @@
     <Compile Include="Forms\ucDistrict.Designer.cs">
       <DependentUpon>ucDistrict.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ucInputs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucInputs.Designer.cs">
+      <DependentUpon>ucInputs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ucInventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -144,6 +150,12 @@
     </Compile>
     <Compile Include="Forms\ucReports.Designer.cs">
       <DependentUpon>ucReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ucWarehouse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucWarehouse.Designer.cs">
+      <DependentUpon>ucWarehouse.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\users.cs">
       <SubType>UserControl</SubType>
@@ -204,6 +216,9 @@
     <EmbeddedResource Include="Forms\ucDeparture.resx">
       <DependentUpon>ucDeparture.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucInputs.resx">
+      <DependentUpon>ucInputs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ucInventory.resx">
       <DependentUpon>ucInventory.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ucPrincipal.resx">
       <DependentUpon>ucPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucWarehouse.resx">
+      <DependentUpon>ucWarehouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ucReports.resx">
       <DependentUpon>ucReports.cs</DependentUpon>

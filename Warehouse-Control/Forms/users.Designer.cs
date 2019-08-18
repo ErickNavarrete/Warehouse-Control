@@ -130,6 +130,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(62, 37);
             this.btnSearch.Text = "Buscar";
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // btnNew
             // 
@@ -137,7 +138,7 @@
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(104, 20);
+            this.btnNew.Size = new System.Drawing.Size(104, 37);
             this.btnNew.Text = "Nuevo usuario";
             this.btnNew.Click += new System.EventHandler(this.BtnNew_Click);
             // 
@@ -147,7 +148,7 @@
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(73, 20);
+            this.btnCancel.Size = new System.Drawing.Size(73, 37);
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
