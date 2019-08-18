@@ -132,6 +132,12 @@
     <Compile Include="Forms\ucPrincipal.Designer.cs">
       <DependentUpon>ucPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ucWarehouse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ucWarehouse.Designer.cs">
+      <DependentUpon>ucWarehouse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\users.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ucPrincipal.resx">
       <DependentUpon>ucPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ucWarehouse.resx">
+      <DependentUpon>ucWarehouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\users.resx">
       <DependentUpon>users.cs</DependentUpon>
