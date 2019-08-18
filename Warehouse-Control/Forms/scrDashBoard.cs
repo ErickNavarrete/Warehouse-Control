@@ -59,6 +59,7 @@ namespace Warehouse_Control.Forms
             ucItems1.Visible = false;
             ucDistrict1.Visible = false;
             ucDeparture1.Visible = false;
+            ucReports1.Visible = false;
 
             switch (id)
             {
@@ -76,6 +77,10 @@ namespace Warehouse_Control.Forms
                     break;
                 case 3:
                     ucDistrict1.Visible = true;
+                    ucDistrict1.fillDistrict();
+                    break;
+                case 4:
+                    ucReports1.Visible = true;
                     break;
                 default:
                     ucPrincipal1.Visible = true;
@@ -106,7 +111,7 @@ namespace Warehouse_Control.Forms
         private void btnReports_Click(object sender, EventArgs e)
         {
             ButtonsConfig("");
-            UserControlConfig(0);
+            UserControlConfig(4);
         }
         #endregion
     }

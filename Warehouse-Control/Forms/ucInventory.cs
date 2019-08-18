@@ -36,7 +36,7 @@ namespace Warehouse_Control.Forms
                 x.quantity,
                 y.key,
                 y.description
-            }).Join(db.Warehouse, x=> x.id_warehouse, y=> y.id, (x, y) => new 
+            }).Join(db.Warehouses, x=> x.id_warehouse, y=> y.id, (x, y) => new 
             {
                 x.key,
                 x.description,
