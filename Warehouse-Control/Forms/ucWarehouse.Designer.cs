@@ -106,6 +106,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(73, 22);
             this.btnCancel.Text = "Cancelar";
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // dataGridView1
             // 

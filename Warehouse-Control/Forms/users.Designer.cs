@@ -130,6 +130,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(62, 37);
             this.btnSearch.Text = "Buscar";
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // btnNew
             // 
@@ -157,7 +158,7 @@
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(69, 37);
+            this.btnSave.Size = new System.Drawing.Size(69, 20);
             this.btnSave.Text = "Guardar";
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 

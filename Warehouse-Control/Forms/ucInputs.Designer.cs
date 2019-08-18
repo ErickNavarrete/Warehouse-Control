@@ -43,12 +43,12 @@
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_user = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.rtbObservaciones = new System.Windows.Forms.RichTextBox();
             this.lbObservaciones = new MaterialSkin.Controls.MaterialLabel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbAlmacen = new System.Windows.Forms.ComboBox();
+            this.tbFolio = new System.Windows.Forms.TextBox();
+            this.tbSerie = new System.Windows.Forms.TextBox();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.lbFecha = new MaterialSkin.Controls.MaterialLabel();
             this.lbFolio = new MaterialSkin.Controls.MaterialLabel();
@@ -95,6 +95,7 @@
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(104, 22);
             this.btnNew.Text = "Nueva Entrada";
+            this.btnNew.Click += new System.EventHandler(this.BtnNew_Click);
             // 
             // btnSave
             // 
@@ -113,6 +114,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(73, 22);
             this.btnCancel.Text = "Cancelar";
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // dataGridView1
             // 
@@ -155,12 +157,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpFecha);
             this.groupBox1.Controls.Add(this.rtbObservaciones);
             this.groupBox1.Controls.Add(this.lbObservaciones);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.cbAlmacen);
+            this.groupBox1.Controls.Add(this.tbFolio);
+            this.groupBox1.Controls.Add(this.tbSerie);
             this.groupBox1.Controls.Add(this.materialLabel4);
             this.groupBox1.Controls.Add(this.lbFecha);
             this.groupBox1.Controls.Add(this.lbFolio);
@@ -172,12 +174,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de entrada";
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(10, 104);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(154, 20);
-            this.dateTimePicker1.TabIndex = 10;
+            this.dtpFecha.Location = new System.Drawing.Point(10, 104);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(154, 20);
+            this.dtpFecha.TabIndex = 10;
             // 
             // rtbObservaciones
             // 
@@ -200,27 +202,27 @@
             this.lbObservaciones.TabIndex = 8;
             this.lbObservaciones.Text = "Observaciones";
             // 
-            // comboBox1
+            // cbAlmacen
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(205, 104);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 21);
-            this.comboBox1.TabIndex = 7;
+            this.cbAlmacen.FormattingEnabled = true;
+            this.cbAlmacen.Location = new System.Drawing.Point(205, 104);
+            this.cbAlmacen.Name = "cbAlmacen";
+            this.cbAlmacen.Size = new System.Drawing.Size(150, 21);
+            this.cbAlmacen.TabIndex = 7;
             // 
-            // textBox2
+            // tbFolio
             // 
-            this.textBox2.Location = new System.Drawing.Point(205, 46);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 20);
-            this.textBox2.TabIndex = 5;
+            this.tbFolio.Location = new System.Drawing.Point(205, 46);
+            this.tbFolio.Name = "tbFolio";
+            this.tbFolio.Size = new System.Drawing.Size(150, 20);
+            this.tbFolio.TabIndex = 5;
             // 
-            // textBox1
+            // tbSerie
             // 
-            this.textBox1.Location = new System.Drawing.Point(10, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 20);
-            this.textBox1.TabIndex = 4;
+            this.tbSerie.Location = new System.Drawing.Point(10, 46);
+            this.tbSerie.Name = "tbSerie";
+            this.tbSerie.Size = new System.Drawing.Size(154, 20);
+            this.tbSerie.TabIndex = 4;
             // 
             // materialLabel4
             // 
@@ -309,15 +311,15 @@
         private System.Windows.Forms.ToolStripButton btnCancel;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbAlmacen;
+        private System.Windows.Forms.TextBox tbFolio;
+        private System.Windows.Forms.TextBox tbSerie;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel lbFecha;
         private MaterialSkin.Controls.MaterialLabel lbFolio;
         private MaterialSkin.Controls.MaterialLabel lbSerie;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.RichTextBox rtbObservaciones;
         private MaterialSkin.Controls.MaterialLabel lbObservaciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn serie;
