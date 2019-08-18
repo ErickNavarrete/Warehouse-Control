@@ -14,6 +14,9 @@ namespace Warehouse_Control.Forms
 {
     public partial class scrDashBoard : MaterialForm
     {
+        public int id_user;
+        public string user_name;
+
         public scrDashBoard()
         {
             InitializeComponent();
@@ -30,6 +33,9 @@ namespace Warehouse_Control.Forms
             );
 
             ucInventoryPanel1.principal = this;
+            scrLogin scrLogin = new scrLogin {scrDashBoard = this};
+            scrLogin.ShowDialog();
+            lbUserName.Text = user_name;
         }
 
         #region FUNCIONES
@@ -115,5 +121,12 @@ namespace Warehouse_Control.Forms
             UserControlConfig(4);
         }
         #endregion
+
+        private void btnChangeUser_Click(object sender, EventArgs e)
+        {
+            scrLogin scrLogin = new scrLogin {scrDashBoard = this};
+            scrLogin.ShowDialog();
+            lbUserName.Text = user_name;
+        }
     }
 }

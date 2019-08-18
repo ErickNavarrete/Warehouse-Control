@@ -108,6 +108,7 @@ namespace Warehouse_Control.Forms
                     #endregion
                     break;
                 case 2:
+                    #region SALIDAS
                     var DepartureHeader = db.Departures.Join(db.Users, x => x.id_user, y => y.Id, (x, y) => new
                     {
                         x.id,
@@ -191,6 +192,7 @@ namespace Warehouse_Control.Forms
 
                     crDeparture.SetDataSource(dsData);
                     scrReports.crv.ReportSource = crDeparture;
+                    #endregion
                     break;
             }
 
