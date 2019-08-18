@@ -65,5 +65,16 @@ namespace Warehouse_Control.Util
             }
             return flag;
         }
+
+        public bool cbRequiredValidator(ComboBox comboBox) {
+            bool flag = true;
+            if (string.IsNullOrEmpty(comboBox.Text)) {
+                flag = false;
+                MessageBox.Show("Campo obligatorio", comboBox.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBox.Focus();
+            }
+
+            return flag;
+        }
     }
 }

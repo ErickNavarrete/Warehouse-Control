@@ -14,6 +14,9 @@ namespace Warehouse_Control.Forms
 {
     public partial class scrDashBoard : MaterialForm
     {
+        public int id_user;
+        public string user_name;
+
         public scrDashBoard()
         {
             InitializeComponent();
@@ -30,6 +33,9 @@ namespace Warehouse_Control.Forms
             );
 
             ucInventoryPanel1.principal = this;
+            scrLogin scrLogin = new scrLogin {scrDashBoard = this};
+            scrLogin.ShowDialog();
+            lbUserName.Text = user_name;
         }
 
         #region FUNCIONES
@@ -59,6 +65,7 @@ namespace Warehouse_Control.Forms
             ucItems1.Visible = false;
             ucDistrict1.Visible = false;
             ucDeparture1.Visible = false;
+            ucReports1.Visible = false;
 
             switch (id)
             {
@@ -76,6 +83,11 @@ namespace Warehouse_Control.Forms
                     break;
                 case 3:
                     ucDistrict1.Visible = true;
+                    ucDistrict1.fillDistrict();
+                    break;
+                case 4:
+                    ucReports1.Visible = true;
+                    ucReports1.fillComboBoxUser();
                     break;
                 default:
                     ucPrincipal1.Visible = true;
@@ -106,8 +118,15 @@ namespace Warehouse_Control.Forms
         private void btnReports_Click(object sender, EventArgs e)
         {
             ButtonsConfig("");
-            UserControlConfig(0);
+            UserControlConfig(4);
         }
         #endregion
+
+        private void btnChangeUser_Click(object sender, EventArgs e)
+        {
+            scrLogin scrLogin = new scrLogin {scrDashBoard = this};
+            scrLogin.ShowDialog();
+            lbUserName.Text = user_name;
+        }
     }
 }

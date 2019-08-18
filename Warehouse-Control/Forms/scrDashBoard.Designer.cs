@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblNUsuario = new MaterialSkin.Controls.MaterialLabel();
+            this.lbUserName = new MaterialSkin.Controls.MaterialLabel();
             this.MaterialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.ucInventoryPanel1 = new Warehouse_Control.Forms.ucInventoryPanel();
             this.btnChangeUser = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnDistrict = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
+            this.ucReports1 = new Warehouse_Control.Forms.ucReports();
+            this.ucDeparture1 = new Warehouse_Control.Forms.ucDeparture();
             this.ucDistrict1 = new Warehouse_Control.Forms.ucDistrict();
             this.ucItems1 = new Warehouse_Control.Forms.ucItems();
             this.ucInventory1 = new Warehouse_Control.Forms.ucInventory();
             this.users1 = new Warehouse_Control.Forms.users();
             this.ucPrincipal1 = new Warehouse_Control.Forms.ucPrincipal();
-            this.ucDeparture1 = new Warehouse_Control.Forms.ucDeparture();
+            this.ucInventoryPanel1 = new Warehouse_Control.Forms.ucInventoryPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -53,36 +54,36 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.IndianRed;
-            this.panel1.Controls.Add(this.lblNUsuario);
+            this.panel1.Controls.Add(this.lbUserName);
             this.panel1.Controls.Add(this.MaterialLabel1);
             this.panel1.Location = new System.Drawing.Point(-3, 64);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1070, 38);
             this.panel1.TabIndex = 0;
             // 
-            // lblNUsuario
+            // lbUserName
             // 
-            this.lblNUsuario.AutoSize = true;
-            this.lblNUsuario.Depth = 0;
-            this.lblNUsuario.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lblNUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblNUsuario.Location = new System.Drawing.Point(108, 9);
-            this.lblNUsuario.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblNUsuario.Name = "lblNUsuario";
-            this.lblNUsuario.Size = new System.Drawing.Size(23, 19);
-            this.lblNUsuario.TabIndex = 4;
-            this.lblNUsuario.Text = "¿?";
+            this.lbUserName.AutoSize = true;
+            this.lbUserName.Depth = 0;
+            this.lbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbUserName.Location = new System.Drawing.Point(108, 9);
+            this.lbUserName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbUserName.Name = "lbUserName";
+            this.lbUserName.Size = new System.Drawing.Size(24, 18);
+            this.lbUserName.TabIndex = 4;
+            this.lbUserName.Text = "¿?";
             // 
             // MaterialLabel1
             // 
             this.MaterialLabel1.AutoSize = true;
             this.MaterialLabel1.Depth = 0;
-            this.MaterialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.MaterialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.MaterialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.MaterialLabel1.Location = new System.Drawing.Point(8, 9);
             this.MaterialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.MaterialLabel1.Name = "MaterialLabel1";
-            this.MaterialLabel1.Size = new System.Drawing.Size(104, 19);
+            this.MaterialLabel1.Size = new System.Drawing.Size(106, 18);
             this.MaterialLabel1.TabIndex = 3;
             this.MaterialLabel1.Text = "BIENVENIDO: ";
             // 
@@ -101,14 +102,6 @@
             this.panel2.Size = new System.Drawing.Size(277, 526);
             this.panel2.TabIndex = 2;
             // 
-            // ucInventoryPanel1
-            // 
-            this.ucInventoryPanel1.Location = new System.Drawing.Point(12, 64);
-            this.ucInventoryPanel1.Name = "ucInventoryPanel1";
-            this.ucInventoryPanel1.Size = new System.Drawing.Size(250, 244);
-            this.ucInventoryPanel1.TabIndex = 5;
-            this.ucInventoryPanel1.Visible = false;
-            // 
             // btnChangeUser
             // 
             this.btnChangeUser.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,6 +111,7 @@
             this.btnChangeUser.TabIndex = 5;
             this.btnChangeUser.Text = "CAMBIAR USUARIO";
             this.btnChangeUser.UseVisualStyleBackColor = true;
+            this.btnChangeUser.Click += new System.EventHandler(this.btnChangeUser_Click);
             // 
             // btnReports
             // 
@@ -162,6 +156,29 @@
             this.btnUser.Text = "USUARIOS";
             this.btnUser.UseVisualStyleBackColor = true;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            // 
+            // ucReports1
+            // 
+            this.ucReports1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucReports1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ucReports1.Location = new System.Drawing.Point(283, 102);
+            this.ucReports1.Name = "ucReports1";
+            this.ucReports1.Size = new System.Drawing.Size(780, 524);
+            this.ucReports1.TabIndex = 8;
+            this.ucReports1.Visible = false;
+            // 
+            // ucDeparture1
+            // 
+            this.ucDeparture1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucDeparture1.Location = new System.Drawing.Point(283, 102);
+            this.ucDeparture1.Name = "ucDeparture1";
+            this.ucDeparture1.Size = new System.Drawing.Size(780, 524);
+            this.ucDeparture1.TabIndex = 7;
+            this.ucDeparture1.Visible = false;
             // 
             // ucDistrict1
             // 
@@ -221,22 +238,20 @@
             this.ucPrincipal1.Size = new System.Drawing.Size(780, 524);
             this.ucPrincipal1.TabIndex = 0;
             // 
-            // ucDeparture1
+            // ucInventoryPanel1
             // 
-            this.ucDeparture1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucDeparture1.Location = new System.Drawing.Point(283, 102);
-            this.ucDeparture1.Name = "ucDeparture1";
-            this.ucDeparture1.Size = new System.Drawing.Size(780, 524);
-            this.ucDeparture1.TabIndex = 7;
-            this.ucDeparture1.Visible = false;
+            this.ucInventoryPanel1.Location = new System.Drawing.Point(12, 64);
+            this.ucInventoryPanel1.Name = "ucInventoryPanel1";
+            this.ucInventoryPanel1.Size = new System.Drawing.Size(250, 244);
+            this.ucInventoryPanel1.TabIndex = 5;
+            this.ucInventoryPanel1.Visible = false;
             // 
             // scrDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 631);
+            this.Controls.Add(this.ucReports1);
             this.Controls.Add(this.ucDeparture1);
             this.Controls.Add(this.ucDistrict1);
             this.Controls.Add(this.ucItems1);
@@ -259,7 +274,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        internal MaterialSkin.Controls.MaterialLabel lblNUsuario;
+        internal MaterialSkin.Controls.MaterialLabel lbUserName;
         internal MaterialSkin.Controls.MaterialLabel MaterialLabel1;
         internal System.Windows.Forms.Button btnUser;
         internal System.Windows.Forms.Button btnChangeUser;
@@ -273,5 +288,6 @@
         private ucItems ucItems1;
         private ucDistrict ucDistrict1;
         private ucDeparture ucDeparture1;
+        private ucReports ucReports1;
     }
 }

@@ -16,15 +16,15 @@ namespace Warehouse_Control.Connection
         {
         }
 
-        public virtual DbSet<Departure> Departure { get; set; }
+        public virtual DbSet<Departure> Departures { get; set; }
         public virtual DbSet<DepartureDet> DepartureDet { get; set; }
-        public virtual DbSet<Entry> Entry { get; set; }
+        public virtual DbSet<Entry> Entries { get; set; }
         public virtual DbSet<EntryDet> EntryDet { get; set; }
         public virtual DbSet<Inventory> Inventory { get; set; }
         public virtual DbSet<Items> Items { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<Warehouse> Warehouse { get; set; }
-        public virtual DbSet<District> District { get; set; }
+        public virtual DbSet<Warehouse> Warehouses { get; set; }
+        public virtual DbSet<District> Districts { get; set; }
 
     }
 }
