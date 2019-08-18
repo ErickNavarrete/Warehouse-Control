@@ -192,6 +192,9 @@
     <EmbeddedResource Include="Forms\scrDashBoard.resx">
       <DependentUpon>scrDashBoard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\scrLogin.resx">
+      <DependentUpon>scrLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\testControlUser.resx">
       <DependentUpon>testControlUser.cs</DependentUpon>
     </EmbeddedResource>
