@@ -16,14 +16,14 @@ namespace Warehouse_Control.PDF {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class crEntry : ReportClass {
+    public class crDeparture : ReportClass {
         
-        public crEntry() {
+        public crDeparture() {
         }
         
         public override string ResourceName {
             get {
-                return "crEntry.rpt";
+                return "crDeparture.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Warehouse_Control.PDF {
         
         public override string FullResourceName {
             get {
-                return "Warehouse_Control.PDF.crEntry.rpt";
+                return "Warehouse_Control.PDF.crDeparture.rpt";
             }
             set {
                 // Do nothing
@@ -106,9 +106,9 @@ namespace Warehouse_Control.PDF {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedcrEntry : Component, ICachedReport {
+    public class CachedcrDeparture : Component, ICachedReport {
         
-        public CachedcrEntry() {
+        public CachedcrDeparture() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace Warehouse_Control.PDF {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            crEntry rpt = new crEntry();
+            crDeparture rpt = new crDeparture();
             rpt.Site = this.Site;
             return rpt;
         }
