@@ -213,9 +213,9 @@ namespace Warehouse_Control.Forms
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             entryList.RemoveAt(editIndex);
-            btnAdd.Enabled = false;
-            btnEdit.Enabled = true;
-            btnDelete.Enabled = true;
+            btnAdd.Enabled = true;
+            btnEdit.Enabled = false;
+            btnDelete.Enabled = false;
             cbItem.Text = "";
             tbQuantity.Text = "";
             fill_dgvEntryDetails2();
