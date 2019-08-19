@@ -8,7 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
+using Warehouse_Control.Connection;
 using Warehouse_Control.Forms;
+using Warehouse_Control.Models;
+using Warehouse_Control.Util;
 
 namespace Warehouse_Control
 {
@@ -16,9 +19,15 @@ namespace Warehouse_Control
     {
         public scrDashBoard scrDashBoard;
         private bool flag = true;
+        tbValidators util;
+        ConnectionDB conn;
+        private Users user;
+
         public scrLogin()
         {
             InitializeComponent();
+            util = new tbValidators();
+            conn = new ConnectionDB();
         }
 
         private void scrLogin_FormClosed(object sender, FormClosedEventArgs e)
@@ -30,10 +39,31 @@ namespace Warehouse_Control
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-            scrDashBoard.id_user = 5;
-            scrDashBoard.user_name = "PRUEBA";
-            flag = false;
+            
+            if (getUser())
+            {
+                flag = false;
+                scrDashBoard.id_user = user.Id;
+                scrDashBoard.user_name = user.user;
+            }
+            else
+            {
+                flag = true;
+            }
+
             this.Close();
+        }
+
+        private Boolean getUser()
+        {
+            user = conn.Users.FirstOrDefault(x => x.user == tbUser.Text && x.password == tbPassword.Text);
+
+            if (user != null)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

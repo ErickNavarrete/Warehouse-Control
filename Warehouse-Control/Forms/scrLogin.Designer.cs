@@ -75,7 +75,6 @@
             // 
             this.tbUser.Location = new System.Drawing.Point(117, 92);
             this.tbUser.Name = "tbUser";
-            this.tbUser.PasswordChar = '*';
             this.tbUser.Size = new System.Drawing.Size(287, 20);
             this.tbUser.TabIndex = 6;
             // 

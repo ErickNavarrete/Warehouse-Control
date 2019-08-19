@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,10 @@ namespace Warehouse_Control.Forms
     {
         tbValidators util;
         ConnectionDB conn;
+        private int idUse = 0;
+        private bool editable = false;
+        public String nameUserLogged = "";
+
         public users()
         {
             InitializeComponent();
@@ -52,32 +57,51 @@ namespace Warehouse_Control.Forms
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (!verify_fields())
+            if (!verify_fields(true))
             {
                 return;
             }
 
-            
-            var user = new Users
+            if (editable)
             {
-                name     = tbName.Text,
-                password = tbPassword.Text,
-                user    = tbUsername.Text,
-                mail     = tbEmail.Text,
-                phone    = tbPhone.Text
-            };
+                Users users = conn.Users.FirstOrDefault(x => x.Id == idUse);
+                users.name  = tbName.Text;
+                users.user  = tbUsername.Text;
+                users.mail  = tbEmail.Text;
+                users.phone = tbPhone.Text;
+                if (nameUserLogged == "Admin")
+                {
+                    users.password = tbPassword.Text;
+                }
+                conn.Entry(users).State = EntityState.Modified;
+                conn.SaveChanges();
+                MessageBox.Show("Registro actualizado con éxito", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                editable = false;
+                idUse    = 0;
+            }
+            else
+            {
+                var user = new Users
+                {
+                    name = tbName.Text,
+                    password = tbPassword.Text,
+                    user = tbUsername.Text,
+                    mail = tbEmail.Text,
+                    phone = tbPhone.Text
+                };
 
-            conn.Users.Add(user);
-            conn.SaveChanges();
-            MessageBox.Show("Registro con éxito", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conn.Users.Add(user);
+                conn.SaveChanges();
+                MessageBox.Show("Registro con éxito", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
             util.control_enable_all_textbox(this, false, true);
             define_active_buttons(true);
             init_Datagrid();
         }
 
-        public Boolean verify_fields()
+        public Boolean verify_fields(bool password = false)
         {
-
             foreach (Control control in this.Controls)
             {
                 if (control is GroupBox)
@@ -86,6 +110,13 @@ namespace Warehouse_Control.Forms
                     {
                         if (controlGroup is TextBox)
                         {
+                            if (password)
+                            {
+                                if ( (((TextBox)controlGroup)).Name == "tbPassword")
+                                {
+                                    continue;
+                                }
+                            }
                             if (!util.requieredTextValidator(((TextBox)controlGroup)))
                             {
                                 return false;
@@ -94,19 +125,15 @@ namespace Warehouse_Control.Forms
                     }
                 }
             }
-
             if (!util.emailValidator(tbEmail))
             {
                 return false;
             }
-
             if (!util.usernameValidator(tbUsername))
             {
                 return false;
             }
-
             return true;
-
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -121,7 +148,7 @@ namespace Warehouse_Control.Forms
         {
             dgvUsers.Rows.Clear();
 
-            if (string.IsNullOrEmpty(query))
+            if (!string.IsNullOrEmpty(query))
             {
                var  data = conn.Users.Where(x => x.name.Contains(query) ||
                                              x.mail.Contains(query) ||
@@ -155,9 +182,6 @@ namespace Warehouse_Control.Forms
                         );
                 }
             }
-
-            
-
         }
 
         private void DgvUsers_DoubleClick(object sender, EventArgs e)
@@ -165,12 +189,31 @@ namespace Warehouse_Control.Forms
             if (dgvUsers.CurrentRow != null)
             {
                 int index    = dgvUsers.CurrentRow.Index;
-                int id       = (int) dgvUsers.Rows[index].Cells[0].Value;
-                string name  = (string) dgvUsers.Rows[index].Cells[1].Value;
-                string phone = (string) dgvUsers.Rows[index].Cells[2].Value;
-                string mail  = (string) dgvUsers.Rows[index].Cells[3].Value;
-                string user  = (string) dgvUsers.Rows[index].Cells[4].Value;
+                idUse        = (int) dgvUsers.Rows[index].Cells[0].Value;
+                tbName.Text  = (string) dgvUsers.Rows[index].Cells[1].Value;
+                tbPhone.Text = (string) dgvUsers.Rows[index].Cells[2].Value;
+                tbEmail.Text = (string) dgvUsers.Rows[index].Cells[3].Value;
+                tbUsername.Text  = (string) dgvUsers.Rows[index].Cells[4].Value;
+                util.control_enable_all_textbox(this, true);
+
+                if (nameUserLogged == "Admin")
+                {
+                    tbPassword.Text = getPassword();
+                }
+                else
+                {
+                    tbPassword.Enabled = false;
+                }
+
+                define_active_buttons(false);
+                editable = true;
             }
-        } 
+        }
+
+        private String getPassword()
+        {
+            Users users = conn.Users.FirstOrDefault(x => x.Id == idUse);
+            return users.password;
+        }
     }
 }
