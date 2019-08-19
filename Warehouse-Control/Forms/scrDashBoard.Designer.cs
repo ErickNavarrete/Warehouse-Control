@@ -288,7 +288,9 @@
             this.Controls.Add(this.ucPrincipal1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
             this.Name = "scrDashBoard";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control de Inventario";
             this.panel1.ResumeLayout(false);

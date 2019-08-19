@@ -99,6 +99,7 @@ namespace Warehouse_Control.Forms
                     break;
                 case 4:
                     ucReports1.Visible = true;
+                    ucReports1.scrDashBoard = this;
                     ucReports1.fillComboBoxUser();
                     break;
                 default:
