@@ -69,15 +69,14 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(287, 20);
-            this.tbPassword.TabIndex = 5;
+            this.tbPassword.TabIndex = 1;
             // 
             // tbUser
             // 
             this.tbUser.Location = new System.Drawing.Point(117, 92);
             this.tbUser.Name = "tbUser";
-            this.tbUser.PasswordChar = '*';
             this.tbUser.Size = new System.Drawing.Size(287, 20);
-            this.tbUser.TabIndex = 6;
+            this.tbUser.TabIndex = 0;
             // 
             // btLogin
             // 
@@ -90,7 +89,7 @@
             this.btLogin.Name = "btLogin";
             this.btLogin.Primary = false;
             this.btLogin.Size = new System.Drawing.Size(64, 36);
-            this.btLogin.TabIndex = 7;
+            this.btLogin.TabIndex = 2;
             this.btLogin.Text = "Entrar";
             this.btLogin.UseVisualStyleBackColor = true;
             this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
