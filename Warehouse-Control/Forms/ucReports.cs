@@ -84,7 +84,7 @@ namespace Warehouse_Control.Forms
 
                     foreach (var Entry in EntryHeader.ToList())
                     {
-                        dsData.dtHeaderEntry.AdddtHeaderEntryRow(Entry.serie, Entry.folio.ToString(), Entry.date.ToString("D"),Entry.user_name,Entry.warehouse_name,
+                        dsData.dtHeaderEntry.AdddtHeaderEntryRow(Entry.serie, Entry.folio.ToString(), Entry.date.ToString("dd/MMMM/yyyy"),Entry.user_name,Entry.warehouse_name,
                                                                 Entry.observation,Entry.Id.ToString());
                         var EntryDetail = db.EntryDet.Join(db.Items, x => x.id_item, y => y.id, (x, y) => new
                         {
@@ -98,7 +98,7 @@ namespace Warehouse_Control.Forms
                         foreach (var item in EntryDetail)
                         {
                             dsData.dtDetailEntry.AdddtDetailEntryRow(item.key, item.description, item.quantity,
-                                item.ToString());
+                                item.id_entry.ToString());
                         }
                     }
 
@@ -173,7 +173,7 @@ namespace Warehouse_Control.Forms
                         dsData.dtDepartureHeader.AdddtDepartureHeaderRow(Departure.id, Departure.serie,
                             Departure.folio.ToString(), Departure.user_name, Departure.warehouse_name,
                             Departure.cellar_name, Departure.observation, Departure.district, Departure.district_name,
-                            Departure.date.ToString("D"));
+                            Departure.date.ToString("dd/MMMM/yyyy"));
 
                         var DepartureDetail = db.DepartureDet.Join(db.Items, x => x.id_item, y => y.id, (x, y) => new
                         {
