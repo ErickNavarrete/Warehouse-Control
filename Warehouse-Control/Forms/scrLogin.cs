@@ -45,12 +45,12 @@ namespace Warehouse_Control
             {
                 scrDashBoard.id_user = user.Id;
                 scrDashBoard.user_name = user.user;
+                this.Close();
             }
             else
             {
                 MessageBox.Show("El usuario o la contraseña es incorrecta", "Usuario invalido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            this.Close();
         }
 
         private Boolean getUser()
