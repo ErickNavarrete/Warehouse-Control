@@ -9,7 +9,7 @@ namespace Warehouse_Control.Models
     public class Users
     {
         public int Id { get; set; }
-        public string users { get; set; }
+        public string user { get; set; }
         public string password { get; set; }
         public string name { get; set; }
         public string phone { get; set; }

@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Warehouse_Control.Util;
+using Warehouse_Control.Connection;
+using Warehouse_Control.Models;
 
 namespace Warehouse_Control.Forms
 {
     public partial class users : UserControl
     {
+        tbValidators util;
+        ConnectionDB conn;
         public users()
         {
             InitializeComponent();
@@ -19,97 +24,153 @@ namespace Warehouse_Control.Forms
             btnSave.Visible   = false;
             btnNew.Visible    = true;
             btnSearch.Visible = true;
-
+            util = new tbValidators();
+            util.control_enable_all_textbox(this, false);
+            conn = new ConnectionDB();
         }
 
-
-        public void enable_textbox(Boolean enable)
+        private void define_active_buttons(Boolean enable)
         {
-            tbName.Enabled     = enable;
-            tbPhone.Enabled    = enable;
-            tbEmail.Enabled    = enable;
-            tbUsername.Enabled = enable;
-            tbPassword.Enabled = enable;
+            btnCancel.Visible = !enable;
+            btnSave.Visible = !enable;
+            btnNew.Visible = enable;
+            btnSearch.Visible = enable;
         }
+
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            enable_textbox(false);
-            btnCancel.Visible = false;
-            btnSave.Visible   = false;
-            btnNew.Visible    = true;
-            btnSearch.Visible = true;
-
-
+            util.control_enable_all_textbox(this,false);
+            define_active_buttons(true);
         }
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
-            enable_textbox(true);
-            btnCancel.Visible = true;
-            btnSave.Visible = true;
-            btnNew.Visible = false;
-            btnSearch.Visible = false;
+            util.control_enable_all_textbox(this,true);
+            define_active_buttons(false);
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (verify_fields())
+            if (!verify_fields())
             {
                 return;
             }
 
+            
+            var user = new Users
+            {
+                name     = tbName.Text,
+                password = tbPassword.Text,
+                user    = tbUsername.Text,
+                mail     = tbEmail.Text,
+                phone    = tbPhone.Text
+            };
 
+            conn.Users.Add(user);
+            conn.SaveChanges();
+            MessageBox.Show("Registro con éxito", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            util.control_enable_all_textbox(this, false, true);
+            define_active_buttons(true);
+            init_Datagrid();
         }
 
         public Boolean verify_fields()
         {
-            Boolean flag = false;
 
-            if (string.IsNullOrEmpty(tbName.Text))
+            foreach (Control control in this.Controls)
             {
-                MessageBox.Show("Campo obligatorio", "Nombre", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tbName.Focus();
-                flag = true;
+                if (control is GroupBox)
+                {
+                    foreach (Control controlGroup in ((GroupBox)control).Controls)
+                    {
+                        if (controlGroup is TextBox)
+                        {
+                            if (!util.requieredTextValidator(((TextBox)controlGroup)))
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
             }
 
-            if (string.IsNullOrEmpty(tbPhone.Text))
+            if (!util.emailValidator(tbEmail))
             {
-                MessageBox.Show("Campo obligatorio", "Nombre", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tbPhone.Focus();
-                flag = true;
-
+                return false;
             }
 
-            //Valida campo de correo electronico
-            if (string.IsNullOrEmpty(tbEmail.Text))
+            if (!util.usernameValidator(tbUsername))
             {
-                
+                return false;
             }
 
-            if (string.IsNullOrEmpty(tbUsername.Text))
-            {
-                MessageBox.Show("Campo obligatorio", "Nombre", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tbUsername.Focus();
-                flag = true;
-
-            }
-
-            if (string.IsNullOrEmpty(tbPassword.Text))
-            {
-                MessageBox.Show("Campo obligatorio", "Nombre", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                tbPassword.Focus();
-                flag = true;
-
-            }
-
-            return flag;
+            return true;
 
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
+            if (util.requieredTextValidator(tbSearch.TextBox))
+            {
+                init_Datagrid(tbSearch.Text);
+            }
+        }
+
+        public void init_Datagrid(String query = null)
+        {
+            dgvUsers.Rows.Clear();
+
+            if (string.IsNullOrEmpty(query))
+            {
+               var  data = conn.Users.Where(x => x.name.Contains(query) ||
+                                             x.mail.Contains(query) ||
+                                             x.phone.Contains(query) ||
+                                             x.user.Contains(query)
+                                        );
+
+                foreach (var item in data)
+                {
+                    dgvUsers.Rows.Add(
+                            item.Id,
+                            item.name,
+                            item.phone,
+                            item.mail,
+                            item.user
+                        );
+                }
+            }
+            else
+            {
+                var data = conn.Users.ToList();
+
+                foreach (var item in data)
+                {
+                    dgvUsers.Rows.Add(
+                            item.Id,
+                            item.name,
+                            item.phone,
+                            item.mail,
+                            item.user
+                        );
+                }
+            }
+
+            
 
         }
+
+        private void DgvUsers_DoubleClick(object sender, EventArgs e)
+        {
+            if (dgvUsers.CurrentRow != null)
+            {
+                int index    = dgvUsers.CurrentRow.Index;
+                int id       = (int) dgvUsers.Rows[index].Cells[0].Value;
+                string name  = (string) dgvUsers.Rows[index].Cells[1].Value;
+                string phone = (string) dgvUsers.Rows[index].Cells[2].Value;
+                string mail  = (string) dgvUsers.Rows[index].Cells[3].Value;
+                string user  = (string) dgvUsers.Rows[index].Cells[4].Value;
+            }
+        } 
     }
 }
