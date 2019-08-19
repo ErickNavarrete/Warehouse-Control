@@ -99,7 +99,7 @@ namespace Warehouse_Control.Forms
             foreach (var entry in entryList)
             {
                 var item = db.Items.Where(x => x.id == entry.id_item).FirstOrDefault();
-                dgvEntryDetail2.Rows.Add(entry.Id, item.key, entry.quantity);
+                dgvEntryDetail2.Rows.Add(entry.id_item, item.key, entry.quantity);
             }
         }
 
