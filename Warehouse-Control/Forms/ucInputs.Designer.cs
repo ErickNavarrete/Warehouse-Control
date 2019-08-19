@@ -48,6 +48,13 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDepartures = new System.Windows.Forms.DataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tbSearch = new System.Windows.Forms.ToolStripTextBox();
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
@@ -82,13 +89,6 @@
             this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -298,6 +298,50 @@
             this.dgvDepartures.ReadOnly = true;
             this.dgvDepartures.Size = new System.Drawing.Size(468, 446);
             this.dgvDepartures.TabIndex = 4;
+            this.dgvDepartures.DoubleClick += new System.EventHandler(this.DgvDepartures_DoubleClick);
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "ID";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Serie";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Folio";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Fecha";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Usuario";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Almacen";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Observaciones";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
             // 
             // toolStrip1
             // 
@@ -324,6 +368,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(62, 37);
             this.btnSearch.Text = "Buscar";
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // tabPage2
             // 
@@ -374,6 +419,7 @@
             this.dgvDepartureDetail2.ReadOnly = true;
             this.dgvDepartureDetail2.Size = new System.Drawing.Size(277, 253);
             this.dgvDepartureDetail2.TabIndex = 0;
+            this.dgvDepartureDetail2.DoubleClick += new System.EventHandler(this.DgvDepartureDetail2_DoubleClick);
             // 
             // Column1
             // 
@@ -417,6 +463,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Borrar";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnEdit
             // 
@@ -428,6 +475,7 @@
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Editar";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // btnAdd
             // 
@@ -439,6 +487,7 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // groupBox5
             // 
@@ -469,6 +518,7 @@
             this.cbItem.Name = "cbItem";
             this.cbItem.Size = new System.Drawing.Size(275, 21);
             this.cbItem.TabIndex = 12;
+            this.cbItem.SelectedIndexChanged += new System.EventHandler(this.CbItem_SelectedIndexChanged);
             // 
             // tbQuantity
             // 
@@ -476,6 +526,7 @@
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.Size = new System.Drawing.Size(275, 20);
             this.tbQuantity.TabIndex = 3;
+            this.tbQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbQuantity_KeyPress);
             // 
             // label13
             // 
@@ -570,6 +621,7 @@
             this.cbWarehouse.Name = "cbWarehouse";
             this.cbWarehouse.Size = new System.Drawing.Size(217, 21);
             this.cbWarehouse.TabIndex = 6;
+            this.cbWarehouse.SelectedIndexChanged += new System.EventHandler(this.CbWarehouse_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -610,6 +662,7 @@
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(104, 37);
             this.btnNew.Text = "Nueva Entrada";
+            this.btnNew.Click += new System.EventHandler(this.BtnNew_Click);
             // 
             // btnCancel
             // 
@@ -619,6 +672,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(73, 37);
             this.btnCancel.Text = "Cancelar";
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnSave
             // 
@@ -628,49 +682,6 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(69, 37);
             this.btnSave.Text = "Guardar";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "ID";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Serie";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Folio";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Fecha";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Usuario";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Almacen";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Observaciones";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
             // 
             // ucInputs
             // 
