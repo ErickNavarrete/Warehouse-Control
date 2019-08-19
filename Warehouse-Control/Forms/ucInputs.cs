@@ -30,8 +30,10 @@ namespace Warehouse_Control.Forms
             InitializeComponent();
             btnCancel.Visible = false;
             btnSave.Visible = false;
-            btnNew.Visible = true;
-            btnSearch.Visible = true;
+            btnAdd.Enabled = false;
+            btnDelete.Enabled = false;
+            btnEdit.Enabled = false;
+            enable_fields(false);
         }
 
         #region Funciones
