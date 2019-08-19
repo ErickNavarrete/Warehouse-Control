@@ -312,9 +312,52 @@ namespace Warehouse_Control.Forms
             
         }
 
+        private void CbWarehouse_Click(object sender, EventArgs e)
+        {
+            cbWarehouse.Items.Clear();
+            var db = new ConnectionDB();
+            List<Warehouse> warehouse = db.Warehouses.Where(x => x.id_district == 0).ToList();
+
+            foreach (var item in warehouse)
+            {
+                cbWarehouse.Items.Add(item.name);
+            }
+
+        }
+
         private void CbWarehouse_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var db = new ConnectionDB();
+            idWarehouse = db.Warehouses.Where(x => x.name == cbWarehouse.Text)
+                .Select(x => x.id)
+                .FirstOrDefault();
+        }
 
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            Departure departure       = new Departure();
+            DepartureDet departureDet = new DepartureDet();
+
+            departure.date         = DateTime.Now;
+            departure.folio        = Convert.ToInt32(tbFolio2.Text);
+            departure.id_cellar    = idCellar;
+            departure.id_user      = idUser;
+            departure.id_warehouse = idWarehouse;
+            departure.observation  = tbObservations.Text;
+            departure.serie        = tbSerie2.Text;
+            var db = new ConnectionDB();
+            db.Departures.Add(departure);
+            db.SaveChanges();
+            MessageBox.Show("Registro con éxito", "Salida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            foreach (DataGridViewRow item in dgvDepartureDetail2.Rows)
+            {
+                departureDet.id_departure = departure.id;
+                departureDet.id_item = (int) item.Cells[0].Value;
+                departureDet.quantity = (int) item.Cells[2].Value;
+                db.DepartureDet.Add(departureDet);
+                db.SaveChanges();
+            }
         }
     }
 }
