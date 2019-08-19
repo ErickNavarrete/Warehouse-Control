@@ -141,12 +141,12 @@ namespace Warehouse_Control.Forms
                 {
                     departure = x,
                     user = y,
-                }).Join(db.Warehouses, x => x.departure.id, y => y.id, (x, y) => new
+                }).Join(db.Warehouses, x => x.departure.id_warehouse, y => y.id, (x, y) => new
                 {
                     departure = x.departure,
                     user = x.user,
                     warehouse = y,
-                }).Join(db.Warehouses, x => x.departure.id, y => y.id, (x, y) => new
+                }).Join(db.Warehouses, x => x.departure.id_cellar, y => y.id, (x, y) => new
                 {
                     departure = x.departure,
                     user = x.user,

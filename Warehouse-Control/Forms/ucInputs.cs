@@ -124,7 +124,19 @@ namespace Warehouse_Control.Forms
 
             foreach (var entry in entries)
             {
-                dgvEntries.Rows.Add(entry.Id, entry.serie, entry.folio, entry.date, entry.id_user, entry.id_warehouse, entry.observation);
+                var query = db.Entries.Join(db.Users, x => x.id_user, y => y.Id, (x, y) => new
+                {
+                    entry = x,
+                    user = y,
+                }).Join(db.Warehouses, x => x.entry.id_warehouse, y => y.id, (x, y) => new
+                {
+                    entry = x.entry,
+                    user = x.user,
+                    warehouse = y,
+                }).Where(
+                    x => x.entry.Id == entry.Id
+                    ).FirstOrDefault();
+                dgvEntries.Rows.Add(entry.Id, entry.serie, entry.folio, entry.date, query.user.name, query.warehouse.name, entry.observation);
             }
         }
 
