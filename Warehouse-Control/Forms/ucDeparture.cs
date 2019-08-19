@@ -136,7 +136,25 @@ namespace Warehouse_Control.Forms
 
             foreach (var departure in departures)
             {
-                dgvDepartures.Rows.Add(departure.id,departure.serie, departure.folio, departure.date, departure.id_user, departure.id_warehouse, departure.id_cellar, departure.observation);
+                var query = db.Departures.Join(db.Users, x => x.id_user, y => y.Id, (x, y) => new
+                {
+                    departure = x,
+                    user = y,
+                }).Join(db.Warehouses, x => x.departure.id, y => y.id, (x, y) => new
+                {
+                    departure = x.departure,
+                    user = x.user,
+                    warehouse = y,
+                }).Join(db.Warehouses, x => x.departure.id, y => y.id, (x, y) => new
+                {
+                    departure = x.departure,
+                    user = x.user,
+                    warehouse = x.warehouse,
+                    cellar = y,
+                }).Where(
+                    x=> x.departure.id == departure.id
+                    ).FirstOrDefault();
+                dgvDepartures.Rows.Add(departure.id,departure.serie, departure.folio, departure.date, query.user.name, query.warehouse.name, query.cellar.name, departure.observation);
             }
         }
 

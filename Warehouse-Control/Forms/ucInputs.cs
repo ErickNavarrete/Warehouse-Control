@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Warehouse_Control.Util;
 using Warehouse_Control.Connection;
 using Warehouse_Control.Models;
+using System.Data.Entity;
 
 namespace Warehouse_Control.Forms
 {
@@ -313,9 +314,29 @@ namespace Warehouse_Control.Forms
                 entryDet.quantity = (int)item.Cells[2].Value;
                 db.EntryDet.Add(entryDet);
                 db.SaveChanges();
+
+                var inventory = db.Inventories.Where(x => x.id_item == entryDet.id_item).FirstOrDefault();
+                if (inventory == null)
+                {
+                    inventory = new Inventory()
+                    {
+                        id_item = entryDet.id_item,
+                        id_warehouse = entry.id_warehouse,
+                        quantity = entryDet.quantity,
+                    };
+                    db.Inventories.Add(inventory);
+                    db.SaveChanges();
+                }
+                else {
+                    inventory.quantity += entryDet.quantity;
+                    db.Entry(inventory).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
             }
             fill_dgvEntries("");
             clearFieldsTab2();
+
         }
 
         private void CbWarehouse_Click(object sender, EventArgs e)
