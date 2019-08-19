@@ -37,6 +37,8 @@
             this.btnDistrict = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
+            this.ucWarehouse1 = new Warehouse_Control.Forms.ucWarehouse();
+            this.ucInputs1 = new Warehouse_Control.Forms.ucInputs();
             this.ucReports1 = new Warehouse_Control.Forms.ucReports();
             this.ucDeparture1 = new Warehouse_Control.Forms.ucDeparture();
             this.ucDistrict1 = new Warehouse_Control.Forms.ucDistrict();
@@ -157,6 +159,30 @@
             this.btnUser.UseVisualStyleBackColor = true;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
+            // ucWarehouse1
+            // 
+            this.ucWarehouse1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucWarehouse1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ucWarehouse1.Location = new System.Drawing.Point(283, 102);
+            this.ucWarehouse1.Name = "ucWarehouse1";
+            this.ucWarehouse1.Size = new System.Drawing.Size(780, 524);
+            this.ucWarehouse1.TabIndex = 10;
+            this.ucWarehouse1.Visible = false;
+            // 
+            // ucInputs1
+            // 
+            this.ucInputs1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ucInputs1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ucInputs1.Location = new System.Drawing.Point(283, 102);
+            this.ucInputs1.Name = "ucInputs1";
+            this.ucInputs1.Size = new System.Drawing.Size(780, 524);
+            this.ucInputs1.TabIndex = 9;
+            this.ucInputs1.Visible = false;
+            // 
             // ucReports1
             // 
             this.ucReports1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -251,6 +277,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 631);
+            this.Controls.Add(this.ucWarehouse1);
+            this.Controls.Add(this.ucInputs1);
             this.Controls.Add(this.ucReports1);
             this.Controls.Add(this.ucDeparture1);
             this.Controls.Add(this.ucDistrict1);
@@ -289,5 +317,7 @@
         private ucDistrict ucDistrict1;
         private ucDeparture ucDeparture1;
         private ucReports ucReports1;
+        private ucInputs ucInputs1;
+        private ucWarehouse ucWarehouse1;
     }
 }

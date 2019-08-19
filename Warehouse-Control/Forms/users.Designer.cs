@@ -30,13 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(users));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.user = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.tbSearch = new System.Windows.Forms.ToolStripTextBox();
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
@@ -55,59 +51,40 @@
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.tbUser = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvUsers
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvUsers.AllowUserToAddRows = false;
+            this.dgvUsers.AllowUserToDeleteRows = false;
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.name,
             this.phone,
             this.email,
             this.user});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 52);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(445, 436);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.HeaderText = "Nombre";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // phone
-            // 
-            this.phone.HeaderText = "Teléfono";
-            this.phone.Name = "phone";
-            this.phone.ReadOnly = true;
-            // 
-            // email
-            // 
-            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.email.HeaderText = "Correo electronico";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            // 
-            // user
-            // 
-            this.user.HeaderText = "Usuario";
-            this.user.Name = "user";
-            this.user.ReadOnly = true;
+            this.dgvUsers.Location = new System.Drawing.Point(3, 52);
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.ReadOnly = true;
+            this.dgvUsers.Size = new System.Drawing.Size(445, 436);
+            this.dgvUsers.TabIndex = 0;
+            this.dgvUsers.DoubleClick += new System.EventHandler(this.DgvUsers_DoubleClick);
             // 
             // toolStrip1
             // 
             this.toolStrip1.AutoSize = false;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox1,
+            this.tbSearch,
             this.btnSearch,
             this.btnNew,
             this.btnCancel,
@@ -118,10 +95,11 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripTextBox1
+            // tbSearch
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(450, 40);
+            this.tbSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(450, 40);
             // 
             // btnSearch
             // 
@@ -158,7 +136,7 @@
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(69, 20);
+            this.btnSave.Size = new System.Drawing.Size(69, 37);
             this.btnSave.Text = "Guardar";
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
@@ -259,6 +237,7 @@
             // 
             this.tbPassword.Location = new System.Drawing.Point(9, 150);
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(281, 20);
             this.tbPassword.TabIndex = 10;
             // 
@@ -295,6 +274,39 @@
             this.materialLabel2.TabIndex = 9;
             this.materialLabel2.Text = "Contraseña:";
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.HeaderText = "Nombre";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // phone
+            // 
+            this.phone.HeaderText = "Teléfono";
+            this.phone.Name = "phone";
+            this.phone.ReadOnly = true;
+            // 
+            // email
+            // 
+            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.email.HeaderText = "Correo electronico";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // user
+            // 
+            this.user.HeaderText = "Usuario";
+            this.user.Name = "user";
+            this.user.ReadOnly = true;
+            // 
             // users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,10 +315,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvUsers);
             this.Name = "users";
             this.Size = new System.Drawing.Size(780, 524);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -319,9 +331,9 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox tbSearch;
         private System.Windows.Forms.ToolStripButton btnSearch;
         private System.Windows.Forms.ToolStripButton btnNew;
         private MaterialSkin.Controls.MaterialLabel lbName;
@@ -338,11 +350,12 @@
         private System.Windows.Forms.TextBox tbUsername;
         private MaterialSkin.Controls.MaterialLabel tbUser;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private System.Windows.Forms.ToolStripButton btnCancel;
+        private System.Windows.Forms.ToolStripButton btnSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn user;
-        private System.Windows.Forms.ToolStripButton btnCancel;
-        private System.Windows.Forms.ToolStripButton btnSave;
     }
 }
