@@ -15,11 +15,10 @@ namespace Warehouse_Control.Forms
 {
     public partial class ucInputs : UserControl
     {
-        private int idDeparture;
-        private int idDepartureDetail1;
-        private int idDepartureDetail2;
+        private int idEntry;
+        private int idEntryDetail1;
+        private int idEntryDetail2;
         private int idItem;
-        private int idCellar;
         private int idWarehouse;
         public int idUser;
         public int idDistrict;
@@ -43,7 +42,7 @@ namespace Warehouse_Control.Forms
             tbSerie2.Enabled = flag;
             cbItem.Enabled = flag;
             tbQuantity.Enabled = flag;
-            dgvDepartureDetail2.Enabled = flag;
+            dgvEntryDetail2.Enabled = flag;
             cbWarehouse.Enabled = flag;
             tbObservations.Enabled = flag;
             btnAdd.Enabled = flag;
@@ -58,9 +57,9 @@ namespace Warehouse_Control.Forms
             cbWarehouse.Text = "";
             cbItem.Text = "";
             tbQuantity.Text = "";
-            dgvDepartureDetail2.Rows.Clear(); entryList.Clear();
+            dgvEntryDetail2.Rows.Clear(); entryList.Clear();
             idItem = 0;
-            idDepartureDetail2 = 0;
+            idEntryDetail2 = 0;
         }
 
         private void clearFieldsTab1()
@@ -70,7 +69,7 @@ namespace Warehouse_Control.Forms
             tbDate.Text = "";
             tbWarehouse.Text = "";
             tbUser.Text = "";
-            dgvDepartureDetail1.Rows.Clear();
+            dgvEntryDetail1.Rows.Clear();
         }
 
         private void setDataItem()
@@ -91,21 +90,21 @@ namespace Warehouse_Control.Forms
             return validator.requieredTextValidator(tbQuantity) && validator.cbRequiredValidator(cbItem);
         }
 
-        private void fill_dgvDepartureDetails2()
+        private void fill_dgvEntryDetails2()
         {
             var db = new ConnectionDB();
-            dgvDepartureDetail2.Rows.Clear();
+            dgvEntryDetail2.Rows.Clear();
             foreach (var entry in entryList)
             {
                 var item = db.Items.Where(x => x.id == entry.id_item).FirstOrDefault();
-                dgvDepartureDetail2.Rows.Add(entry.Id, item.key, entry.quantity);
+                dgvEntryDetail2.Rows.Add(entry.Id, item.key, entry.quantity);
             }
         }
 
-        private void fill_dgvDepartures(string searchValue)
+        private void fill_dgvEntries(string searchValue)
         {
             var db = new ConnectionDB();
-            dgvDepartures.Rows.Clear();
+            dgvEntries.Rows.Clear();
             List<Entry> entries;
             if (string.IsNullOrEmpty(searchValue))
             {
@@ -122,7 +121,7 @@ namespace Warehouse_Control.Forms
 
             foreach (var entry in entries)
             {
-                dgvDepartures.Rows.Add(entry.Id, entry.serie, entry.folio, entry.date, entry.id_user, entry.id_warehouse, entry.observation);
+                dgvEntries.Rows.Add(entry.Id, entry.serie, entry.folio, entry.date, entry.id_user, entry.id_warehouse, entry.observation);
             }
         }
 
@@ -172,7 +171,7 @@ namespace Warehouse_Control.Forms
 
             cbItem.Text = "";
             tbQuantity.Text = "";
-            fill_dgvDepartureDetails2();
+            fill_dgvEntryDetails2();
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -182,11 +181,11 @@ namespace Warehouse_Control.Forms
                 return;
             }
 
-            var currentDeparture = entryList[editIndex];
+            var currentEntry = entryList[editIndex];
 
-            currentDeparture.id_item = idItem;
-            currentDeparture.quantity = Convert.ToInt16(tbQuantity.Text);
-            fill_dgvDepartureDetails2();
+            currentEntry.id_item = idItem;
+            currentEntry.quantity = Convert.ToInt16(tbQuantity.Text);
+            fill_dgvEntryDetails2();
 
             cbItem.Text = "";
             tbQuantity.Text = "";
@@ -204,7 +203,7 @@ namespace Warehouse_Control.Forms
             btnDelete.Enabled = true;
             cbItem.Text = "";
             tbQuantity.Text = "";
-            fill_dgvDepartureDetails2();
+            fill_dgvEntryDetails2();
         }
 
         private void TbQuantity_KeyPress(object sender, KeyPressEventArgs e)
@@ -212,9 +211,9 @@ namespace Warehouse_Control.Forms
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar); //Para permitir solo numeros
         }
 
-        private void DgvDepartureDetail2_DoubleClick(object sender, EventArgs e)
+        private void DgvEntryDetail2_DoubleClick(object sender, EventArgs e)
         {
-            if (dgvDepartureDetail2.Rows.Count == 0)
+            if (dgvEntryDetail2.Rows.Count == 0)
             {
                 return;
             }
@@ -223,34 +222,34 @@ namespace Warehouse_Control.Forms
             btnEdit.Enabled = true;
             btnDelete.Enabled = true;
 
-            var index = dgvDepartureDetail2.CurrentRow.Index;
-            var currentDeparture = entryList[index];
+            var index = dgvEntryDetail2.CurrentRow.Index;
+            var currentEntry = entryList[index];
             editIndex = index;
             var db = new ConnectionDB();
-            var item = db.Items.Where(x => x.id == currentDeparture.id_item).FirstOrDefault();
+            var item = db.Items.Where(x => x.id == currentEntry.id_item).FirstOrDefault();
 
             idItem = item.id;
             cbItem.Text = item.key;
-            tbQuantity.Text = currentDeparture.quantity.ToString();
+            tbQuantity.Text = currentEntry.quantity.ToString();
         }
 
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            fill_dgvDepartures(tbSearch.Text);
+            fill_dgvEntries(tbSearch.Text);
             clearFieldsTab1();
         }
 
-        private void DgvDepartures_DoubleClick(object sender, EventArgs e)
+        private void DgvEntries_DoubleClick(object sender, EventArgs e)
         {
-            if (dgvDepartures.Rows.Count == 0)
+            if (dgvEntries.Rows.Count == 0)
             {
                 return;
             }
-            var index = dgvDepartures.CurrentRow.Index;
-            var id = Convert.ToInt16(dgvDepartures.Rows[index].Cells[0].Value.ToString());
+            var index = dgvEntries.CurrentRow.Index;
+            var id = Convert.ToInt16(dgvEntries.Rows[index].Cells[0].Value.ToString());
             var db = new ConnectionDB();
-            var query = db.Departures
+            var query = db.Entries
                 .Join(db.Users, x => x.id_user, y => y.Id, (x, y) => new
                 {
                     entry = x,
@@ -260,16 +259,10 @@ namespace Warehouse_Control.Forms
                     entry = x.entry,
                     user = x.user,
                     warehouse = y,
-                }).Join(db.Warehouses, x => x.entry.id_cellar, y => y.id, (x, y) => new
-                {
-                    entry = x.entry,
-                    user = x.user,
-                    warehouse = x.warehouse,
-                    cellar = y
                 })
-            .Where(z => z.entry.id == id).FirstOrDefault();
+            .Where(z => z.entry.Id == id).FirstOrDefault();
 
-            var detailDeparture = db.EntryDet.Where(x => x.id_entry == id).ToList();
+            var detailEntry = db.EntryDet.Where(x => x.id_entry == id).ToList();
 
             tbFolio1.Text = query.entry.folio.ToString();
             tbSerie1.Text = query.entry.serie;

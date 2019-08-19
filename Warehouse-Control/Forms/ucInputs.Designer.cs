@@ -43,11 +43,11 @@
             this.tbSerie1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvDepartureDetail1 = new System.Windows.Forms.DataGridView();
+            this.dgvEntryDetail1 = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDepartures = new System.Windows.Forms.DataGridView();
+            this.dgvEntries = new System.Windows.Forms.DataGridView();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +61,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.dgvDepartureDetail2 = new System.Windows.Forms.DataGridView();
+            this.dgvEntryDetail2 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,13 +93,13 @@
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartures)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntryDetail1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntries)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntryDetail2)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -120,7 +120,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.dgvDepartures);
+            this.tabPage1.Controls.Add(this.dgvEntries);
             this.tabPage1.Controls.Add(this.toolStrip1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -237,7 +237,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dgvDepartureDetail1);
+            this.groupBox2.Controls.Add(this.dgvEntryDetail1);
             this.groupBox2.Location = new System.Drawing.Point(0, 223);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(295, 223);
@@ -245,20 +245,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalle de Entrada";
             // 
-            // dgvDepartureDetail1
+            // dgvEntryDetail1
             // 
-            this.dgvDepartureDetail1.AllowUserToAddRows = false;
-            this.dgvDepartureDetail1.AllowUserToDeleteRows = false;
-            this.dgvDepartureDetail1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDepartureDetail1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEntryDetail1.AllowUserToAddRows = false;
+            this.dgvEntryDetail1.AllowUserToDeleteRows = false;
+            this.dgvEntryDetail1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEntryDetail1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dgvDepartureDetail1.Location = new System.Drawing.Point(0, 19);
-            this.dgvDepartureDetail1.Name = "dgvDepartureDetail1";
-            this.dgvDepartureDetail1.ReadOnly = true;
-            this.dgvDepartureDetail1.Size = new System.Drawing.Size(292, 201);
-            this.dgvDepartureDetail1.TabIndex = 0;
+            this.dgvEntryDetail1.Location = new System.Drawing.Point(0, 19);
+            this.dgvEntryDetail1.Name = "dgvEntryDetail1";
+            this.dgvEntryDetail1.ReadOnly = true;
+            this.dgvEntryDetail1.Size = new System.Drawing.Size(292, 201);
+            this.dgvEntryDetail1.TabIndex = 0;
             // 
             // Column4
             // 
@@ -280,12 +280,12 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
-            // dgvDepartures
+            // dgvEntries
             // 
-            this.dgvDepartures.AllowUserToAddRows = false;
-            this.dgvDepartures.AllowUserToDeleteRows = false;
-            this.dgvDepartures.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDepartures.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEntries.AllowUserToAddRows = false;
+            this.dgvEntries.AllowUserToDeleteRows = false;
+            this.dgvEntries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEntries.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
             this.Column8,
             this.Column9,
@@ -293,12 +293,12 @@
             this.Column11,
             this.Column12,
             this.Column14});
-            this.dgvDepartures.Location = new System.Drawing.Point(3, 46);
-            this.dgvDepartures.Name = "dgvDepartures";
-            this.dgvDepartures.ReadOnly = true;
-            this.dgvDepartures.Size = new System.Drawing.Size(468, 446);
-            this.dgvDepartures.TabIndex = 4;
-            this.dgvDepartures.DoubleClick += new System.EventHandler(this.DgvDepartures_DoubleClick);
+            this.dgvEntries.Location = new System.Drawing.Point(3, 46);
+            this.dgvEntries.Name = "dgvEntries";
+            this.dgvEntries.ReadOnly = true;
+            this.dgvEntries.Size = new System.Drawing.Size(468, 446);
+            this.dgvEntries.TabIndex = 4;
+            this.dgvEntries.DoubleClick += new System.EventHandler(this.DgvEntries_DoubleClick);
             // 
             // Column7
             // 
@@ -397,7 +397,7 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.dgvDepartureDetail2);
+            this.groupBox7.Controls.Add(this.dgvEntryDetail2);
             this.groupBox7.Location = new System.Drawing.Point(485, 19);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(277, 292);
@@ -405,21 +405,21 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Salidas";
             // 
-            // dgvDepartureDetail2
+            // dgvEntryDetail2
             // 
-            this.dgvDepartureDetail2.AllowUserToAddRows = false;
-            this.dgvDepartureDetail2.AllowUserToDeleteRows = false;
-            this.dgvDepartureDetail2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDepartureDetail2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEntryDetail2.AllowUserToAddRows = false;
+            this.dgvEntryDetail2.AllowUserToDeleteRows = false;
+            this.dgvEntryDetail2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEntryDetail2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dgvDepartureDetail2.Location = new System.Drawing.Point(0, 20);
-            this.dgvDepartureDetail2.Name = "dgvDepartureDetail2";
-            this.dgvDepartureDetail2.ReadOnly = true;
-            this.dgvDepartureDetail2.Size = new System.Drawing.Size(277, 253);
-            this.dgvDepartureDetail2.TabIndex = 0;
-            this.dgvDepartureDetail2.DoubleClick += new System.EventHandler(this.DgvDepartureDetail2_DoubleClick);
+            this.dgvEntryDetail2.Location = new System.Drawing.Point(0, 20);
+            this.dgvEntryDetail2.Name = "dgvEntryDetail2";
+            this.dgvEntryDetail2.ReadOnly = true;
+            this.dgvEntryDetail2.Size = new System.Drawing.Size(277, 253);
+            this.dgvEntryDetail2.TabIndex = 0;
+            this.dgvEntryDetail2.DoubleClick += new System.EventHandler(this.DgvEntryDetail2_DoubleClick);
             // 
             // Column1
             // 
@@ -696,14 +696,14 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartures)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntryDetail1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntries)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntryDetail2)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -733,18 +733,18 @@
         private System.Windows.Forms.TextBox tbSerie1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgvDepartureDetail1;
+        private System.Windows.Forms.DataGridView dgvEntryDetail1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridView dgvDepartures;
+        private System.Windows.Forms.DataGridView dgvEntries;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripTextBox tbSearch;
         private System.Windows.Forms.ToolStripButton btnSearch;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.DataGridView dgvDepartureDetail2;
+        private System.Windows.Forms.DataGridView dgvEntryDetail2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
