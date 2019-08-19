@@ -39,18 +39,17 @@ namespace Warehouse_Control
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-            
+            flag = false;
+
             if (getUser())
             {
-                flag = false;
                 scrDashBoard.id_user = user.Id;
                 scrDashBoard.user_name = user.user;
             }
             else
             {
-                flag = true;
+                MessageBox.Show("El usuario o la contraseña es incorrecta", "Usuario invalido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
             this.Close();
         }
 

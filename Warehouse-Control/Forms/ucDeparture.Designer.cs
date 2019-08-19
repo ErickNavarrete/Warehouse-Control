@@ -697,6 +697,7 @@
             this.cbWarehouse.Size = new System.Drawing.Size(121, 21);
             this.cbWarehouse.TabIndex = 6;
             this.cbWarehouse.SelectedIndexChanged += new System.EventHandler(this.CbWarehouse_SelectedIndexChanged);
+            this.cbWarehouse.Click += new System.EventHandler(this.CbWarehouse_Click);
             // 
             // label10
             // 
@@ -766,6 +767,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(69, 37);
             this.btnSave.Text = "Guardar";
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // ucDeparture
             // 
