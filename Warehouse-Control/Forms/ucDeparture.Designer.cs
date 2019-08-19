@@ -557,6 +557,7 @@
             // tbQuantity
             // 
             this.tbQuantity.Location = new System.Drawing.Point(6, 159);
+            this.tbQuantity.MaxLength = 4;
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.Size = new System.Drawing.Size(275, 20);
             this.tbQuantity.TabIndex = 3;

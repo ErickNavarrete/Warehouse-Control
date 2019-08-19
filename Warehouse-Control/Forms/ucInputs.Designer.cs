@@ -523,7 +523,7 @@
             // tbQuantity
             // 
             this.tbQuantity.Location = new System.Drawing.Point(6, 159);
-            this.tbQuantity.MaxLength = 5;
+            this.tbQuantity.MaxLength = 4;
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.Size = new System.Drawing.Size(275, 20);
             this.tbQuantity.TabIndex = 3;
@@ -623,6 +623,7 @@
             this.cbWarehouse.Size = new System.Drawing.Size(217, 21);
             this.cbWarehouse.TabIndex = 6;
             this.cbWarehouse.SelectedIndexChanged += new System.EventHandler(this.CbWarehouse_SelectedIndexChanged);
+            this.cbWarehouse.Click += new System.EventHandler(this.CbWarehouse_Click);
             // 
             // label10
             // 
@@ -683,6 +684,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(69, 37);
             this.btnSave.Text = "Guardar";
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // ucInputs
             // 

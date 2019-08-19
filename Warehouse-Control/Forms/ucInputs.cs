@@ -264,7 +264,7 @@ namespace Warehouse_Control.Forms
                 })
             .Where(z => z.entry.Id == id).FirstOrDefault();
 
-            var detailEntry = db.EntryDet.Where(x => x.id_entry == id).ToList();
+            var detailEntries = db.EntryDet.Where(x => x.id_entry == id).ToList();
 
             tbFolio1.Text = query.entry.folio.ToString();
             tbSerie1.Text = query.entry.serie;
@@ -272,11 +272,62 @@ namespace Warehouse_Control.Forms
             tbDate.Text = query.entry.date.ToString();
             tbWarehouse.Text = query.warehouse.name;
 
+            dgvEntryDetail1.Rows.Clear();
+            foreach (var detail in detailEntries)
+            {
+                var name = db.Items.Where(x => x.id == detail.id_item).Select(x => x.key).FirstOrDefault();
+                dgvEntryDetail1.Rows.Add(detail.Id, name, detail.quantity);
+            }
+
         }
 
         private void CbWarehouse_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var db = new ConnectionDB();
+            idWarehouse = db.Warehouses.Where(x => x.name == cbWarehouse.Text)
+                .Select(x => x.id)
+                .FirstOrDefault();
+        }
 
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            var db = new ConnectionDB();
+
+            Entry entry = new Entry();
+            EntryDet entryDet = new EntryDet();
+
+            entry.date = DateTime.Now;
+            entry.folio = Convert.ToInt32(tbFolio2.Text);
+            entry.id_user = idUser;
+            entry.id_warehouse = idWarehouse;
+            entry.observation = tbObservations.Text;
+            entry.serie = tbSerie2.Text;
+            db.Entries.Add(entry);
+            db.SaveChanges();
+            MessageBox.Show("Registro con éxito", "Entrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            foreach (DataGridViewRow item in dgvEntryDetail2.Rows)
+            {
+                entryDet.id_entry = entry.Id;
+                entryDet.id_item = (int)item.Cells[0].Value;
+                entryDet.quantity = (int)item.Cells[2].Value;
+                db.EntryDet.Add(entryDet);
+                db.SaveChanges();
+            }
+            fill_dgvEntries("");
+            clearFieldsTab2();
+        }
+
+        private void CbWarehouse_Click(object sender, EventArgs e)
+        {
+            cbWarehouse.Items.Clear();
+            var db = new ConnectionDB();
+            List<Warehouse> warehouse = db.Warehouses.Where(x => x.id_district == 0).ToList();
+
+            foreach (var item in warehouse)
+            {
+                cbWarehouse.Items.Add(item.name);
+            }
         }
     }
 }

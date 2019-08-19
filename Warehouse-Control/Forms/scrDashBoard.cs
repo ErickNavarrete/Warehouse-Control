@@ -87,6 +87,7 @@ namespace Warehouse_Control.Forms
                     break;
                 case 2.4:
                     ucInputs1.Visible = true;
+                    ucInputs1.idUser = id_user;
                     break;
                 case 2.5:
                     ucDeparture1.Visible = true;

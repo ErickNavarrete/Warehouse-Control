@@ -179,16 +179,16 @@ namespace Warehouse_Control.Forms
             var data = db.Inventories.FirstOrDefault(x => x.id_warehouse == idWarehouse && x.id_item == idItem);
 
             int quantity = Convert.ToInt32(tbQuantity.Text);
-            //if (data == null)
-            //{
-            //    MessageBox.Show("Elementos insuficientes", "Control de inventarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
-            //if (data.quantity < quantity)
-            //{
-            //    MessageBox.Show("Elementos insuficientes", "Control de inventarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
+            if (data == null)
+            {
+                MessageBox.Show("Elementos insuficientes", "Control de inventarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (data.quantity < quantity)
+            {
+                MessageBox.Show("Elementos insuficientes", "Control de inventarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             var departureDetail = new DepartureDet {
                 id_item = idItem,
                 quantity = Convert.ToInt16( tbQuantity.Text)
@@ -323,8 +323,9 @@ namespace Warehouse_Control.Forms
             tbCellar.Text = query.cellar.name;
             tbWarehouse.Text = query.warehouse.name;
 
+            dgvDepartureDetail1.Rows.Clear();
             foreach (var detail in detailDeparture) {
-                var name = db.Items.Where(x => x.id == detail.id_item).Select(x => x.id).FirstOrDefault();
+                var name = db.Items.Where(x => x.id == detail.id_item).Select(x => x.key).FirstOrDefault();
                 dgvDepartureDetail1.Rows.Add(detail.id,name, detail.quantity);
             }
             
@@ -379,6 +380,7 @@ namespace Warehouse_Control.Forms
                 db.SaveChanges();
             }
             fill_dgvDepartures("");
+            clearFieldsTab2();
         }
     }
 }
