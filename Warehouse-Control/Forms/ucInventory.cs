@@ -30,7 +30,7 @@ namespace Warehouse_Control.Forms
                 return;
             }
 
-            var data = db.Inventory.Join(db.Items, x => x.id_item, y => y.id, (x, y) => new
+            var data = db.Inventories.Join(db.Items, x => x.id_item, y => y.id, (x, y) => new
             {
                 x.id_warehouse,
                 x.quantity,
