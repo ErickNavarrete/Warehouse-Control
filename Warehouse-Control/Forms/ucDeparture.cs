@@ -113,7 +113,7 @@ namespace Warehouse_Control.Forms
             dgvDepartureDetail2.Rows.Clear();
             foreach (var departure in departureList) {
                 var item = db.Items.Where(x => x.id == departure.id_item).FirstOrDefault();
-                dgvDepartureDetail2.Rows.Add(departure.id,item.key,departure.quantity);
+                dgvDepartureDetail2.Rows.Add(departure.id_item, item.key,departure.quantity);
             }
         }
 
@@ -164,7 +164,7 @@ namespace Warehouse_Control.Forms
 
         private void CbItem_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selected = cbItem.SelectedItem.ToString();
+            var selected = cbItem.Text;
             var db = new ConnectionDB();
             var item = db.Items.Where(x => x.key == selected).FirstOrDefault();
             idItem = item.id;
@@ -175,7 +175,15 @@ namespace Warehouse_Control.Forms
             if (!checkFieldsDEpartureDetail()) {
                 return;
             }
+            var db = new ConnectionDB();
+            var data = db.Inventories.FirstOrDefault(x => x.id_warehouse == idWarehouse && x.id_item == idItem);
 
+            int quantity = Convert.ToInt32(tbQuantity.Text); 
+            if (data.quantity < quantity)
+            {
+                MessageBox.Show("Elementos insuficientes", "Control de inventarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             var departureDetail = new DepartureDet {
                 id_item = idItem,
                 quantity = Convert.ToInt16( tbQuantity.Text)
@@ -335,6 +343,9 @@ namespace Warehouse_Control.Forms
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+
+            var db = new ConnectionDB();
+
             Departure departure       = new Departure();
             DepartureDet departureDet = new DepartureDet();
 
@@ -345,7 +356,6 @@ namespace Warehouse_Control.Forms
             departure.id_warehouse = idWarehouse;
             departure.observation  = tbObservations.Text;
             departure.serie        = tbSerie2.Text;
-            var db = new ConnectionDB();
             db.Departures.Add(departure);
             db.SaveChanges();
             MessageBox.Show("Registro con éxito", "Salida", MessageBoxButtons.OK, MessageBoxIcon.Information);
