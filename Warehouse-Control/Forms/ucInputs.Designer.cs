@@ -43,18 +43,25 @@
             this.tbSerie1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvDepartureDetail1 = new System.Windows.Forms.DataGridView();
+            this.dgvEntryDetail1 = new System.Windows.Forms.DataGridView();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDepartures = new System.Windows.Forms.DataGridView();
+            this.dgvEntries = new System.Windows.Forms.DataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tbSearch = new System.Windows.Forms.ToolStripTextBox();
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.dgvDepartureDetail2 = new System.Windows.Forms.DataGridView();
+            this.dgvEntryDetail2 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,24 +89,17 @@
             this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartures)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntryDetail1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntries)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntryDetail2)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -120,7 +120,7 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.dgvDepartures);
+            this.tabPage1.Controls.Add(this.dgvEntries);
             this.tabPage1.Controls.Add(this.toolStrip1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -237,7 +237,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dgvDepartureDetail1);
+            this.groupBox2.Controls.Add(this.dgvEntryDetail1);
             this.groupBox2.Location = new System.Drawing.Point(0, 223);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(295, 223);
@@ -245,20 +245,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalle de Entrada";
             // 
-            // dgvDepartureDetail1
+            // dgvEntryDetail1
             // 
-            this.dgvDepartureDetail1.AllowUserToAddRows = false;
-            this.dgvDepartureDetail1.AllowUserToDeleteRows = false;
-            this.dgvDepartureDetail1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDepartureDetail1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEntryDetail1.AllowUserToAddRows = false;
+            this.dgvEntryDetail1.AllowUserToDeleteRows = false;
+            this.dgvEntryDetail1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEntryDetail1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dgvDepartureDetail1.Location = new System.Drawing.Point(0, 19);
-            this.dgvDepartureDetail1.Name = "dgvDepartureDetail1";
-            this.dgvDepartureDetail1.ReadOnly = true;
-            this.dgvDepartureDetail1.Size = new System.Drawing.Size(292, 201);
-            this.dgvDepartureDetail1.TabIndex = 0;
+            this.dgvEntryDetail1.Location = new System.Drawing.Point(0, 19);
+            this.dgvEntryDetail1.Name = "dgvEntryDetail1";
+            this.dgvEntryDetail1.ReadOnly = true;
+            this.dgvEntryDetail1.Size = new System.Drawing.Size(292, 201);
+            this.dgvEntryDetail1.TabIndex = 0;
             // 
             // Column4
             // 
@@ -280,12 +280,12 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
-            // dgvDepartures
+            // dgvEntries
             // 
-            this.dgvDepartures.AllowUserToAddRows = false;
-            this.dgvDepartures.AllowUserToDeleteRows = false;
-            this.dgvDepartures.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDepartures.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEntries.AllowUserToAddRows = false;
+            this.dgvEntries.AllowUserToDeleteRows = false;
+            this.dgvEntries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEntries.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
             this.Column8,
             this.Column9,
@@ -293,11 +293,55 @@
             this.Column11,
             this.Column12,
             this.Column14});
-            this.dgvDepartures.Location = new System.Drawing.Point(3, 46);
-            this.dgvDepartures.Name = "dgvDepartures";
-            this.dgvDepartures.ReadOnly = true;
-            this.dgvDepartures.Size = new System.Drawing.Size(468, 446);
-            this.dgvDepartures.TabIndex = 4;
+            this.dgvEntries.Location = new System.Drawing.Point(3, 46);
+            this.dgvEntries.Name = "dgvEntries";
+            this.dgvEntries.ReadOnly = true;
+            this.dgvEntries.Size = new System.Drawing.Size(468, 446);
+            this.dgvEntries.TabIndex = 4;
+            this.dgvEntries.DoubleClick += new System.EventHandler(this.DgvEntries_DoubleClick);
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "ID";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Serie";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Folio";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Fecha";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Usuario";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Almacen";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "Observaciones";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
             // 
             // toolStrip1
             // 
@@ -324,6 +368,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(62, 37);
             this.btnSearch.Text = "Buscar";
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // tabPage2
             // 
@@ -352,7 +397,7 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.dgvDepartureDetail2);
+            this.groupBox7.Controls.Add(this.dgvEntryDetail2);
             this.groupBox7.Location = new System.Drawing.Point(485, 19);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(277, 292);
@@ -360,20 +405,21 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Salidas";
             // 
-            // dgvDepartureDetail2
+            // dgvEntryDetail2
             // 
-            this.dgvDepartureDetail2.AllowUserToAddRows = false;
-            this.dgvDepartureDetail2.AllowUserToDeleteRows = false;
-            this.dgvDepartureDetail2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDepartureDetail2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvEntryDetail2.AllowUserToAddRows = false;
+            this.dgvEntryDetail2.AllowUserToDeleteRows = false;
+            this.dgvEntryDetail2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEntryDetail2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3});
-            this.dgvDepartureDetail2.Location = new System.Drawing.Point(0, 20);
-            this.dgvDepartureDetail2.Name = "dgvDepartureDetail2";
-            this.dgvDepartureDetail2.ReadOnly = true;
-            this.dgvDepartureDetail2.Size = new System.Drawing.Size(277, 253);
-            this.dgvDepartureDetail2.TabIndex = 0;
+            this.dgvEntryDetail2.Location = new System.Drawing.Point(0, 20);
+            this.dgvEntryDetail2.Name = "dgvEntryDetail2";
+            this.dgvEntryDetail2.ReadOnly = true;
+            this.dgvEntryDetail2.Size = new System.Drawing.Size(277, 253);
+            this.dgvEntryDetail2.TabIndex = 0;
+            this.dgvEntryDetail2.DoubleClick += new System.EventHandler(this.DgvEntryDetail2_DoubleClick);
             // 
             // Column1
             // 
@@ -417,6 +463,7 @@
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Borrar";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnEdit
             // 
@@ -428,6 +475,7 @@
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Editar";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // btnAdd
             // 
@@ -439,6 +487,7 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // groupBox5
             // 
@@ -469,6 +518,7 @@
             this.cbItem.Name = "cbItem";
             this.cbItem.Size = new System.Drawing.Size(275, 21);
             this.cbItem.TabIndex = 12;
+            this.cbItem.SelectedIndexChanged += new System.EventHandler(this.CbItem_SelectedIndexChanged);
             // 
             // tbQuantity
             // 
@@ -476,6 +526,7 @@
             this.tbQuantity.Name = "tbQuantity";
             this.tbQuantity.Size = new System.Drawing.Size(275, 20);
             this.tbQuantity.TabIndex = 3;
+            this.tbQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbQuantity_KeyPress);
             // 
             // label13
             // 
@@ -570,6 +621,7 @@
             this.cbWarehouse.Name = "cbWarehouse";
             this.cbWarehouse.Size = new System.Drawing.Size(217, 21);
             this.cbWarehouse.TabIndex = 6;
+            this.cbWarehouse.SelectedIndexChanged += new System.EventHandler(this.CbWarehouse_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -610,6 +662,7 @@
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(104, 37);
             this.btnNew.Text = "Nueva Entrada";
+            this.btnNew.Click += new System.EventHandler(this.BtnNew_Click);
             // 
             // btnCancel
             // 
@@ -619,6 +672,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(73, 37);
             this.btnCancel.Text = "Cancelar";
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnSave
             // 
@@ -628,49 +682,6 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(69, 37);
             this.btnSave.Text = "Guardar";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "ID";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Serie";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Folio";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Fecha";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Usuario";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Almacen";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Observaciones";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
             // 
             // ucInputs
             // 
@@ -685,14 +696,14 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartures)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntryDetail1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntries)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEntryDetail2)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -722,18 +733,18 @@
         private System.Windows.Forms.TextBox tbSerie1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dgvDepartureDetail1;
+        private System.Windows.Forms.DataGridView dgvEntryDetail1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridView dgvDepartures;
+        private System.Windows.Forms.DataGridView dgvEntries;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripTextBox tbSearch;
         private System.Windows.Forms.ToolStripButton btnSearch;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.DataGridView dgvDepartureDetail2;
+        private System.Windows.Forms.DataGridView dgvEntryDetail2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

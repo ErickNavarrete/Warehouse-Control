@@ -696,6 +696,7 @@
             this.cbWarehouse.Name = "cbWarehouse";
             this.cbWarehouse.Size = new System.Drawing.Size(121, 21);
             this.cbWarehouse.TabIndex = 6;
+            this.cbWarehouse.SelectedIndexChanged += new System.EventHandler(this.CbWarehouse_SelectedIndexChanged);
             // 
             // label10
             // 
