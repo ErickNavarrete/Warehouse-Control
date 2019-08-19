@@ -45,8 +45,10 @@ namespace Warehouse_Control.Forms
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            util.control_enable_all_textbox(this,false);
+            util.control_enable_all_textbox(this,false, true);
             define_active_buttons(true);
+            editable = false;
+            idUse = 0;
         }
 
         private void BtnNew_Click(object sender, EventArgs e)
@@ -58,6 +60,11 @@ namespace Warehouse_Control.Forms
         private void BtnSave_Click(object sender, EventArgs e)
         {
             if (!verify_fields(true))
+            {
+                return;
+            }
+
+            if (!chkMailAndUser())
             {
                 return;
             }
@@ -81,6 +88,7 @@ namespace Warehouse_Control.Forms
             }
             else
             {
+
                 var user = new Users
                 {
                     name = tbName.Text,
@@ -214,6 +222,32 @@ namespace Warehouse_Control.Forms
         {
             Users users = conn.Users.FirstOrDefault(x => x.Id == idUse);
             return users.password;
+        }
+
+        private Boolean chkMailAndUser()
+        {
+            Users users = conn.Users.FirstOrDefault( x => x.mail == tbEmail.Text || 
+                                                       x.user == tbUsername.Text );
+            
+            if (users != null)
+            {
+                String campo = "";
+                if (users.mail == tbEmail.Text)
+                {
+                    campo = "Correo electronico";
+                    tbEmail.Focus();
+                }
+                else
+                {
+                    campo = "Usuario";
+                    tbUsername.Focus();
+                }
+
+                MessageBox.Show("El campo ya existe en base de datos", campo, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
     }
 }
