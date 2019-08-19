@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -373,11 +374,20 @@ namespace Warehouse_Control.Forms
 
             foreach (DataGridViewRow item in dgvDepartureDetail2.Rows)
             {
+
                 departureDet.id_departure = departure.id;
                 departureDet.id_item = (int) item.Cells[0].Value;
                 departureDet.quantity = (int) item.Cells[2].Value;
                 db.DepartureDet.Add(departureDet);
                 db.SaveChanges();
+                var inventory = db.Inventories.FirstOrDefault(x=>x.id_warehouse == idWarehouse 
+                                                                 && x.id_item == departureDet.id_item);
+                if (inventory != null)
+                {
+                    inventory.quantity = inventory.quantity - departureDet.quantity;
+                    db.Entry(inventory).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
             }
             fill_dgvDepartures("");
             clearFieldsTab2();
