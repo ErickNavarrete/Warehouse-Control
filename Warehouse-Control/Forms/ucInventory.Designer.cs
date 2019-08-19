@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucInventory));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.cbWarehouse = new System.Windows.Forms.ToolStripComboBox();
             this.tbSearchValue = new System.Windows.Forms.ToolStripTextBox();
@@ -58,6 +58,7 @@
             // 
             this.cbWarehouse.Name = "cbWarehouse";
             this.cbWarehouse.Size = new System.Drawing.Size(130, 25);
+            this.cbWarehouse.Click += new System.EventHandler(this.cbWarehouse_Click);
             // 
             // tbSearchValue
             // 
@@ -110,10 +111,10 @@
             // 
             // Column3
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column3.HeaderText = "CANTIDAD";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;

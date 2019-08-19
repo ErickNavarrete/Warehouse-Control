@@ -56,5 +56,17 @@ namespace Warehouse_Control.Forms
             }
 
         }
+
+        private void cbWarehouse_Click(object sender, EventArgs e)
+        {
+            cbWarehouse.Items.Clear();
+            ConnectionDB db = new ConnectionDB();
+
+            var data = db.Warehouses.Where(x => x.id_district == 0).Select(x=> x.name).ToList();
+            foreach (var item in data)
+            {
+                cbWarehouse.Items.Add(item);
+            }
+        }
     }
 }
