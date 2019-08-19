@@ -311,5 +311,10 @@ namespace Warehouse_Control.Forms
             tbWarehouse.Text = query.warehouse.name;
             
         }
+
+        private void CbWarehouse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
