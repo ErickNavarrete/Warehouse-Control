@@ -74,6 +74,7 @@ namespace Warehouse_Control.Forms
                 case 1:
                     users1.Visible = true;
                     users1.init_Datagrid();
+                    users1.nameUserLogged = user_name;
                     break;
                 case 2.1:
                     ucItems1.Visible = true;
