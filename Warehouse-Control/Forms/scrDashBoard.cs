@@ -66,6 +66,8 @@ namespace Warehouse_Control.Forms
             ucDistrict1.Visible = false;
             ucDeparture1.Visible = false;
             ucReports1.Visible = false;
+            ucInputs1.Visible = false;
+            ucWarehouse1.Visible = false;
 
             switch (id)
             {
@@ -75,11 +77,18 @@ namespace Warehouse_Control.Forms
                 case 2.1:
                     ucItems1.Visible = true;
                     break;
+                case 2.2:
+                    ucWarehouse1.Visible = true;
+                    break;
                 case 2.3:
                     ucInventory1.Visible = true;
                     break;
+                case 2.4:
+                    ucInputs1.Visible = true;
+                    break;
                 case 2.5:
                     ucDeparture1.Visible = true;
+                    ucDeparture1.idUser = id_user;
                     break;
                 case 3:
                     ucDistrict1.Visible = true;

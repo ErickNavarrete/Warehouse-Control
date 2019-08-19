@@ -35,5 +35,15 @@ namespace Warehouse_Control.Forms
         {
             principal.UserControlConfig(2.5);
         }
+
+        private void btnWarehouse_Click(object sender, EventArgs e)
+        {
+            principal.UserControlConfig(2.2);
+        }
+
+        private void btnEntry_Click(object sender, EventArgs e)
+        {
+            principal.UserControlConfig(2.4);
+        }
     }
 }
