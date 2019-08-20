@@ -40,11 +40,12 @@ namespace Warehouse_Control.Forms
             cbUser.Items.Add("TODOS");
         }
 
-        private void Query(int option)
+        private void Query(int option, int departure)
         {
             ConnectionDB db = new ConnectionDB();
             crEntry crEntry = new crEntry();
             crDeparture crDeparture = new crDeparture();
+            crDeparture2 crDeparture2 = new crDeparture2();
             dsData dsData = new dsData();
             scrReports scrReports = new scrReports();
 
@@ -180,6 +181,7 @@ namespace Warehouse_Control.Forms
                         {
                             x.id_departure,
                             x.quantity,
+                            x.user,
                             y.key,
                             y.description
                         }).ToList();
@@ -187,12 +189,21 @@ namespace Warehouse_Control.Forms
                         foreach (var item in DepartureDetail)
                         {
                             dsData.dtDepartureDetail.AdddtDepartureDetailRow(item.id_departure, item.key,
-                                item.description, item.quantity);
+                                item.description, item.quantity, item.user);
                         }
                     }
 
-                    crDeparture.SetDataSource(dsData);
-                    scrReports.crv.ReportSource = crDeparture;
+                    if (departure == 1)
+                    {
+                        crDeparture.SetDataSource(dsData);
+                        scrReports.crv.ReportSource = crDeparture;
+                    }
+                    else
+                    {
+                        crDeparture2.SetDataSource(dsData);
+                        scrReports.crv.ReportSource = crDeparture2;
+                    }
+                    
                     #endregion
                     break;
             }
@@ -222,10 +233,13 @@ namespace Warehouse_Control.Forms
             switch (cbKind.Text)
             {
                 case "Entradas":
-                    Query(1);
+                    Query(1,0);
                     break;
                 case "Salidas":
-                    Query(2);
+                    Query(2,1);
+                    break;
+                case "Salidas Detalle":
+                    Query(2, 2);
                     break;
             }
             utils.enable_disable_form(this,true);

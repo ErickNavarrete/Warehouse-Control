@@ -11,6 +11,7 @@ using Warehouse_Control.Util;
 using Warehouse_Control.Connection;
 using Warehouse_Control.Models;
 using System.Data.Entity;
+using System.IO;
 
 namespace Warehouse_Control.Forms
 {
@@ -22,13 +23,15 @@ namespace Warehouse_Control.Forms
         {
             InitializeComponent();
             enable_textbox(false);
-            btnCancel.Visible = false;
-            btnSave.Visible = false;
-            btnNew.Visible = true;
-            btnSearch.Visible = true;
+            btnCancel.Visible   = false;
+            btnSave.Visible     = false;
+            btnNew.Visible      = true;
+            btnSearch.Visible   = true;
             btnSaveEdit.Visible = false;
-            btnDelete.Visible = false;
-            btnEdit.Visible = false;
+            btnDelete.Visible   = false;
+            btnEdit.Visible     = false;
+            btnImport.Visible   = true;
+            btnExport.Visible   = true;
         }
 
         public void enable_textbox(Boolean enable)
@@ -44,6 +47,8 @@ namespace Warehouse_Control.Forms
             btnSave.Visible = true;
             btnNew.Visible = false;
             btnSearch.Visible = false;
+            btnImport.Visible = false;
+            btnExport.Visible = false;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -80,6 +85,8 @@ namespace Warehouse_Control.Forms
             btnSave.Visible = false;
             btnNew.Visible = true;
             btnSearch.Visible = true;
+            btnEdit.Visible = true;
+            btnSaveEdit.Visible = true;
             enable_textbox(false);
             fill_dgv("");
         }
@@ -155,6 +162,8 @@ namespace Warehouse_Control.Forms
             btnCancel.Visible = true;
             btnSaveEdit.Visible = true;
             btnEdit.Visible = false;
+            btnEdit.Visible = false;
+            btnSaveEdit.Visible = false;
         }
 
         private void BtnSaveEdit_Click(object sender, EventArgs e)
@@ -180,6 +189,8 @@ namespace Warehouse_Control.Forms
             btnNew.Visible = true;
             btnCancel.Visible = false;
             btnSaveEdit.Visible = false;
+            btnEdit.Visible = true;
+            btnSaveEdit.Visible = true;
             fill_dgv("");
         }
 
@@ -206,6 +217,75 @@ namespace Warehouse_Control.Forms
                 btnEdit.Visible = false;
                 fill_dgv("");
             }
+        }
+
+        private void BtnImport_Click(object sender, EventArgs e)
+        {
+            var db = new ConnectionDB();
+            var ofd = new OpenFileDialog{
+                Filter = "CSV Files (*.csv)|*.csv",
+                Title  = "Open file"
+            };
+
+            bool first = true;
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                if (string.IsNullOrEmpty(ofd.FileName))
+                    return;
+
+                try
+                {
+                    using (var reader = new StreamReader(ofd.FileName))
+                    {
+
+                        while (!reader.EndOfStream)
+                        {
+
+                            var line = reader.ReadLine();
+                            var item = line.Split(',');
+                            var items = new Items();
+
+                            if (Convert.ToString(item[0]) == "Nombre")
+                            {
+                                continue;
+                            }
+
+                            items.key = Convert.ToString(item[0]);
+                            items.description = Convert.ToString(item[1]);
+
+                            db.Items.Add(items);
+                            db.SaveChanges();
+                        }
+                    }
+                }
+                catch (IOException exception)
+                {
+                    MessageBox.Show("Error al abrir el archivo", "Articulos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+
+            }
+
+            MessageBox.Show("Proceso terminado", "Articulos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            fill_dgv("");
+
+        }
+
+        private void BtnExport_Click(object sender, EventArgs e)
+        {
+            var saveFile = new SaveFileDialog
+            {
+                Title = "Guardar como",
+                Filter = "CSV Files (*.csv)|*.csv"
+            };
+            saveFile.ShowDialog();
+            if (string.IsNullOrEmpty(saveFile.FileName))
+            {
+                MessageBox.Show("Nombre no válido", "Articulo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            File.AppendAllText(saveFile.FileName,"Nombre,Descripción");
+            MessageBox.Show("Proceso terminado", "Articulo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

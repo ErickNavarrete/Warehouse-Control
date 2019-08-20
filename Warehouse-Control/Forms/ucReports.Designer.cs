@@ -104,7 +104,8 @@
             this.cbKind.FormattingEnabled = true;
             this.cbKind.Items.AddRange(new object[] {
             "Entradas",
-            "Salidas"});
+            "Salidas",
+            "Salidas Detalle"});
             this.cbKind.Location = new System.Drawing.Point(304, 154);
             this.cbKind.Name = "cbKind";
             this.cbKind.Size = new System.Drawing.Size(212, 21);
