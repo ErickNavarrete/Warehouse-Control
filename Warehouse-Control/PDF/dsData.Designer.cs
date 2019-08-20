@@ -1385,6 +1385,8 @@ namespace Warehouse_Control.PDF {
             
             private global::System.Data.DataColumn columnQUANTITY;
             
+            private global::System.Data.DataColumn columnUSER;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public dtDepartureDetailDataTable() {
@@ -1452,6 +1454,14 @@ namespace Warehouse_Control.PDF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn USERColumn {
+                get {
+                    return this.columnUSER;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1487,13 +1497,14 @@ namespace Warehouse_Control.PDF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public dtDepartureDetailRow AdddtDepartureDetailRow(long ID, string KEY, string DESCRIPTION, long QUANTITY) {
+            public dtDepartureDetailRow AdddtDepartureDetailRow(long ID, string KEY, string DESCRIPTION, long QUANTITY, string USER) {
                 dtDepartureDetailRow rowdtDepartureDetailRow = ((dtDepartureDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
                         KEY,
                         DESCRIPTION,
-                        QUANTITY};
+                        QUANTITY,
+                        USER};
                 rowdtDepartureDetailRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtDepartureDetailRow);
                 return rowdtDepartureDetailRow;
@@ -1520,6 +1531,7 @@ namespace Warehouse_Control.PDF {
                 this.columnKEY = base.Columns["KEY"];
                 this.columnDESCRIPTION = base.Columns["DESCRIPTION"];
                 this.columnQUANTITY = base.Columns["QUANTITY"];
+                this.columnUSER = base.Columns["USER"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1533,6 +1545,8 @@ namespace Warehouse_Control.PDF {
                 base.Columns.Add(this.columnDESCRIPTION);
                 this.columnQUANTITY = new global::System.Data.DataColumn("QUANTITY", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQUANTITY);
+                this.columnUSER = new global::System.Data.DataColumn("USER", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUSER);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2373,6 +2387,22 @@ namespace Warehouse_Control.PDF {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string USER {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtDepartureDetail.USERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'USER\' de la tabla \'dtDepartureDetail\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtDepartureDetail.USERColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsIDNull() {
                 return this.IsNull(this.tabledtDepartureDetail.IDColumn);
             }
@@ -2417,6 +2447,18 @@ namespace Warehouse_Control.PDF {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetQUANTITYNull() {
                 this[this.tabledtDepartureDetail.QUANTITYColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsUSERNull() {
+                return this.IsNull(this.tabledtDepartureDetail.USERColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetUSERNull() {
+                this[this.tabledtDepartureDetail.USERColumn] = global::System.Convert.DBNull;
             }
         }
         

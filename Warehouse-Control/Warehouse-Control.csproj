@@ -185,6 +185,12 @@
     <Compile Include="Models\Items.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Models\Warehouse.cs" />
+    <Compile Include="PDF\crDeparture2.cs">
+      <DependentUpon>crDeparture2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="PDF\crDeparture.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -252,6 +258,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\users.resx">
       <DependentUpon>users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PDF\crDeparture2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crDeparture2.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="PDF\crDeparture.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
