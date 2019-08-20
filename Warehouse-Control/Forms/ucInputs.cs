@@ -41,8 +41,7 @@ namespace Warehouse_Control.Forms
 
         private void enable_fields(bool flag)
         {
-            tbFolio2.Enabled = flag;
-            tbSerie2.Enabled = flag;
+            cbSerie.Enabled = flag;
             cbItem.Enabled = flag;
             tbQuantity.Enabled = flag;
             dgvEntryDetail2.Enabled = flag;
@@ -55,14 +54,14 @@ namespace Warehouse_Control.Forms
 
         private void clearFieldsTab2()
         {
-            tbSerie2.Text = "";
-            tbFolio2.Text = "";
+            cbSerie.Text = "";
             cbWarehouse.Text = "";
             cbItem.Text = "";
             tbQuantity.Text = "";
             dgvEntryDetail2.Rows.Clear(); entryList.Clear();
             idItem = 0;
             idEntryDetail2 = 0;
+            tbObservations.Text = "";
         }
 
         private void clearFieldsTab1()
@@ -87,10 +86,27 @@ namespace Warehouse_Control.Forms
             }
         }
 
+        private void setDataSerie()
+        {
+            cbSerie.Items.Clear();
+            var db = new ConnectionDB();
+            var series = db.Entries.Select( x=> x.serie).Distinct().ToList();
+
+            foreach (var serie in series)
+            {
+                cbSerie.Items.Add(serie);
+            }
+        }
+
         private bool checkFieldsEntryDetail()
         {
             var validator = new tbValidators();
             return validator.requieredTextValidator(tbQuantity) && validator.cbRequiredValidator(cbItem);
+        }
+
+        private bool checkFieldsEntry() {
+            var validator = new tbValidators();
+            return validator.cbRequiredValidator(cbSerie) && validator.cbRequiredValidator(cbWarehouse);
         }
 
         private void fill_dgvEntryDetails2()
@@ -151,6 +167,7 @@ namespace Warehouse_Control.Forms
             btnCancel.Visible = true;
             btnSave.Visible = true;
             setDataItem();
+            setDataSerie();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -304,17 +321,20 @@ namespace Warehouse_Control.Forms
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            var db = new ConnectionDB();
+            if (!checkFieldsEntry()) { return; }
 
+            var db = new ConnectionDB();
             Entry entry = new Entry();
             EntryDet entryDet = new EntryDet();
 
             entry.date = DateTime.Now;
-            entry.folio = Convert.ToInt32(tbFolio2.Text);
             entry.id_user = idUser;
             entry.id_warehouse = idWarehouse;
             entry.observation = tbObservations.Text;
-            entry.serie = tbSerie2.Text;
+
+            entry.serie = cbSerie.Text;
+            entry.folio = Convert.ToInt32(tbFolio.Text);
+
             db.Entries.Add(entry);
             db.SaveChanges();
             MessageBox.Show("Registro con éxito", "Entrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -347,6 +367,10 @@ namespace Warehouse_Control.Forms
 
             }
             fill_dgvEntries("");
+            enable_fields(false);
+            btnNew.Visible = true;
+            btnCancel.Visible = false;
+            btnSave.Visible = false;
             clearFieldsTab2();
 
         }
@@ -360,6 +384,34 @@ namespace Warehouse_Control.Forms
             foreach (var item in warehouse)
             {
                 cbWarehouse.Items.Add(item.name);
+            }
+        }
+
+        private void CbSerie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var db = new ConnectionDB();
+            var aux = db.Entries.Where(x => x.serie == cbSerie.Text).OrderByDescending(x => x.Id).FirstOrDefault();
+            if (aux == null)
+            {
+                tbFolio.Text = "1";
+            }
+            else
+            {
+                tbFolio.Text =  (aux.folio + 1).ToString();
+            }
+        }
+
+        private void CbSerie_Leave(object sender, EventArgs e)
+        {
+            var db = new ConnectionDB();
+            var aux = db.Entries.Where(x => x.serie == cbSerie.Text).OrderByDescending(x => x.Id).FirstOrDefault();
+            if (aux == null)
+            {
+                tbFolio.Text = "1";
+            }
+            else
+            {
+                tbFolio.Text = (aux.folio + 1).ToString();
             }
         }
     }

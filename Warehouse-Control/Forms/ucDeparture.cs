@@ -44,8 +44,7 @@ namespace Warehouse_Control.Forms
 
         private void enable_fields(bool flag)
         {
-            tbFolio2.Enabled = flag;
-            tbSerie2.Enabled = flag;
+            cbSerie.Enabled = flag;
             cbCellar.Enabled = flag;
             cbDistrict.Enabled = flag;
             cbItem.Enabled = flag;
@@ -60,8 +59,7 @@ namespace Warehouse_Control.Forms
 
         private void clearFieldsTab2()
         {
-            tbSerie2.Text = "";
-            tbFolio2.Text = "";
+            cbSerie.Text = "";
             cbCellar.Text = "";
             cbDistrict.Text = "";
             cbWarehouse.Text = "";
@@ -380,12 +378,22 @@ namespace Warehouse_Control.Forms
             DepartureDet departureDet = new DepartureDet();
 
             departure.date         = DateTime.Now;
-            departure.folio        = Convert.ToInt32(tbFolio2.Text);
             departure.id_cellar    = idCellar;
             departure.id_user      = idUser;
             departure.id_warehouse = idWarehouse;
             departure.observation  = tbObservations.Text;
-            departure.serie        = tbSerie2.Text;
+            departure.serie = cbSerie.Text;
+
+            var aux = db.Departures.Where(x => x.serie == cbSerie.Text).LastOrDefault();
+            if (aux == null)
+            {
+                departure.folio = 1;
+            }
+            else
+            {
+                departure.folio = aux.folio + 1;
+            }
+
             db.Departures.Add(departure);
             db.SaveChanges();
             MessageBox.Show("Registro con éxito", "Salida", MessageBoxButtons.OK, MessageBoxIcon.Information);
