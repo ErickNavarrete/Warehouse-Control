@@ -77,14 +77,14 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbObservations = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbFolio2 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbSerie2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.cbWarehouse = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.tbFolio = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbSerie = new System.Windows.Forms.ComboBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
@@ -104,6 +104,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -542,9 +543,6 @@
             // 
             this.groupBox3.Controls.Add(this.tbObservations);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.tbFolio2);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.tbSerie2);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.groupBox8);
             this.groupBox3.Controls.Add(this.groupBox10);
@@ -572,33 +570,10 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "Observaciones";
             // 
-            // tbFolio2
-            // 
-            this.tbFolio2.Location = new System.Drawing.Point(158, 44);
-            this.tbFolio2.Name = "tbFolio2";
-            this.tbFolio2.Size = new System.Drawing.Size(100, 20);
-            this.tbFolio2.TabIndex = 3;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(158, 28);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Folio";
-            // 
-            // tbSerie2
-            // 
-            this.tbSerie2.Location = new System.Drawing.Point(33, 44);
-            this.tbSerie2.Name = "tbSerie2";
-            this.tbSerie2.Size = new System.Drawing.Size(100, 20);
-            this.tbSerie2.TabIndex = 1;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(33, 28);
+            this.label7.Location = new System.Drawing.Point(37, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 13);
             this.label7.TabIndex = 0;
@@ -636,12 +611,42 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.tbFolio);
+            this.groupBox10.Controls.Add(this.label5);
+            this.groupBox10.Controls.Add(this.cbSerie);
             this.groupBox10.Location = new System.Drawing.Point(9, 12);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(265, 75);
             this.groupBox10.TabIndex = 13;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Datos Generales";
+            // 
+            // tbFolio
+            // 
+            this.tbFolio.Enabled = false;
+            this.tbFolio.Location = new System.Drawing.Point(138, 33);
+            this.tbFolio.Name = "tbFolio";
+            this.tbFolio.Size = new System.Drawing.Size(100, 20);
+            this.tbFolio.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(149, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Folio";
+            // 
+            // cbSerie
+            // 
+            this.cbSerie.FormattingEnabled = true;
+            this.cbSerie.Location = new System.Drawing.Point(11, 32);
+            this.cbSerie.Name = "cbSerie";
+            this.cbSerie.Size = new System.Drawing.Size(111, 21);
+            this.cbSerie.TabIndex = 8;
+            this.cbSerie.SelectedIndexChanged += new System.EventHandler(this.CbSerie_SelectedIndexChanged);
+            this.cbSerie.Leave += new System.EventHandler(this.CbSerie_Leave);
             // 
             // toolStrip2
             // 
@@ -714,6 +719,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.ResumeLayout(false);
@@ -763,9 +770,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RichTextBox tbObservations;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbFolio2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbSerie2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.ComboBox cbWarehouse;
@@ -782,5 +786,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.ComboBox cbSerie;
+        private System.Windows.Forms.TextBox tbFolio;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -133,5 +133,11 @@ namespace Warehouse_Control.Util
                     button.Enabled = enable;
                 });
         }
+
+        public void enable_disable_form(UserControl form, bool option)
+        {
+            form.Enabled = option;
+            form.UseWaitCursor = !option;
+        }
     }
 }

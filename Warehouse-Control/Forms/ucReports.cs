@@ -17,6 +17,7 @@ namespace Warehouse_Control.Forms
     public partial class ucReports : UserControl
     {
         private tbValidators utils;
+        public scrDashBoard scrDashBoard;
         public ucReports()
         {
             InitializeComponent();
@@ -217,6 +218,7 @@ namespace Warehouse_Control.Forms
                 return;
             }
 
+            utils.enable_disable_form(this,false);
             switch (cbKind.Text)
             {
                 case "Entradas":
@@ -226,6 +228,7 @@ namespace Warehouse_Control.Forms
                     Query(2);
                     break;
             }
+            utils.enable_disable_form(this,true);
         }
     }
 }

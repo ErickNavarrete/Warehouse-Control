@@ -80,7 +80,7 @@
             this.btnEntry.Name = "btnEntry";
             this.btnEntry.Size = new System.Drawing.Size(230, 40);
             this.btnEntry.TabIndex = 4;
-            this.btnEntry.Text = "ENTRDAS";
+            this.btnEntry.Text = "ENTRADAS";
             this.btnEntry.UseVisualStyleBackColor = true;
             this.btnEntry.Click += new System.EventHandler(this.btnEntry_Click);
             // 
