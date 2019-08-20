@@ -49,6 +49,9 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.cmOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvDepartures = new System.Windows.Forms.DataGridView();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,11 +66,15 @@
             this.btnSearch = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbPerson = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.dgvDepartureDetail2 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -84,28 +91,35 @@
             this.cbDistrict = new System.Windows.Forms.ComboBox();
             this.tbObservations = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.cbWarehouse = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.tbFolio = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbSerie = new System.Windows.Forms.ComboBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbSerie = new System.Windows.Forms.ComboBox();
-            this.tbFolio = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.gbEdit = new System.Windows.Forms.GroupBox();
+            this.tbEditPerson = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnEditPerson = new System.Windows.Forms.Button();
+            this.cmCancel = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail1)).BeginInit();
+            this.materialContextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartures)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox11.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail2)).BeginInit();
             this.groupBox6.SuspendLayout();
@@ -114,6 +128,7 @@
             this.groupBox8.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.gbEdit.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -141,6 +156,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.gbEdit);
             this.groupBox1.Controls.Add(this.tbCellar);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.tbUser);
@@ -164,7 +180,7 @@
             // tbCellar
             // 
             this.tbCellar.Enabled = false;
-            this.tbCellar.Location = new System.Drawing.Point(150, 157);
+            this.tbCellar.Location = new System.Drawing.Point(150, 122);
             this.tbCellar.Name = "tbCellar";
             this.tbCellar.Size = new System.Drawing.Size(136, 20);
             this.tbCellar.TabIndex = 12;
@@ -172,7 +188,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(147, 140);
+            this.label5.Location = new System.Drawing.Point(147, 105);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 11;
@@ -181,7 +197,7 @@
             // tbUser
             // 
             this.tbUser.Enabled = false;
-            this.tbUser.Location = new System.Drawing.Point(9, 157);
+            this.tbUser.Location = new System.Drawing.Point(9, 122);
             this.tbUser.Name = "tbUser";
             this.tbUser.Size = new System.Drawing.Size(135, 20);
             this.tbUser.TabIndex = 10;
@@ -189,7 +205,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 140);
+            this.label6.Location = new System.Drawing.Point(6, 105);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 9;
@@ -198,7 +214,7 @@
             // tbWarehouse
             // 
             this.tbWarehouse.Enabled = false;
-            this.tbWarehouse.Location = new System.Drawing.Point(150, 99);
+            this.tbWarehouse.Location = new System.Drawing.Point(150, 82);
             this.tbWarehouse.Name = "tbWarehouse";
             this.tbWarehouse.Size = new System.Drawing.Size(136, 20);
             this.tbWarehouse.TabIndex = 8;
@@ -206,7 +222,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(147, 82);
+            this.label3.Location = new System.Drawing.Point(147, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 7;
@@ -215,7 +231,7 @@
             // tbDate
             // 
             this.tbDate.Enabled = false;
-            this.tbDate.Location = new System.Drawing.Point(9, 99);
+            this.tbDate.Location = new System.Drawing.Point(9, 82);
             this.tbDate.Name = "tbDate";
             this.tbDate.Size = new System.Drawing.Size(135, 20);
             this.tbDate.TabIndex = 6;
@@ -223,7 +239,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 82);
+            this.label4.Location = new System.Drawing.Point(6, 65);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 5;
@@ -281,7 +297,9 @@
             this.dgvDepartureDetail1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column5,
-            this.Column6});
+            this.Column6,
+            this.Column16});
+            this.dgvDepartureDetail1.ContextMenuStrip = this.materialContextMenuStrip1;
             this.dgvDepartureDetail1.Location = new System.Drawing.Point(0, 19);
             this.dgvDepartureDetail1.Name = "dgvDepartureDetail1";
             this.dgvDepartureDetail1.ReadOnly = true;
@@ -307,6 +325,30 @@
             this.Column6.HeaderText = "Cantidad";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "Responsable";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            // 
+            // materialContextMenuStrip1
+            // 
+            this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialContextMenuStrip1.Depth = 0;
+            this.materialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmOpen,
+            this.cmCancel});
+            this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
+            this.materialContextMenuStrip1.Size = new System.Drawing.Size(195, 48);
+            // 
+            // cmOpen
+            // 
+            this.cmOpen.Name = "cmOpen";
+            this.cmOpen.Size = new System.Drawing.Size(194, 22);
+            this.cmOpen.Text = "Reasignar Responsable";
+            this.cmOpen.Click += new System.EventHandler(this.AsignarEncargadoToolStripMenuItem_Click);
             // 
             // dgvDepartures
             // 
@@ -420,6 +462,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.groupBox11);
             this.groupBox4.Controls.Add(this.groupBox7);
             this.groupBox4.Controls.Add(this.groupBox6);
             this.groupBox4.Controls.Add(this.groupBox5);
@@ -429,6 +472,34 @@
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Detalle de la Salida";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.label15);
+            this.groupBox11.Controls.Add(this.tbPerson);
+            this.groupBox11.Location = new System.Drawing.Point(19, 239);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(270, 47);
+            this.groupBox11.TabIndex = 15;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Datos del Responsable";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(8, 22);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(47, 13);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Nombre:";
+            // 
+            // tbPerson
+            // 
+            this.tbPerson.Enabled = false;
+            this.tbPerson.Location = new System.Drawing.Point(56, 19);
+            this.tbPerson.Name = "tbPerson";
+            this.tbPerson.Size = new System.Drawing.Size(208, 20);
+            this.tbPerson.TabIndex = 17;
             // 
             // groupBox7
             // 
@@ -448,7 +519,8 @@
             this.dgvDepartureDetail2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.Column15});
             this.dgvDepartureDetail2.Location = new System.Drawing.Point(0, 20);
             this.dgvDepartureDetail2.Name = "dgvDepartureDetail2";
             this.dgvDepartureDetail2.ReadOnly = true;
@@ -475,6 +547,12 @@
             this.Column3.HeaderText = "Cantidad";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Responsable";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
             // 
             // groupBox6
             // 
@@ -632,7 +710,7 @@
             // 
             this.tbObservations.Location = new System.Drawing.Point(6, 93);
             this.tbObservations.Name = "tbObservations";
-            this.tbObservations.Size = new System.Drawing.Size(757, 47);
+            this.tbObservations.Size = new System.Drawing.Size(465, 47);
             this.tbObservations.TabIndex = 5;
             this.tbObservations.Text = "";
             // 
@@ -644,6 +722,15 @@
             this.label9.Size = new System.Drawing.Size(78, 13);
             this.label9.TabIndex = 4;
             this.label9.Text = "Observaciones";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(33, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Serie";
             // 
             // groupBox8
             // 
@@ -696,6 +783,33 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Datos Generales";
             // 
+            // tbFolio
+            // 
+            this.tbFolio.Enabled = false;
+            this.tbFolio.Location = new System.Drawing.Point(142, 33);
+            this.tbFolio.Name = "tbFolio";
+            this.tbFolio.Size = new System.Drawing.Size(100, 20);
+            this.tbFolio.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(153, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Folio";
+            // 
+            // cbSerie
+            // 
+            this.cbSerie.FormattingEnabled = true;
+            this.cbSerie.Location = new System.Drawing.Point(11, 32);
+            this.cbSerie.Name = "cbSerie";
+            this.cbSerie.Size = new System.Drawing.Size(116, 21);
+            this.cbSerie.TabIndex = 14;
+            this.cbSerie.SelectedIndexChanged += new System.EventHandler(this.CbSerie_SelectedIndexChanged);
+            this.cbSerie.Leave += new System.EventHandler(this.CbSerie_Leave);
+            // 
             // toolStrip2
             // 
             this.toolStrip2.AutoSize = false;
@@ -739,38 +853,53 @@
             this.btnSave.Text = "Guardar";
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // label7
+            // gbEdit
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(33, 28);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Serie";
+            this.gbEdit.Controls.Add(this.btnEditPerson);
+            this.gbEdit.Controls.Add(this.label16);
+            this.gbEdit.Controls.Add(this.tbEditPerson);
+            this.gbEdit.Location = new System.Drawing.Point(9, 149);
+            this.gbEdit.Name = "gbEdit";
+            this.gbEdit.Size = new System.Drawing.Size(277, 68);
+            this.gbEdit.TabIndex = 13;
+            this.gbEdit.TabStop = false;
+            this.gbEdit.Text = "Edición";
             // 
-            // cbSerie
+            // tbEditPerson
             // 
-            this.cbSerie.FormattingEnabled = true;
-            this.cbSerie.Location = new System.Drawing.Point(11, 32);
-            this.cbSerie.Name = "cbSerie";
-            this.cbSerie.Size = new System.Drawing.Size(116, 21);
-            this.cbSerie.TabIndex = 14;
+            this.tbEditPerson.Enabled = false;
+            this.tbEditPerson.Location = new System.Drawing.Point(63, 16);
+            this.tbEditPerson.Name = "tbEditPerson";
+            this.tbEditPerson.Size = new System.Drawing.Size(208, 20);
+            this.tbEditPerson.TabIndex = 0;
             // 
-            // tbFolio
+            // label16
             // 
-            this.tbFolio.Location = new System.Drawing.Point(142, 33);
-            this.tbFolio.Name = "tbFolio";
-            this.tbFolio.Size = new System.Drawing.Size(100, 20);
-            this.tbFolio.TabIndex = 16;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(14, 19);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(47, 13);
+            this.label16.TabIndex = 14;
+            this.label16.Text = "Nombre:";
             // 
-            // label8
+            // btnEditPerson
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(153, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Folio";
+            this.btnEditPerson.Enabled = false;
+            this.btnEditPerson.Location = new System.Drawing.Point(66, 41);
+            this.btnEditPerson.Name = "btnEditPerson";
+            this.btnEditPerson.Size = new System.Drawing.Size(132, 23);
+            this.btnEditPerson.TabIndex = 15;
+            this.btnEditPerson.Text = "Asignar Responsable";
+            this.btnEditPerson.UseVisualStyleBackColor = true;
+            this.btnEditPerson.Click += new System.EventHandler(this.BtnEditPerson_Click);
+            // 
+            // cmCancel
+            // 
+            this.cmCancel.Name = "cmCancel";
+            this.cmCancel.Size = new System.Drawing.Size(194, 22);
+            this.cmCancel.Text = "Cancelar Reasignación";
+            this.cmCancel.Visible = false;
+            this.cmCancel.Click += new System.EventHandler(this.CancelarReasignaciónToolStripMenuItem_Click);
             // 
             // ucDeparture
             // 
@@ -785,11 +914,14 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail1)).EndInit();
+            this.materialContextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartures)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail2)).EndInit();
             this.groupBox6.ResumeLayout(false);
@@ -803,6 +935,8 @@
             this.groupBox10.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.gbEdit.ResumeLayout(false);
+            this.gbEdit.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -833,17 +967,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton btnNew;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ToolStripButton btnCancel;
         private System.Windows.Forms.ToolStripButton btnSave;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RichTextBox tbObservations;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cbCellar;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbDistrict;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cbWarehouse;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.DataGridView dgvDepartureDetail2;
@@ -856,15 +981,6 @@
         private System.Windows.Forms.ComboBox cbItem;
         private System.Windows.Forms.TextBox tbQuantity;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
@@ -873,9 +989,39 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox tbPerson;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cbCellar;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cbDistrict;
+        private System.Windows.Forms.RichTextBox tbObservations;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbSerie;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.ComboBox cbWarehouse;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.TextBox tbFolio;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbSerie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cmOpen;
+        private System.Windows.Forms.GroupBox gbEdit;
+        private System.Windows.Forms.Button btnEditPerson;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox tbEditPerson;
+        private System.Windows.Forms.ToolStripMenuItem cmCancel;
     }
 }

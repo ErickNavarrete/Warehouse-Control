@@ -44,6 +44,7 @@ namespace Warehouse_Control.Forms
 
         private void enable_fields(bool flag)
         {
+            tbPerson.Enabled = flag;
             cbSerie.Enabled = flag;
             cbCellar.Enabled = flag;
             cbDistrict.Enabled = flag;
@@ -65,6 +66,7 @@ namespace Warehouse_Control.Forms
             cbWarehouse.Text = "";
             cbItem.Text = "";
             tbQuantity.Text = "";
+            tbPerson.Text = "";
             dgvDepartureDetail2.Rows.Clear(); departureList.Clear();
             idItem = 0;
             idDepartureDetail2 = 0;
@@ -112,7 +114,7 @@ namespace Warehouse_Control.Forms
             dgvDepartureDetail2.Rows.Clear();
             foreach (var departure in departureList) {
                 var item = db.Items.Where(x => x.id == departure.id_item).FirstOrDefault();
-                dgvDepartureDetail2.Rows.Add(departure.id_item, item.key,departure.quantity);
+                dgvDepartureDetail2.Rows.Add(departure.id_item, item.key,departure.quantity,departure.user);
             }
         }
 
@@ -208,7 +210,8 @@ namespace Warehouse_Control.Forms
             }
             var departureDetail = new DepartureDet {
                 id_item = idItem,
-                quantity = Convert.ToInt16( tbQuantity.Text)
+                quantity = Convert.ToInt16(tbQuantity.Text),
+                user = tbPerson.Text,
             };
             departureList.Add(departureDetail);
 
@@ -343,7 +346,7 @@ namespace Warehouse_Control.Forms
             dgvDepartureDetail1.Rows.Clear();
             foreach (var detail in detailDeparture) {
                 var name = db.Items.Where(x => x.id == detail.id_item).Select(x => x.key).FirstOrDefault();
-                dgvDepartureDetail1.Rows.Add(detail.id,name, detail.quantity);
+                dgvDepartureDetail1.Rows.Add(detail.id,name, detail.quantity,detail.user);
             }
             
         }
@@ -383,16 +386,7 @@ namespace Warehouse_Control.Forms
             departure.id_warehouse = idWarehouse;
             departure.observation  = tbObservations.Text;
             departure.serie = cbSerie.Text;
-
-            var aux = db.Departures.Where(x => x.serie == cbSerie.Text).LastOrDefault();
-            if (aux == null)
-            {
-                departure.folio = 1;
-            }
-            else
-            {
-                departure.folio = aux.folio + 1;
-            }
+            departure.folio = Convert.ToInt32(tbFolio.Text);
 
             db.Departures.Add(departure);
             db.SaveChanges();
@@ -404,6 +398,7 @@ namespace Warehouse_Control.Forms
                 departureDet.id_departure = departure.id;
                 departureDet.id_item = (int) item.Cells[0].Value;
                 departureDet.quantity = (int) item.Cells[2].Value;
+                departureDet.user = (string)item.Cells[3].Value;
                 db.DepartureDet.Add(departureDet);
                 db.SaveChanges();
                 var inventory = db.Inventories.FirstOrDefault(x=>x.id_warehouse == idWarehouse 
@@ -416,7 +411,79 @@ namespace Warehouse_Control.Forms
                 }
             }
             fill_dgvDepartures("");
+            enable_fields(false);
+            btnNew.Visible = true;
+            btnCancel.Visible = false;
+            btnSave.Visible = false;
             clearFieldsTab2();
+        }
+
+        private void CbSerie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var db = new ConnectionDB();
+            var aux = db.Departures.Where(x => x.serie == cbSerie.Text).OrderByDescending(x => x.id).FirstOrDefault();
+            if (aux == null)
+            {
+                tbFolio.Text = "1";
+            }
+            else
+            {
+                tbFolio.Text = (aux.folio + 1).ToString();
+            }
+        }
+
+        private void CbSerie_Leave(object sender, EventArgs e)
+        {
+            var db = new ConnectionDB();
+            var aux = db.Departures.Where(x => x.serie == cbSerie.Text).OrderByDescending(x => x.id).FirstOrDefault();
+            if (aux == null)
+            {
+                tbFolio.Text = "1";
+            }
+            else
+            {
+                tbFolio.Text = (aux.folio + 1).ToString();
+            }
+        }
+
+        private void AsignarEncargadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cmOpen.Visible = false;
+            cmCancel.Visible = true;
+            btnEditPerson.Enabled = true;
+            tbEditPerson.Enabled = true;
+        }
+
+        private void CancelarReasignaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cmOpen.Visible = true;
+            cmCancel.Visible = false;
+            btnEditPerson.Enabled = false;
+            tbEditPerson.Enabled = false;
+        }
+
+        private void BtnEditPerson_Click(object sender, EventArgs e)
+        {
+            if (dgvDepartureDetail1.Rows.Count == 0)
+            {
+                return;
+            }
+            var index = dgvDepartureDetail1.CurrentRow.Index;
+            var id = Convert.ToInt32(dgvDepartureDetail1.Rows[index].Cells[0].Value.ToString());
+
+            var db = new ConnectionDB();
+            var detail = db.DepartureDet.Where(x => x.id == id).FirstOrDefault();
+            detail.user = tbEditPerson.Text;
+
+            db.Entry(detail).State = EntityState.Modified;
+            db.SaveChanges();
+
+            dgvDepartureDetail1.Rows.Clear();
+            var details = db.DepartureDet.Where(x => x.id_departure == detail.id_departure).ToList();
+            foreach (var detailDeparture in details) {
+                var name = db.Items.Where(x => x.id == detail.id_item).Select(x => x.key).FirstOrDefault();
+                dgvDepartureDetail1.Rows.Add(detailDeparture.id, name, detailDeparture.quantity, detailDeparture.user);
+            }
         }
     }
 }
