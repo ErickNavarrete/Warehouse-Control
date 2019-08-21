@@ -42,6 +42,12 @@ namespace Warehouse_Control.Forms
 
         #region Funciones
 
+        public void permisos() {
+            if (idUser != 1) {
+                cmOpen.Visible = false;
+            }
+        }
+
         private void enable_fields(bool flag)
         {
             tbPerson.Enabled = flag;

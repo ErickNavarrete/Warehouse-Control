@@ -92,6 +92,7 @@ namespace Warehouse_Control.Forms
                 case 2.5:
                     ucDeparture1.Visible = true;
                     ucDeparture1.idUser = id_user;
+                    ucDeparture1.permisos();
                     break;
                 case 3:
                     ucDistrict1.Visible = true;
