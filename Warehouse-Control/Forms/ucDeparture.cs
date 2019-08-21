@@ -415,6 +415,27 @@ namespace Warehouse_Control.Forms
                     db.Entry(inventory).State = EntityState.Modified;
                     db.SaveChanges();
                 }
+
+                var inventory_cellar =
+                    db.Inventories.FirstOrDefault(x => x.id_warehouse == idCellar && x.id_item == departureDet.id_item);
+
+                if (inventory_cellar != null)
+                {
+                    inventory_cellar.quantity = inventory_cellar.quantity + departureDet.quantity;
+                    db.Entry(inventory_cellar).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    inventory_cellar = new Inventory
+                    {
+                        id_item = departureDet.id_item,
+                        id_warehouse = idCellar,
+                        quantity = departureDet.quantity
+                    };
+                    db.Inventories.Add(inventory_cellar);
+                    db.SaveChanges();
+                }
             }
             fill_dgvDepartures("");
             enable_fields(false);

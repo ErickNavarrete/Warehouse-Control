@@ -52,10 +52,10 @@
     <ApplicationIcon>warehouse2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>BFCA87B5983FE0F13011E5E01273CD76917753C0</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>1949D8AF75EDD62A44265AECEE96AD1EDECF8517</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Warehouse-Control_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Warehouse-Control_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -305,6 +305,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Warehouse-Control_1_TemporaryKey.pfx" />
+    <None Include="Warehouse-Control_2_TemporaryKey.pfx" />
     <None Include="Warehouse-Control_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
