@@ -403,7 +403,7 @@
             this.groupBox7.Size = new System.Drawing.Size(277, 292);
             this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Salidas";
+            this.groupBox7.Text = "Entradas";
             // 
             // dgvEntryDetail2
             // 

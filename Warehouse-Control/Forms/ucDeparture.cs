@@ -386,6 +386,12 @@ namespace Warehouse_Control.Forms
             Departure departure       = new Departure();
             DepartureDet departureDet = new DepartureDet();
 
+            if (dgvDepartureDetail2.Rows.Count == 0)
+            {
+                MessageBox.Show("Sin artículos por entregar", "Control Inventario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             departure.date         = DateTime.Now;
             departure.id_cellar    = idCellar;
             departure.id_user      = idUser;

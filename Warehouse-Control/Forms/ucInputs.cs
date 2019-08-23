@@ -327,6 +327,12 @@ namespace Warehouse_Control.Forms
             Entry entry = new Entry();
             EntryDet entryDet = new EntryDet();
 
+            if (dgvEntryDetail2.Rows.Count == 0)
+            {
+                MessageBox.Show("Sin artículos por recibir", "Control Inventario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             entry.date = DateTime.Now;
             entry.id_user = idUser;
             entry.id_warehouse = idWarehouse;
@@ -372,7 +378,6 @@ namespace Warehouse_Control.Forms
             btnCancel.Visible = false;
             btnSave.Visible = false;
             clearFieldsTab2();
-
         }
 
         private void CbWarehouse_Click(object sender, EventArgs e)
