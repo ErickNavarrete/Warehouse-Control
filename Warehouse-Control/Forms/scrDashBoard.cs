@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Warehouse_Control.Properties;
 
 namespace Warehouse_Control.Forms
 {
@@ -31,7 +32,7 @@ namespace Warehouse_Control.Forms
                 Accent.LightBlue200,
                 TextShade.WHITE
             );
-
+            
             ucInventoryPanel1.principal = this;
             scrLogin scrLogin = new scrLogin {scrDashBoard = this};
             scrLogin.ShowDialog();

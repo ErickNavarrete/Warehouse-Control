@@ -39,12 +39,11 @@ namespace Warehouse_Control
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-            flag = false;
-
             if (getUser())
             {
                 scrDashBoard.id_user = user.Id;
                 scrDashBoard.user_name = user.user;
+                flag = false;
                 this.Close();
             }
             else
@@ -55,8 +54,13 @@ namespace Warehouse_Control
 
         private Boolean getUser()
         {
+            this.Enabled = false;
+            Cursor.Current = Cursors.WaitCursor;
+
             user = conn.Users.FirstOrDefault(x => x.user == tbUser.Text && x.password == tbPassword.Text);
 
+            Cursor.Current = Cursors.Default;
+            this.Enabled = true;
             if (user != null)
             {
                 return true;
