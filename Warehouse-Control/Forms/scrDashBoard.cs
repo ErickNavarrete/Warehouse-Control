@@ -37,6 +37,7 @@ namespace Warehouse_Control.Forms
             scrLogin scrLogin = new scrLogin {scrDashBoard = this};
             scrLogin.ShowDialog();
             lbUserName.Text = user_name;
+            UserControlConfig(0);
         }
 
         #region FUNCIONES
@@ -142,6 +143,7 @@ namespace Warehouse_Control.Forms
             scrLogin scrLogin = new scrLogin {scrDashBoard = this};
             scrLogin.ShowDialog();
             lbUserName.Text = user_name;
+            UserControlConfig(0);
         }
     }
 }

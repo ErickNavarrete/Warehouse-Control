@@ -69,6 +69,13 @@ namespace Warehouse_Control.Forms
                 return;
             }
 
+            if (tbPassword.Text != tbPasswordConfirm.Text)
+            {
+                MessageBox.Show("Las contraseñas no coinciden", "Control Inventario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tbPassword.Focus();
+                return;
+            }
+
             if (editable)
             {
                 Users users = conn.Users.FirstOrDefault(x => x.Id == idUse);
@@ -141,6 +148,11 @@ namespace Warehouse_Control.Forms
             {
                 return false;
             }
+
+            if (!util.requieredTextValidator(tbPasswordConfirm))
+            {
+                return false;
+            }
             return true;
         }
 
@@ -207,10 +219,12 @@ namespace Warehouse_Control.Forms
                 if (nameUserLogged == "Admin")
                 {
                     tbPassword.Text = getPassword();
+                    tbPasswordConfirm.Text = getPassword();
                 }
                 else
                 {
                     tbPassword.Enabled = false;
+                    tbPasswordConfirm.Enabled = false;
                 }
 
                 define_active_buttons(false);
@@ -248,6 +262,26 @@ namespace Warehouse_Control.Forms
             }
 
             return true;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            tbPassword.PasswordChar = '\0';
+        }
+
+        private void pPasswordConfirm_MouseMove(object sender, MouseEventArgs e)
+        {
+            tbPasswordConfirm.PasswordChar = '\0';
+        }
+
+        private void pPasswordConfirm_MouseLeave(object sender, EventArgs e)
+        {
+            tbPasswordConfirm.PasswordChar = '*';
+        }
+
+        private void pPassword_MouseLeave(object sender, EventArgs e)
+        {
+            tbPassword.PasswordChar = '*';
         }
     }
 }

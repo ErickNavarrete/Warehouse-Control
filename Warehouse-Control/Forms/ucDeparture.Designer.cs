@@ -32,6 +32,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbEdit = new System.Windows.Forms.GroupBox();
+            this.btnEditPerson = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tbEditPerson = new System.Windows.Forms.TextBox();
             this.tbCellar = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbUser = new System.Windows.Forms.TextBox();
@@ -52,6 +56,7 @@
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.cmOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmCancel = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvDepartures = new System.Windows.Forms.DataGridView();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,14 +109,10 @@
             this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
-            this.gbEdit = new System.Windows.Forms.GroupBox();
-            this.tbEditPerson = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.btnEditPerson = new System.Windows.Forms.Button();
-            this.cmCancel = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.gbEdit.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail1)).BeginInit();
             this.materialContextMenuStrip1.SuspendLayout();
@@ -128,7 +129,6 @@
             this.groupBox8.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.toolStrip2.SuspendLayout();
-            this.gbEdit.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -176,6 +176,46 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Salida";
+            // 
+            // gbEdit
+            // 
+            this.gbEdit.Controls.Add(this.btnEditPerson);
+            this.gbEdit.Controls.Add(this.label16);
+            this.gbEdit.Controls.Add(this.tbEditPerson);
+            this.gbEdit.Location = new System.Drawing.Point(9, 149);
+            this.gbEdit.Name = "gbEdit";
+            this.gbEdit.Size = new System.Drawing.Size(277, 68);
+            this.gbEdit.TabIndex = 13;
+            this.gbEdit.TabStop = false;
+            this.gbEdit.Text = "Edición";
+            // 
+            // btnEditPerson
+            // 
+            this.btnEditPerson.Enabled = false;
+            this.btnEditPerson.Location = new System.Drawing.Point(66, 41);
+            this.btnEditPerson.Name = "btnEditPerson";
+            this.btnEditPerson.Size = new System.Drawing.Size(132, 23);
+            this.btnEditPerson.TabIndex = 15;
+            this.btnEditPerson.Text = "Asignar Responsable";
+            this.btnEditPerson.UseVisualStyleBackColor = true;
+            this.btnEditPerson.Click += new System.EventHandler(this.BtnEditPerson_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(14, 19);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(47, 13);
+            this.label16.TabIndex = 14;
+            this.label16.Text = "Nombre:";
+            // 
+            // tbEditPerson
+            // 
+            this.tbEditPerson.Enabled = false;
+            this.tbEditPerson.Location = new System.Drawing.Point(63, 16);
+            this.tbEditPerson.Name = "tbEditPerson";
+            this.tbEditPerson.Size = new System.Drawing.Size(208, 20);
+            this.tbEditPerson.TabIndex = 0;
             // 
             // tbCellar
             // 
@@ -350,6 +390,14 @@
             this.cmOpen.Text = "Reasignar Responsable";
             this.cmOpen.Click += new System.EventHandler(this.AsignarEncargadoToolStripMenuItem_Click);
             // 
+            // cmCancel
+            // 
+            this.cmCancel.Name = "cmCancel";
+            this.cmCancel.Size = new System.Drawing.Size(194, 22);
+            this.cmCancel.Text = "Cancelar Reasignación";
+            this.cmCancel.Visible = false;
+            this.cmCancel.Click += new System.EventHandler(this.CancelarReasignaciónToolStripMenuItem_Click);
+            // 
             // dgvDepartures
             // 
             this.dgvDepartures.AllowUserToAddRows = false;
@@ -434,7 +482,6 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(450, 40);
             // 
@@ -632,6 +679,7 @@
             this.cbItem.Size = new System.Drawing.Size(275, 21);
             this.cbItem.TabIndex = 12;
             this.cbItem.SelectedIndexChanged += new System.EventHandler(this.CbItem_SelectedIndexChanged);
+            this.cbItem.Click += new System.EventHandler(this.cbItem_Click);
             // 
             // tbQuantity
             // 
@@ -687,6 +735,7 @@
             this.cbCellar.Size = new System.Drawing.Size(121, 21);
             this.cbCellar.TabIndex = 10;
             this.cbCellar.SelectedIndexChanged += new System.EventHandler(this.CbCellar_SelectedIndexChanged);
+            this.cbCellar.Click += new System.EventHandler(this.cbCellar_Click);
             // 
             // label11
             // 
@@ -853,54 +902,6 @@
             this.btnSave.Text = "Guardar";
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // gbEdit
-            // 
-            this.gbEdit.Controls.Add(this.btnEditPerson);
-            this.gbEdit.Controls.Add(this.label16);
-            this.gbEdit.Controls.Add(this.tbEditPerson);
-            this.gbEdit.Location = new System.Drawing.Point(9, 149);
-            this.gbEdit.Name = "gbEdit";
-            this.gbEdit.Size = new System.Drawing.Size(277, 68);
-            this.gbEdit.TabIndex = 13;
-            this.gbEdit.TabStop = false;
-            this.gbEdit.Text = "Edición";
-            // 
-            // tbEditPerson
-            // 
-            this.tbEditPerson.Enabled = false;
-            this.tbEditPerson.Location = new System.Drawing.Point(63, 16);
-            this.tbEditPerson.Name = "tbEditPerson";
-            this.tbEditPerson.Size = new System.Drawing.Size(208, 20);
-            this.tbEditPerson.TabIndex = 0;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(14, 19);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(47, 13);
-            this.label16.TabIndex = 14;
-            this.label16.Text = "Nombre:";
-            // 
-            // btnEditPerson
-            // 
-            this.btnEditPerson.Enabled = false;
-            this.btnEditPerson.Location = new System.Drawing.Point(66, 41);
-            this.btnEditPerson.Name = "btnEditPerson";
-            this.btnEditPerson.Size = new System.Drawing.Size(132, 23);
-            this.btnEditPerson.TabIndex = 15;
-            this.btnEditPerson.Text = "Asignar Responsable";
-            this.btnEditPerson.UseVisualStyleBackColor = true;
-            this.btnEditPerson.Click += new System.EventHandler(this.BtnEditPerson_Click);
-            // 
-            // cmCancel
-            // 
-            this.cmCancel.Name = "cmCancel";
-            this.cmCancel.Size = new System.Drawing.Size(194, 22);
-            this.cmCancel.Text = "Cancelar Reasignación";
-            this.cmCancel.Visible = false;
-            this.cmCancel.Click += new System.EventHandler(this.CancelarReasignaciónToolStripMenuItem_Click);
-            // 
             // ucDeparture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -912,6 +913,8 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.gbEdit.ResumeLayout(false);
+            this.gbEdit.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartureDetail1)).EndInit();
             this.materialContextMenuStrip1.ResumeLayout(false);
@@ -935,8 +938,6 @@
             this.groupBox10.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            this.gbEdit.ResumeLayout(false);
-            this.gbEdit.PerformLayout();
             this.ResumeLayout(false);
 
         }

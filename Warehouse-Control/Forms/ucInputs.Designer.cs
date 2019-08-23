@@ -358,7 +358,6 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(450, 40);
             // 
@@ -520,6 +519,7 @@
             this.cbItem.Size = new System.Drawing.Size(275, 21);
             this.cbItem.TabIndex = 12;
             this.cbItem.SelectedIndexChanged += new System.EventHandler(this.CbItem_SelectedIndexChanged);
+            this.cbItem.Click += new System.EventHandler(this.cbItem_Click);
             // 
             // tbQuantity
             // 

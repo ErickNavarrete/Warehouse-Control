@@ -512,5 +512,26 @@ namespace Warehouse_Control.Forms
                 dgvDepartureDetail1.Rows.Add(detailDeparture.id, name, detailDeparture.quantity, detailDeparture.user);
             }
         }
+
+        private void cbCellar_Click(object sender, EventArgs e)
+        {
+            cbCellar.Text = "";
+            cbCellar.Items.Clear();
+            var current = cbDistrict.SelectedItem;
+            var db = new ConnectionDB();
+            var distrito = db.Districts.Where(x => x.district == current).FirstOrDefault();
+            var warehouses = db.Warehouses.Where(x => x.id_district == distrito.id).ToList();
+            idDistrict = distrito.id;
+
+            foreach (var wh in warehouses)
+            {
+                cbCellar.Items.Add(wh.name);
+            }
+        }
+
+        private void cbItem_Click(object sender, EventArgs e)
+        {
+            setDataItem();
+        }
     }
 }

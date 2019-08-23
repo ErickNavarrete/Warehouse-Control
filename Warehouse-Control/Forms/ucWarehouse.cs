@@ -142,7 +142,7 @@ namespace Warehouse_Control.Forms
                 int index = dgvWarehouse.CurrentRow.Index;
                 id = (int)dgvWarehouse.Rows[index].Cells[0].Value;
                 tbName.Text = dgvWarehouse.Rows[index].Cells[1].Value.ToString();
-                tbAddress.Text = dgvWarehouse.Rows[index].Cells[1].Value.ToString();
+                tbAddress.Text = dgvWarehouse.Rows[index].Cells[2].Value.ToString();
 
                 btnNew.Visible = true;
                 btnEdit.Visible = true;

@@ -414,5 +414,10 @@ namespace Warehouse_Control.Forms
                 tbFolio.Text = (aux.folio + 1).ToString();
             }
         }
+
+        private void cbItem_Click(object sender, EventArgs e)
+        {
+            setDataItem();
+        }
     }
 }

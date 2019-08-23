@@ -56,6 +56,10 @@
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.lbUser = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.tbPasswordConfirm = new System.Windows.Forms.TextBox();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.pPassword = new System.Windows.Forms.Panel();
+            this.pPasswordConfirm = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -130,7 +134,6 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(450, 40);
             // 
@@ -255,6 +258,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pPasswordConfirm);
+            this.groupBox2.Controls.Add(this.pPassword);
+            this.groupBox2.Controls.Add(this.tbPasswordConfirm);
+            this.groupBox2.Controls.Add(this.materialLabel1);
             this.groupBox2.Controls.Add(this.tbPassword);
             this.groupBox2.Controls.Add(this.tbUsername);
             this.groupBox2.Controls.Add(this.lbUser);
@@ -268,7 +275,7 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(9, 150);
+            this.tbPassword.Location = new System.Drawing.Point(10, 105);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(281, 20);
@@ -276,7 +283,7 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(10, 71);
+            this.tbUsername.Location = new System.Drawing.Point(10, 47);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(280, 20);
             this.tbUsername.TabIndex = 8;
@@ -287,7 +294,7 @@
             this.lbUser.Depth = 0;
             this.lbUser.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbUser.Location = new System.Drawing.Point(6, 40);
+            this.lbUser.Location = new System.Drawing.Point(6, 25);
             this.lbUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbUser.Name = "lbUser";
             this.lbUser.Size = new System.Drawing.Size(141, 19);
@@ -300,12 +307,53 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(6, 109);
+            this.materialLabel2.Location = new System.Drawing.Point(6, 83);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(90, 19);
             this.materialLabel2.TabIndex = 9;
             this.materialLabel2.Text = "Contraseña:";
+            // 
+            // tbPasswordConfirm
+            // 
+            this.tbPasswordConfirm.Location = new System.Drawing.Point(10, 160);
+            this.tbPasswordConfirm.Name = "tbPasswordConfirm";
+            this.tbPasswordConfirm.PasswordChar = '*';
+            this.tbPasswordConfirm.Size = new System.Drawing.Size(281, 20);
+            this.tbPasswordConfirm.TabIndex = 12;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(6, 138);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(161, 19);
+            this.materialLabel1.TabIndex = 11;
+            this.materialLabel1.Text = "Confirmar Contraseña:";
+            // 
+            // pPassword
+            // 
+            this.pPassword.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pPassword.BackgroundImage")));
+            this.pPassword.Location = new System.Drawing.Point(271, 106);
+            this.pPassword.Name = "pPassword";
+            this.pPassword.Size = new System.Drawing.Size(17, 18);
+            this.pPassword.TabIndex = 6;
+            this.pPassword.MouseLeave += new System.EventHandler(this.pPassword_MouseLeave);
+            this.pPassword.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // pPasswordConfirm
+            // 
+            this.pPasswordConfirm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pPasswordConfirm.BackgroundImage")));
+            this.pPasswordConfirm.Location = new System.Drawing.Point(270, 161);
+            this.pPasswordConfirm.Name = "pPasswordConfirm";
+            this.pPasswordConfirm.Size = new System.Drawing.Size(17, 18);
+            this.pPasswordConfirm.TabIndex = 7;
+            this.pPasswordConfirm.MouseLeave += new System.EventHandler(this.pPasswordConfirm_MouseLeave);
+            this.pPasswordConfirm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pPasswordConfirm_MouseMove);
             // 
             // users
             // 
@@ -357,5 +405,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn user;
+        private System.Windows.Forms.TextBox tbPasswordConfirm;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private System.Windows.Forms.Panel pPasswordConfirm;
+        private System.Windows.Forms.Panel pPassword;
     }
 }
