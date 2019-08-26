@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MaterialSkin;
+﻿using MaterialSkin;
 using MaterialSkin.Controls;
-using Warehouse_Control.Properties;
+using System;
+using System.Drawing;
 
 namespace Warehouse_Control.Forms
 {
@@ -32,9 +24,9 @@ namespace Warehouse_Control.Forms
                 Accent.LightBlue200,
                 TextShade.WHITE
             );
-            
+
             ucInventoryPanel1.principal = this;
-            scrLogin scrLogin = new scrLogin {scrDashBoard = this};
+            scrLogin scrLogin = new scrLogin { scrDashBoard = this };
             scrLogin.ShowDialog();
             lbUserName.Text = user_name;
             UserControlConfig(0);
@@ -140,7 +132,7 @@ namespace Warehouse_Control.Forms
 
         private void btnChangeUser_Click(object sender, EventArgs e)
         {
-            scrLogin scrLogin = new scrLogin {scrDashBoard = this};
+            scrLogin scrLogin = new scrLogin { scrDashBoard = this };
             scrLogin.ShowDialog();
             lbUserName.Text = user_name;
             UserControlConfig(0);

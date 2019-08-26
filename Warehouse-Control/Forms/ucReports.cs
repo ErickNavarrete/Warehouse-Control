@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Warehouse_Control.Connection;
 using Warehouse_Control.PDF;
@@ -49,13 +44,13 @@ namespace Warehouse_Control.Forms
             dsData dsData = new dsData();
             scrReports scrReports = new scrReports();
 
-            int id_user = db.Users.Where(x => x.name == cbUser.Text).Select(x=> x.Id).FirstOrDefault();
+            int id_user = db.Users.Where(x => x.name == cbUser.Text).Select(x => x.Id).FirstOrDefault();
 
             switch (option)
             {
                 case 1:
                     #region ENTRADAS
-                    var EntryHeader = db.Entries.Join(db.Users, x=> x.id_user,y=> y.Id,(x,y) => new
+                    var EntryHeader = db.Entries.Join(db.Users, x => x.id_user, y => y.Id, (x, y) => new
                     {
                         x.serie,
                         x.folio,
@@ -65,7 +60,7 @@ namespace Warehouse_Control.Forms
                         x.id_warehouse,
                         x.observation,
                         user_name = y.name
-                    }).Join(db.Warehouses, x=> x.id_warehouse, y=> y.id,(x,y) => new
+                    }).Join(db.Warehouses, x => x.id_warehouse, y => y.id, (x, y) => new
                     {
                         x.serie,
                         x.folio,
@@ -86,8 +81,8 @@ namespace Warehouse_Control.Forms
 
                     foreach (var Entry in EntryHeader.ToList())
                     {
-                        dsData.dtHeaderEntry.AdddtHeaderEntryRow(Entry.serie, Entry.folio.ToString(), Entry.date.ToString("dd/MMMM/yyyy"),Entry.user_name,Entry.warehouse_name,
-                                                                Entry.observation,Entry.Id.ToString());
+                        dsData.dtHeaderEntry.AdddtHeaderEntryRow(Entry.serie, Entry.folio.ToString(), Entry.date.ToString("dd/MMMM/yyyy"), Entry.user_name, Entry.warehouse_name,
+                                                                Entry.observation, Entry.Id.ToString());
                         var EntryDetail = db.EntryDet.Join(db.Items, x => x.id_item, y => y.id, (x, y) => new
                         {
                             x.id_entry,
@@ -95,7 +90,7 @@ namespace Warehouse_Control.Forms
                             x.quantity,
                             y.key,
                             y.description
-                        }).Where(x=> x.id_entry == Entry.Id).ToList();
+                        }).Where(x => x.id_entry == Entry.Id).ToList();
 
                         foreach (var item in EntryDetail)
                         {
@@ -122,7 +117,7 @@ namespace Warehouse_Control.Forms
                         x.date,
                         x.observation,
                         user_name = y.name
-                    }).Join(db.Warehouses,x=> x.id_warehouse,y=> y.id,(x,y) => new
+                    }).Join(db.Warehouses, x => x.id_warehouse, y => y.id, (x, y) => new
                     {
                         x.id,
                         x.id_user,
@@ -134,7 +129,7 @@ namespace Warehouse_Control.Forms
                         x.observation,
                         x.user_name,
                         warehouse_name = y.name
-                    }).Join(db.Warehouses,x=> x.id_cellar, y=> y.id, (x,y) => new
+                    }).Join(db.Warehouses, x => x.id_cellar, y => y.id, (x, y) => new
                     {
                         x.id,
                         x.id_user,
@@ -148,7 +143,7 @@ namespace Warehouse_Control.Forms
                         x.user_name,
                         x.warehouse_name,
                         cellar_name = y.name
-                    }).Join(db.Districts, x=> x.id_district, y=> y.id,(x,y) => new
+                    }).Join(db.Districts, x => x.id_district, y => y.id, (x, y) => new
                     {
                         x.id,
                         x.id_user,
@@ -203,7 +198,7 @@ namespace Warehouse_Control.Forms
                         crDeparture2.SetDataSource(dsData);
                         scrReports.crv.ReportSource = crDeparture2;
                     }
-                    
+
                     #endregion
                     break;
             }
@@ -229,20 +224,20 @@ namespace Warehouse_Control.Forms
                 return;
             }
 
-            utils.enable_disable_form(this,false);
+            utils.enable_disable_form(this, false);
             switch (cbKind.Text)
             {
                 case "Entradas":
-                    Query(1,0);
+                    Query(1, 0);
                     break;
                 case "Salidas":
-                    Query(2,1);
+                    Query(2, 1);
                     break;
                 case "Salidas Detalle":
                     Query(2, 2);
                     break;
             }
-            utils.enable_disable_form(this,true);
+            utils.enable_disable_form(this, true);
         }
     }
 }

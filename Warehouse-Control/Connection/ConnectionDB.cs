@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Warehouse_Control.Forms;
+﻿using System.Data.Entity;
 using Warehouse_Control.Models;
 using Warehouse_Control.Properties;
 

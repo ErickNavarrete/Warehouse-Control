@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Warehouse_Control.Models;
 using Warehouse_Control.Connection;
+using Warehouse_Control.Models;
 using Warehouse_Control.Util;
 
 namespace Warehouse_Control.Forms
@@ -42,8 +38,10 @@ namespace Warehouse_Control.Forms
 
         #region Funciones
 
-        public void permisos() {
-            if (idUser != 1) {
+        public void permisos()
+        {
+            if (idUser != 1)
+            {
                 cmOpen.Visible = false;
             }
         }
@@ -73,6 +71,7 @@ namespace Warehouse_Control.Forms
             cbItem.Text = "";
             tbQuantity.Text = "";
             tbPerson.Text = "";
+            tbCurrentQuantity.Text = "";
             dgvDepartureDetail2.Rows.Clear(); departureList.Clear();
             idItem = 0;
             idDepartureDetail2 = 0;
@@ -89,38 +88,44 @@ namespace Warehouse_Control.Forms
             dgvDepartureDetail1.Rows.Clear();
         }
 
-        private void setDataItem(){
+        private void setDataItem()
+        {
             cbItem.Items.Clear();
             var db = new ConnectionDB();
             var items = db.Items.ToList();
 
-            foreach (var item in items) {
+            foreach (var item in items)
+            {
                 cbItem.Items.Add(item.key);
             }
         }
 
-        private void setDataDistrict() {
+        private void setDataDistrict()
+        {
             cbDistrict.Items.Clear();
             var db = new ConnectionDB();
             var districts = db.Districts.ToList();
 
-            foreach(var distrito in districts)
+            foreach (var distrito in districts)
             {
                 cbDistrict.Items.Add(distrito.district);
             }
         }
 
-        private bool checkFieldsDEpartureDetail() {
+        private bool checkFieldsDEpartureDetail()
+        {
             var validator = new tbValidators();
             return validator.requieredTextValidator(tbQuantity) && validator.cbRequiredValidator(cbItem);
         }
 
-        private void fill_dgvDepartureDetails2() {
+        private void fill_dgvDepartureDetails2()
+        {
             var db = new ConnectionDB();
             dgvDepartureDetail2.Rows.Clear();
-            foreach (var departure in departureList) {
+            foreach (var departure in departureList)
+            {
                 var item = db.Items.Where(x => x.id == departure.id_item).FirstOrDefault();
-                dgvDepartureDetail2.Rows.Add(departure.id_item, item.key,departure.quantity,departure.user);
+                dgvDepartureDetail2.Rows.Add(departure.id_item, item.key, departure.quantity, departure.user);
             }
         }
 
@@ -133,9 +138,10 @@ namespace Warehouse_Control.Forms
             {
                 departures = db.Departures.ToList();
             }
-            else {
+            else
+            {
                 departures = db.Departures.Where(
-                    x=> x.serie == searchValue ||
+                    x => x.serie == searchValue ||
                     x.folio.ToString() == searchValue
                     ).ToList();
             }
@@ -159,9 +165,9 @@ namespace Warehouse_Control.Forms
                     warehouse = x.warehouse,
                     cellar = y,
                 }).Where(
-                    x=> x.departure.id == departure.id
+                    x => x.departure.id == departure.id
                     ).FirstOrDefault();
-                dgvDepartures.Rows.Add(departure.id,departure.serie, departure.folio, departure.date, query.user.name, query.warehouse.name, query.cellar.name, departure.observation);
+                dgvDepartures.Rows.Add(departure.id, departure.serie, departure.folio, departure.date, query.user.name, query.warehouse.name, query.cellar.name, departure.observation);
             }
         }
 
@@ -193,11 +199,22 @@ namespace Warehouse_Control.Forms
             var db = new ConnectionDB();
             var item = db.Items.Where(x => x.key == selected).FirstOrDefault();
             idItem = item.id;
+
+            var inventory = db.Inventories.Where(x => x.id_item == idItem).FirstOrDefault();
+            if (inventory != null)
+            {
+                tbCurrentQuantity.Text = inventory.quantity.ToString();
+            }
+            else
+            {
+                tbCurrentQuantity.Text = "0";
+            }
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            if (!checkFieldsDEpartureDetail()) {
+            if (!checkFieldsDEpartureDetail())
+            {
                 return;
             }
             var db = new ConnectionDB();
@@ -214,7 +231,8 @@ namespace Warehouse_Control.Forms
                 MessageBox.Show("Elementos insuficientes", "Control de inventarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            var departureDetail = new DepartureDet {
+            var departureDetail = new DepartureDet
+            {
                 id_item = idItem,
                 quantity = Convert.ToInt16(tbQuantity.Text),
                 user = tbPerson.Text,
@@ -228,7 +246,8 @@ namespace Warehouse_Control.Forms
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            if (!checkFieldsDEpartureDetail()) {
+            if (!checkFieldsDEpartureDetail())
+            {
                 return;
             }
 
@@ -264,7 +283,8 @@ namespace Warehouse_Control.Forms
 
         private void DgvDepartureDetail2_DoubleClick(object sender, EventArgs e)
         {
-            if (dgvDepartureDetail2.Rows.Count == 0) {
+            if (dgvDepartureDetail2.Rows.Count == 0)
+            {
                 return;
             }
 
@@ -289,11 +309,12 @@ namespace Warehouse_Control.Forms
             cbCellar.Items.Clear();
             var current = cbDistrict.SelectedItem;
             var db = new ConnectionDB();
-            var distrito = db.Districts.Where(x => x.district == current).FirstOrDefault();
-            var warehouses = db.Warehouses.Where( x=> x.id_district == distrito.id).ToList();
+            var distrito = db.Districts.Where(x => x.district == current.ToString()).FirstOrDefault();
+            var warehouses = db.Warehouses.Where(x => x.id_district == distrito.id).ToList();
             idDistrict = distrito.id;
 
-            foreach (var wh in warehouses) {
+            foreach (var wh in warehouses)
+            {
                 cbCellar.Items.Add(wh.name);
             }
         }
@@ -302,7 +323,7 @@ namespace Warehouse_Control.Forms
         {
             var current = cbCellar.SelectedItem;
             var db = new ConnectionDB();
-            var wh = db.Warehouses.Where(x => x.name == current).FirstOrDefault();
+            var wh = db.Warehouses.Where(x => x.name == current.ToString()).FirstOrDefault();
             idCellar = wh.id;
         }
 
@@ -323,22 +344,22 @@ namespace Warehouse_Control.Forms
             var db = new ConnectionDB();
             var query = db.Departures
                 .Join(db.Users, x => x.id_user, y => y.Id, (x, y) => new
-            {
-                departure = x,
-                user = y
-            }).Join(db.Warehouses, x => x.departure.id_warehouse, y => y.id, (x, y) => new
-            {
-                departure = x.departure,
-                user = x.user,
-                warehouse = y,
-            }).Join(db.Warehouses, x => x.departure.id_cellar, y => y.id, (x, y) => new
-            {
-                departure = x.departure,
-                user = x.user,
-                warehouse = x.warehouse,
-                cellar = y
-            })
-            .Where( z => z.departure.id == id).FirstOrDefault();
+                {
+                    departure = x,
+                    user = y
+                }).Join(db.Warehouses, x => x.departure.id_warehouse, y => y.id, (x, y) => new
+                {
+                    departure = x.departure,
+                    user = x.user,
+                    warehouse = y,
+                }).Join(db.Warehouses, x => x.departure.id_cellar, y => y.id, (x, y) => new
+                {
+                    departure = x.departure,
+                    user = x.user,
+                    warehouse = x.warehouse,
+                    cellar = y
+                })
+            .Where(z => z.departure.id == id).FirstOrDefault();
 
             var detailDeparture = db.DepartureDet.Where(x => x.id_departure == id).ToList();
 
@@ -350,11 +371,12 @@ namespace Warehouse_Control.Forms
             tbWarehouse.Text = query.warehouse.name;
 
             dgvDepartureDetail1.Rows.Clear();
-            foreach (var detail in detailDeparture) {
+            foreach (var detail in detailDeparture)
+            {
                 var name = db.Items.Where(x => x.id == detail.id_item).Select(x => x.key).FirstOrDefault();
-                dgvDepartureDetail1.Rows.Add(detail.id,name, detail.quantity,detail.user);
+                dgvDepartureDetail1.Rows.Add(detail.id, name, detail.quantity, detail.user);
             }
-            
+
         }
 
         private void CbWarehouse_Click(object sender, EventArgs e)
@@ -383,7 +405,7 @@ namespace Warehouse_Control.Forms
 
             var db = new ConnectionDB();
 
-            Departure departure       = new Departure();
+            Departure departure = new Departure();
             DepartureDet departureDet = new DepartureDet();
 
             if (dgvDepartureDetail2.Rows.Count == 0)
@@ -392,11 +414,11 @@ namespace Warehouse_Control.Forms
                 return;
             }
 
-            departure.date         = DateTime.Now;
-            departure.id_cellar    = idCellar;
-            departure.id_user      = idUser;
+            departure.date = DateTime.Now;
+            departure.id_cellar = idCellar;
+            departure.id_user = idUser;
             departure.id_warehouse = idWarehouse;
-            departure.observation  = tbObservations.Text;
+            departure.observation = tbObservations.Text;
             departure.serie = cbSerie.Text;
             departure.folio = Convert.ToInt32(tbFolio.Text);
 
@@ -408,12 +430,12 @@ namespace Warehouse_Control.Forms
             {
 
                 departureDet.id_departure = departure.id;
-                departureDet.id_item = (int) item.Cells[0].Value;
-                departureDet.quantity = (int) item.Cells[2].Value;
+                departureDet.id_item = (int)item.Cells[0].Value;
+                departureDet.quantity = (int)item.Cells[2].Value;
                 departureDet.user = (string)item.Cells[3].Value;
                 db.DepartureDet.Add(departureDet);
                 db.SaveChanges();
-                var inventory = db.Inventories.FirstOrDefault(x=>x.id_warehouse == idWarehouse 
+                var inventory = db.Inventories.FirstOrDefault(x => x.id_warehouse == idWarehouse
                                                                  && x.id_item == departureDet.id_item);
                 if (inventory != null)
                 {
@@ -513,7 +535,8 @@ namespace Warehouse_Control.Forms
 
             dgvDepartureDetail1.Rows.Clear();
             var details = db.DepartureDet.Where(x => x.id_departure == detail.id_departure).ToList();
-            foreach (var detailDeparture in details) {
+            foreach (var detailDeparture in details)
+            {
                 var name = db.Items.Where(x => x.id == detail.id_item).Select(x => x.key).FirstOrDefault();
                 dgvDepartureDetail1.Rows.Add(detailDeparture.id, name, detailDeparture.quantity, detailDeparture.user);
             }
@@ -525,7 +548,7 @@ namespace Warehouse_Control.Forms
             cbCellar.Items.Clear();
             var current = cbDistrict.SelectedItem;
             var db = new ConnectionDB();
-            var distrito = db.Districts.Where(x => x.district == current).FirstOrDefault();
+            var distrito = db.Districts.Where(x => x.district == current.ToString()).FirstOrDefault();
             var warehouses = db.Warehouses.Where(x => x.id_district == distrito.id).ToList();
             idDistrict = distrito.id;
 

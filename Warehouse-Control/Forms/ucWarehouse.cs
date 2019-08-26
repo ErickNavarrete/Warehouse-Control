@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CrystalDecisions.CrystalReports.Engine;
 using Warehouse_Control.Connection;
 using Warehouse_Control.Util;
 
@@ -65,7 +59,7 @@ namespace Warehouse_Control.Forms
             btnCancel.Visible = true;
             btnSave.Text = "Guardar";
 
-            utils.control_enable_all_textbox(this,true,true);
+            utils.control_enable_all_textbox(this, true, true);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -80,7 +74,7 @@ namespace Warehouse_Control.Forms
             }
 
             if (btnSave.Text == "Guardar")
-            { 
+            {
                 var datos = db.Warehouses.FirstOrDefault(x => x.name == tbName.Text);
                 if (datos != null)
                 {
@@ -110,7 +104,7 @@ namespace Warehouse_Control.Forms
                     return;
                 }
 
-                var warehouseEdit = db.Warehouses.FirstOrDefault(x=> x.id == id);
+                var warehouseEdit = db.Warehouses.FirstOrDefault(x => x.id == id);
                 if (warehouseEdit != null)
                 {
                     warehouseEdit.name = tbName.Text;

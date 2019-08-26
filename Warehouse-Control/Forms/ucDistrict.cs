@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Warehouse_Control.Connection;
 using Warehouse_Control.Models;
@@ -131,7 +126,7 @@ namespace Warehouse_Control.Forms
 
                 MessageBox.Show("Bodega actualizada con éxito", "Control Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-           
+
             fill_dgv("");
             clean_fields();
             enable_disable_fields(false);

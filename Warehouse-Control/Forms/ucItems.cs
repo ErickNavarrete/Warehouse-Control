@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Warehouse_Control.Util;
-using Warehouse_Control.Connection;
-using Warehouse_Control.Models;
 using System.Data.Entity;
 using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+using Warehouse_Control.Connection;
+using Warehouse_Control.Models;
+using Warehouse_Control.Util;
 
 namespace Warehouse_Control.Forms
 {
@@ -23,15 +19,15 @@ namespace Warehouse_Control.Forms
         {
             InitializeComponent();
             enable_textbox(false);
-            btnCancel.Visible   = false;
-            btnSave.Visible     = false;
-            btnNew.Visible      = true;
-            btnSearch.Visible   = true;
+            btnCancel.Visible = false;
+            btnSave.Visible = false;
+            btnNew.Visible = true;
+            btnSearch.Visible = true;
             btnSaveEdit.Visible = false;
-            btnDelete.Visible   = false;
-            btnEdit.Visible     = false;
-            btnImport.Visible   = true;
-            btnExport.Visible   = true;
+            btnDelete.Visible = false;
+            btnEdit.Visible = false;
+            btnImport.Visible = true;
+            btnExport.Visible = true;
         }
 
         public void enable_textbox(Boolean enable)
@@ -168,11 +164,12 @@ namespace Warehouse_Control.Forms
 
         private void BtnSaveEdit_Click(object sender, EventArgs e)
         {
-            if (!check_fields()) {
+            if (!check_fields())
+            {
                 return;
             }
             var db = new ConnectionDB();
-            var item = db.Items.Where( x=> x.id == id).FirstOrDefault();
+            var item = db.Items.Where(x => x.id == id).FirstOrDefault();
 
             item.key = tbName.Text;
             item.description = tbDescription.Text;
@@ -180,7 +177,7 @@ namespace Warehouse_Control.Forms
             db.Entry(item).State = EntityState.Modified;
             db.SaveChanges();
 
-            MessageBox.Show("Registro actualizado con éxito", "Articulo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Registro actualizado con éxito", "Articulo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             clear_fields();
             enable_textbox(false);
@@ -198,7 +195,8 @@ namespace Warehouse_Control.Forms
         {
             var result = MessageBox.Show("¿Estas segudo que desea eliminar este registro?", "Articulo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
 
-            if (result == DialogResult.Yes) {
+            if (result == DialogResult.Yes)
+            {
                 var db = new ConnectionDB();
                 var item = db.Items.Where(x => x.id == id).FirstOrDefault();
                 db.Entry(item).State = EntityState.Deleted;
@@ -222,9 +220,10 @@ namespace Warehouse_Control.Forms
         private void BtnImport_Click(object sender, EventArgs e)
         {
             var db = new ConnectionDB();
-            var ofd = new OpenFileDialog{
+            var ofd = new OpenFileDialog
+            {
                 Filter = "CSV Files (*.csv)|*.csv",
-                Title  = "Open file"
+                Title = "Open file"
             };
 
             bool first = true;
@@ -284,7 +283,7 @@ namespace Warehouse_Control.Forms
                 MessageBox.Show("Nombre no válido", "Articulo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            File.AppendAllText(saveFile.FileName,"Nombre,Descripción");
+            File.AppendAllText(saveFile.FileName, "Nombre,Descripción");
             MessageBox.Show("Proceso terminado", "Articulo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -79,9 +76,11 @@ namespace Warehouse_Control.Util
             return flag;
         }
 
-        public bool cbRequiredValidator(ComboBox comboBox) {
+        public bool cbRequiredValidator(ComboBox comboBox)
+        {
             bool flag = true;
-            if (string.IsNullOrEmpty(comboBox.Text)) {
+            if (string.IsNullOrEmpty(comboBox.Text))
+            {
                 flag = false;
                 MessageBox.Show("Campo obligatorio", comboBox.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 comboBox.Focus();
@@ -120,7 +119,7 @@ namespace Warehouse_Control.Util
                         ((TextBox)control).Text = string.Empty;
                     }
                 }
-                
+
             }
         }
 
@@ -129,7 +128,8 @@ namespace Warehouse_Control.Util
             form.Controls
                 .OfType<Button>()
                 .ToList()
-                .ForEach(button => {
+                .ForEach(button =>
+                {
                     button.Enabled = enable;
                 });
         }

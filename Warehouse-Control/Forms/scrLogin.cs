@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MaterialSkin.Controls;
 using Warehouse_Control.Connection;
 using Warehouse_Control.Forms;
 using Warehouse_Control.Models;

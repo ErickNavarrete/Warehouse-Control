@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Warehouse_Control.Util;
 using Warehouse_Control.Connection;
 using Warehouse_Control.Models;
+using Warehouse_Control.Util;
 
 namespace Warehouse_Control.Forms
 {
@@ -26,8 +21,8 @@ namespace Warehouse_Control.Forms
         {
             InitializeComponent();
             btnCancel.Visible = false;
-            btnSave.Visible   = false;
-            btnNew.Visible    = true;
+            btnSave.Visible = false;
+            btnNew.Visible = true;
             btnSearch.Visible = true;
             util = new tbValidators();
             util.control_enable_all_textbox(this, false);
@@ -45,7 +40,7 @@ namespace Warehouse_Control.Forms
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            util.control_enable_all_textbox(this,false, true);
+            util.control_enable_all_textbox(this, false, true);
             define_active_buttons(true);
             editable = false;
             idUse = 0;
@@ -53,7 +48,7 @@ namespace Warehouse_Control.Forms
 
         private void BtnNew_Click(object sender, EventArgs e)
         {
-            util.control_enable_all_textbox(this,true);
+            util.control_enable_all_textbox(this, true);
             define_active_buttons(false);
         }
 
@@ -79,9 +74,9 @@ namespace Warehouse_Control.Forms
             if (editable)
             {
                 Users users = conn.Users.FirstOrDefault(x => x.Id == idUse);
-                users.name  = tbName.Text;
-                users.user  = tbUsername.Text;
-                users.mail  = tbEmail.Text;
+                users.name = tbName.Text;
+                users.user = tbUsername.Text;
+                users.mail = tbEmail.Text;
                 users.phone = tbPhone.Text;
                 if (nameUserLogged == "Admin")
                 {
@@ -91,7 +86,7 @@ namespace Warehouse_Control.Forms
                 conn.SaveChanges();
                 MessageBox.Show("Registro actualizado con éxito", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 editable = false;
-                idUse    = 0;
+                idUse = 0;
             }
             else
             {
@@ -109,7 +104,7 @@ namespace Warehouse_Control.Forms
                 conn.SaveChanges();
                 MessageBox.Show("Registro con éxito", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
             util.control_enable_all_textbox(this, false, true);
             define_active_buttons(true);
             init_Datagrid();
@@ -127,7 +122,7 @@ namespace Warehouse_Control.Forms
                         {
                             if (password)
                             {
-                                if ( (((TextBox)controlGroup)).Name == "tbPassword")
+                                if ((((TextBox)controlGroup)).Name == "tbPassword")
                                 {
                                     continue;
                                 }
@@ -170,11 +165,11 @@ namespace Warehouse_Control.Forms
 
             if (!string.IsNullOrEmpty(query))
             {
-               var  data = conn.Users.Where(x => x.name.Contains(query) ||
+                var data = conn.Users.Where(x => x.name.Contains(query) ||
                                              x.mail.Contains(query) ||
                                              x.phone.Contains(query) ||
                                              x.user.Contains(query)
-                                        );
+                                         );
 
                 foreach (var item in data)
                 {
@@ -208,12 +203,12 @@ namespace Warehouse_Control.Forms
         {
             if (dgvUsers.CurrentRow != null)
             {
-                int index    = dgvUsers.CurrentRow.Index;
-                idUse        = (int) dgvUsers.Rows[index].Cells[0].Value;
-                tbName.Text  = (string) dgvUsers.Rows[index].Cells[1].Value;
-                tbPhone.Text = (string) dgvUsers.Rows[index].Cells[2].Value;
-                tbEmail.Text = (string) dgvUsers.Rows[index].Cells[3].Value;
-                tbUsername.Text  = (string) dgvUsers.Rows[index].Cells[4].Value;
+                int index = dgvUsers.CurrentRow.Index;
+                idUse = (int)dgvUsers.Rows[index].Cells[0].Value;
+                tbName.Text = (string)dgvUsers.Rows[index].Cells[1].Value;
+                tbPhone.Text = (string)dgvUsers.Rows[index].Cells[2].Value;
+                tbEmail.Text = (string)dgvUsers.Rows[index].Cells[3].Value;
+                tbUsername.Text = (string)dgvUsers.Rows[index].Cells[4].Value;
                 util.control_enable_all_textbox(this, true);
 
                 if (nameUserLogged == "Admin")
@@ -240,9 +235,9 @@ namespace Warehouse_Control.Forms
 
         private Boolean chkMailAndUser()
         {
-            Users users = conn.Users.FirstOrDefault( x => x.mail == tbEmail.Text || 
-                                                       x.user == tbUsername.Text );
-            
+            Users users = conn.Users.FirstOrDefault(x => x.mail == tbEmail.Text ||
+                                                      x.user == tbUsername.Text);
+
             if (users != null)
             {
                 String campo = "";

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Warehouse_Control.Connection;
 
@@ -36,13 +31,13 @@ namespace Warehouse_Control.Forms
                 x.quantity,
                 y.key,
                 y.description
-            }).Join(db.Warehouses, x=> x.id_warehouse, y=> y.id, (x, y) => new 
+            }).Join(db.Warehouses, x => x.id_warehouse, y => y.id, (x, y) => new
             {
                 x.key,
                 x.description,
                 x.quantity,
                 y.name
-            }).Where(x=> x.name == cbWarehouse.Text);
+            }).Where(x => x.name == cbWarehouse.Text);
 
             if (string.IsNullOrEmpty(tbSearchValue.Text))
             {
@@ -62,7 +57,7 @@ namespace Warehouse_Control.Forms
             cbWarehouse.Items.Clear();
             ConnectionDB db = new ConnectionDB();
 
-            var data = db.Warehouses.Select(x=> x.name).ToList();
+            var data = db.Warehouses.Select(x => x.name).ToList();
             foreach (var item in data)
             {
                 cbWarehouse.Items.Add(item);

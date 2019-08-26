@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Warehouse_Control.Util;
 using Warehouse_Control.Connection;
 using Warehouse_Control.Models;
-using System.Data.Entity;
+using Warehouse_Control.Util;
 
 namespace Warehouse_Control.Forms
 {
@@ -62,6 +58,7 @@ namespace Warehouse_Control.Forms
             idItem = 0;
             idEntryDetail2 = 0;
             tbObservations.Text = "";
+            tbCurrentQuantity.Text = "";
         }
 
         private void clearFieldsTab1()
@@ -90,7 +87,7 @@ namespace Warehouse_Control.Forms
         {
             cbSerie.Items.Clear();
             var db = new ConnectionDB();
-            var series = db.Entries.Select( x=> x.serie).Distinct().ToList();
+            var series = db.Entries.Select(x => x.serie).Distinct().ToList();
 
             foreach (var serie in series)
             {
@@ -104,7 +101,8 @@ namespace Warehouse_Control.Forms
             return validator.requieredTextValidator(tbQuantity) && validator.cbRequiredValidator(cbItem);
         }
 
-        private bool checkFieldsEntry() {
+        private bool checkFieldsEntry()
+        {
             var validator = new tbValidators();
             return validator.cbRequiredValidator(cbSerie) && validator.cbRequiredValidator(cbWarehouse);
         }
@@ -185,6 +183,16 @@ namespace Warehouse_Control.Forms
             var db = new ConnectionDB();
             var item = db.Items.Where(x => x.key == selected).FirstOrDefault();
             idItem = item.id;
+
+            var inventory = db.Inventories.Where(x => x.id_item == idItem).FirstOrDefault();
+            if (inventory != null)
+            {
+                tbCurrentQuantity.Text = inventory.quantity.ToString();
+            }
+            else
+            {
+                tbCurrentQuantity.Text = "0";
+            }
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -365,7 +373,8 @@ namespace Warehouse_Control.Forms
                     db.Inventories.Add(inventory);
                     db.SaveChanges();
                 }
-                else {
+                else
+                {
                     inventory.quantity += entryDet.quantity;
                     db.Entry(inventory).State = EntityState.Modified;
                     db.SaveChanges();
@@ -402,7 +411,7 @@ namespace Warehouse_Control.Forms
             }
             else
             {
-                tbFolio.Text =  (aux.folio + 1).ToString();
+                tbFolio.Text = (aux.folio + 1).ToString();
             }
         }
 
