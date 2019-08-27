@@ -45,6 +45,10 @@ namespace Warehouse_Control.Forms
             btnSearch.Visible = false;
             btnImport.Visible = false;
             btnExport.Visible = false;
+            btnDelete.Visible = false;
+            btnEdit.Visible = false;
+            tbName.Text = "";
+            tbDescription.Text = "";
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -56,6 +60,8 @@ namespace Warehouse_Control.Forms
             btnSearch.Visible = true;
             btnEdit.Visible = false;
             btnSaveEdit.Visible = false;
+            btnImport.Visible = true;
+            btnExport.Visible = true;
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -81,8 +87,10 @@ namespace Warehouse_Control.Forms
             btnSave.Visible = false;
             btnNew.Visible = true;
             btnSearch.Visible = true;
-            btnEdit.Visible = true;
-            btnSaveEdit.Visible = true;
+            btnEdit.Visible = false;
+            btnSaveEdit.Visible = false;
+            btnImport.Visible = true;
+            btnExport.Visible = true;
             enable_textbox(false);
             fill_dgv("");
         }
@@ -158,8 +166,8 @@ namespace Warehouse_Control.Forms
             btnCancel.Visible = true;
             btnSaveEdit.Visible = true;
             btnEdit.Visible = false;
-            btnEdit.Visible = false;
-            btnSaveEdit.Visible = false;
+            btnImport.Visible = false;
+            btnExport.Visible = false;
         }
 
         private void BtnSaveEdit_Click(object sender, EventArgs e)
@@ -187,7 +195,8 @@ namespace Warehouse_Control.Forms
             btnCancel.Visible = false;
             btnSaveEdit.Visible = false;
             btnEdit.Visible = true;
-            btnSaveEdit.Visible = true;
+            btnImport.Visible = true;
+            btnExport.Visible = true;
             fill_dgv("");
         }
 
@@ -213,6 +222,8 @@ namespace Warehouse_Control.Forms
                 btnCancel.Visible = false;
                 btnSaveEdit.Visible = false;
                 btnEdit.Visible = false;
+                btnImport.Visible = true;
+                btnExport.Visible = true;
                 fill_dgv("");
             }
         }

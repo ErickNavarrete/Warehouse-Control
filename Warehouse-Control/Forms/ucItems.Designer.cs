@@ -38,6 +38,8 @@
             this.btnEdit = new System.Windows.Forms.ToolStripButton();
             this.btnSaveEdit = new System.Windows.Forms.ToolStripButton();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.btnImport = new System.Windows.Forms.ToolStripButton();
+            this.btnExport = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnImport = new System.Windows.Forms.ToolStripButton();
-            this.btnExport = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
@@ -115,7 +115,7 @@
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(69, 20);
+            this.btnSave.Size = new System.Drawing.Size(69, 37);
             this.btnSave.Text = "Guardar";
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
@@ -126,6 +126,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(57, 20);
             this.btnEdit.Text = "Editar";
+            this.btnEdit.Visible = false;
             this.btnEdit.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // btnSaveEdit
@@ -135,6 +136,7 @@
             this.btnSaveEdit.Name = "btnSaveEdit";
             this.btnSaveEdit.Size = new System.Drawing.Size(111, 20);
             this.btnSaveEdit.Text = "Guardar Edición";
+            this.btnSaveEdit.Visible = false;
             this.btnSaveEdit.Click += new System.EventHandler(this.BtnSaveEdit_Click);
             // 
             // btnDelete
@@ -145,6 +147,24 @@
             this.btnDelete.Size = new System.Drawing.Size(63, 20);
             this.btnDelete.Text = "Borrrar";
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
+            // 
+            // btnImport
+            // 
+            this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
+            this.btnImport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(73, 20);
+            this.btnImport.Text = "Importar";
+            this.btnImport.Click += new System.EventHandler(this.BtnImport_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
+            this.btnExport.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(124, 20);
+            this.btnExport.Text = "Descargar plantilla";
+            this.btnExport.Click += new System.EventHandler(this.BtnExport_Click);
             // 
             // groupBox1
             // 
@@ -228,24 +248,6 @@
             this.Column3.HeaderText = "Descripción";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            // 
-            // btnImport
-            // 
-            this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
-            this.btnImport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(73, 20);
-            this.btnImport.Text = "Importar";
-            this.btnImport.Click += new System.EventHandler(this.BtnImport_Click);
-            // 
-            // btnExport
-            // 
-            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
-            this.btnExport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(124, 20);
-            this.btnExport.Text = "Descargar plantilla";
-            this.btnExport.Click += new System.EventHandler(this.BtnExport_Click);
             // 
             // ucItems
             // 
